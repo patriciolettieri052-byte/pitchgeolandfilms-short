@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
 import HubDiagram from './HubDiagram';
+import NeuralMap from './NeuralMap';
 
 interface ChapterProps {
   id: number;
@@ -14,7 +15,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map";
   align?: "left" | "center" | "right";
   maxWidth?: string;
   ctaUrl?: string;
@@ -120,7 +121,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
   };
   
   // Custom cubic-bezier for a "premium" heavy feel
-  const transition = { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const };
+  const transition = { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const };
 
   // Variants for the focal shift (blur + scale)
   const bgVariants = {
@@ -133,15 +134,15 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
   const containerVariants = {
     animate: {
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.15
       }
     }
   };
 
   const itemVariants = {
     initial: { opacity: 0, y: 40 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
+    animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } }
   };
 
   return (
@@ -257,14 +258,14 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             )}
             {parseBarras(text).map((item, idx) => (
               <div key={idx} className="group flex flex-col space-y-3">
-                <div className="flex justify-between items-end opacity-0 animate-fade-in" style={{ animationDelay: `${idx * 0.1 + 0.4}s`, animationFillMode: 'forwards' }}>
+                <div className="flex justify-between items-end opacity-0 animate-fade-in" style={{ animationDelay: `${idx * 0.1 + 0.3}s`, animationFillMode: 'forwards' }}>
                   <span className="text-white/90 uppercase tracking-[0.2em] text-xs md:text-sm font-light">{item.label}</span>
                 </div>
                 <div className="h-[2px] w-full bg-gray-500/30 relative">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${item.percentage}%` }}
-                    transition={{ ...transition, delay: idx * 0.1 + 0.5 }}
+                    transition={{ ...transition, delay: idx * 0.1 + 0.35 }}
                     className="absolute inset-y-0 left-0 bg-white"
                   />
                   {/* Subtle glow for filled bars */}
@@ -272,7 +273,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                     <motion.div 
                       initial={{ width: 0, opacity: 0 }}
                       animate={{ width: `${item.percentage}%`, opacity: 0.3 }}
-                      transition={{ ...transition, delay: idx * 0.1 + 0.5 }}
+                      transition={{ ...transition, delay: idx * 0.1 + 0.35 }}
                       className="absolute inset-y-0 left-0 bg-white blur-sm"
                     />
                   )}
@@ -305,14 +306,14 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${item.percentage}%` }}
-                        transition={{ ...transition, delay: idx * 0.1 + 0.5 }}
+                        transition={{ ...transition, delay: idx * 0.1 + 0.35 }}
                         className="absolute inset-y-0 left-0 bg-white"
                       />
                       {item.percentage > 0 && (
                         <motion.div 
                           initial={{ width: 0, opacity: 0 }}
                           animate={{ width: `${item.percentage}%`, opacity: 0.3 }}
-                          transition={{ ...transition, delay: idx * 0.1 + 0.5 }}
+                          transition={{ ...transition, delay: idx * 0.1 + 0.35 }}
                           className="absolute inset-y-0 left-0 bg-white blur-sm"
                         />
                       )}
@@ -321,7 +322,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                     <motion.span 
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ ...transition, delay: idx * 0.1 + 0.7 }}
+                      transition={{ ...transition, delay: idx * 0.1 + 0.45 }}
                       className="text-white/60 text-xs md:text-sm tracking-wider font-light whitespace-nowrap italic"
                     >
                       {item.description}
@@ -401,7 +402,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                     <motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: `${item.percentage}%` }}
-                      transition={{ ...transition, delay: 0.5 + idx * 0.1 }}
+                      transition={{ ...transition, delay: 0.35 + idx * 0.1 }}
                       className="absolute inset-y-0 left-0 bg-[#4a7c59]"
                     />
                   </div>
@@ -553,6 +554,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           </>
         ) : variant === 'hub' ? (
           <HubDiagram />
+        ) : variant === 'neural-map' ? (
+          <NeuralMap />
         ) : (
           <>
             {title && (

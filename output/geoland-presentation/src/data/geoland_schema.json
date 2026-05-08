@@ -1,0 +1,176 @@
+{
+  "schema_id": "geoland_neural_os_v2",
+  "metadata": {
+    "target_audience": "Investment Fund / VC Technical Due Diligence",
+    "theme": "Ultra-Modern Neural Network / Deep Tech",
+    "engine": "Geoland Cognitive Investment Core"
+  },
+  "neural_layers": [
+    {
+      "id": "l1_sensory",
+      "label": "Sensory Input Layer",
+      "function": "High-throughput data ingestion & signal capture",
+      "intensity": 0.85
+    },
+    {
+      "id": "l2_perceptual",
+      "label": "Perceptual Filtering (S0-S2)",
+      "function": "Noise reduction, veto-logic & geospatial alignment",
+      "intensity": 0.70
+    },
+    {
+      "id": "l3_cognitive",
+      "label": "Cognitive Synthesis (S3-S7)",
+      "function": "Semantic enrichment & investment strategy mapping",
+      "intensity": 0.92
+    },
+    {
+      "id": "l4_analytical",
+      "label": "Analytical Engine (S4-S9)",
+      "function": "Deep financial modeling & predictive scoring",
+      "intensity": 1.0
+    },
+    {
+      "id": "l5_heuristic",
+      "label": "Heuristic Validation (S6-S10)",
+      "function": "Computer vision & multi-agent verification",
+      "intensity": 0.88
+    },
+    {
+      "id": "l6_persistence",
+      "label": "Neural Memory (S11)",
+      "function": "Dataset solidification & vector persistence",
+      "intensity": 0.60
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node_raw_signals",
+      "layer": "l1_sensory",
+      "label": "Digital Signal Ingestion",
+      "agents": ["Scrapers", "Webhooks", "Partner APIs"],
+      "tech_stack": "FastAPI / Celery / RabbitMQ",
+      "description": "Captura masiva de oportunidades en tiempo real desde múltiples fuentes globales."
+    },
+    {
+      "id": "s0_veto",
+      "layer": "l2_perceptual",
+      "label": "S0: Zero-Trust Veto",
+      "type": "agent",
+      "logic": "Heuristic Filtering",
+      "description": "Eliminación instantánea de assets que no cumplen con los parámetros base del fondo (hard-filters)."
+    },
+    {
+      "id": "s1_normalizer",
+      "layer": "l2_perceptual",
+      "label": "S1: Data Normalizer",
+      "type": "agent",
+      "description": "Estandarización de unidades, monedas y formatos para comparativa cross-border."
+    },
+    {
+      "id": "s2_geo_qualify",
+      "layer": "l2_perceptual",
+      "label": "S2: Geo-Spatial Qualifier",
+      "type": "agent",
+      "description": "Validación de ubicación exacta y micro-market matching."
+    },
+    {
+      "id": "s3_enrichment",
+      "layer": "l3_cognitive",
+      "label": "S3: Multi-Source Enrichment",
+      "type": "agent",
+      "description": "Inyección de datos externos (catastro, servicios, demografía)."
+    },
+    {
+      "id": "s3b_text",
+      "layer": "l3_cognitive",
+      "label": "S3b: Semantic Extractor",
+      "type": "ai_agent",
+      "model": "GPT-4o / Claude 3.5 Sonnet",
+      "description": "Extracción de insights ocultos en descripciones no estructuradas."
+    },
+    {
+      "id": "s7_strategy",
+      "layer": "l3_cognitive",
+      "label": "S7: Strategy Mapper",
+      "type": "agent",
+      "description": "Clasificación automática: Flip, Yield, Value-Add, o Development."
+    },
+    {
+      "id": "s4_financial",
+      "layer": "l4_analytical",
+      "label": "S4: Financial Core Engine",
+      "type": "processor",
+      "description": "Cálculo dinámico de flujos de caja, CAP rates e impuestos por jurisdicción."
+    },
+    {
+      "id": "s5_pre_scorer",
+      "layer": "l4_analytical",
+      "label": "S5: Predictive Pre-Scorer",
+      "type": "ai_agent",
+      "description": "Primera estimación de rentabilidad basada en históricos masivos."
+    },
+    {
+      "id": "s9_final_scorer",
+      "layer": "l4_analytical",
+      "label": "S9: G-Score Neural Evaluator",
+      "type": "ai_agent",
+      "description": "Puntuación final multivariable proprietaria de Geoland."
+    },
+    {
+      "id": "s6_pre_verificator",
+      "layer": "l5_heuristic",
+      "label": "S6: Cross-Reference Verifier",
+      "type": "agent",
+      "description": "Detección de duplicados y anomalías en datos de mercado."
+    },
+    {
+      "id": "s8_vision",
+      "layer": "l5_heuristic",
+      "label": "S8: Computer Vision Agent",
+      "type": "ai_agent",
+      "model": "ViT / Custom CNN",
+      "description": "Análisis estético y de estado de conservación mediante procesamiento de imágenes."
+    },
+    {
+      "id": "s10_final_verificator",
+      "layer": "l5_heuristic",
+      "label": "S10: Final Compliance Check",
+      "type": "agent",
+      "description": "Validación de integridad total antes de la presentación al inversor."
+    },
+    {
+      "id": "s11_dataset",
+      "layer": "l6_persistence",
+      "label": "S11: Neural Knowledge Base",
+      "type": "storage",
+      "description": "Solidificación en Vector DB y bases relacionales para re-entrenamiento."
+    }
+  ],
+  "synapses": [
+    { "from": "node_raw_signals", "to": "s0_veto", "bandwidth": "high", "type": "stream" },
+    { "from": "s0_veto", "to": "s1_normalizer", "type": "activation" },
+    { "from": "s1_normalizer", "to": "s2_geo_qualify", "type": "activation" },
+    { "from": "s2_geo_qualify", "to": "s3_enrichment", "type": "activation" },
+    { "from": "s3_enrichment", "to": "s3b_text", "type": "data_burst" },
+    { "from": "s3b_text", "to": "s7_strategy", "type": "insight_transfer" },
+    { "from": "s7_strategy", "to": "s4_financial", "type": "activation" },
+    { "from": "s4_financial", "to": "s5_pre_scorer", "type": "neural_flow" },
+    { "from": "s5_pre_scorer", "to": "s6_pre_verificator", "type": "validation_trigger" },
+    { "from": "s6_pre_verificator", "to": "s8_vision", "type": "trigger" },
+    { "from": "s8_vision", "to": "s9_final_scorer", "type": "feature_injection" },
+    { "from": "s9_final_scorer", "to": "s10_final_verificator", "type": "decision_flow" },
+    { "from": "s10_final_verificator", "to": "s11_dataset", "type": "persistence" }
+  ],
+  "ui_animation_hints": {
+    "particle_speed": "dynamic",
+    "glow_intensity": "based_on_gscore",
+    "neural_connection_style": "curved_organic",
+    "color_palette": {
+      "primary": "#00f2ff",
+      "secondary": "#7000ff",
+      "accent": "#ff007a",
+      "background": "#050505"
+    }
+  }
+}

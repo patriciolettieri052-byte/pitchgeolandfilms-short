@@ -9,15 +9,35 @@ import { Home } from 'lucide-react';
 function App() {
   const [currentIdx, setCurrentIdx] = useState(-1); // -1 for Intro
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [scale, setScale] = useState(1);
   const [showNavGrid, setShowNavGrid] = useState(false);
   const touchStart = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setIsPortrait(height > width);
+      setIsMobile(width < 1024);
+      setScale(Math.min(width / 1920, height / 1080));
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
 
   const nextSlide = useCallback(() => {
     if (isAnimating) return;
     if (currentIdx < slides.length) {
       setIsAnimating(true);
       setCurrentIdx(prev => prev + 1);
-      setTimeout(() => setIsAnimating(false), 400); // Matching animation duration
+      setTimeout(() => setIsAnimating(false), 300); // Matching animation duration
     }
   }, [currentIdx, isAnimating]);
 
@@ -26,7 +46,7 @@ function App() {
     if (currentIdx > -1) {
       setIsAnimating(true);
       setCurrentIdx(prev => prev - 1);
-      setTimeout(() => setIsAnimating(false), 400);
+      setTimeout(() => setIsAnimating(false), 300);
     }
   }, [currentIdx, isAnimating]);
 
@@ -75,8 +95,34 @@ function App() {
   }, [nextSlide, prevSlide, showNavGrid]);
 
   return (
-    <main className="fixed inset-0 bg-black overflow-hidden select-none w-screen h-screen">
-      {/* Navigation Toggle Button - Bottom Left */}
+    <>
+      {isPortrait && isMobile && (
+        <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center p-8 text-center transition-opacity duration-500">
+          <div className="mb-8 opacity-60">
+            <svg className="w-16 h-16 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+            </svg>
+          </div>
+          <h2 className="text-white text-xl md:text-2xl font-jost font-light tracking-[0.2em] uppercase">
+            Por favor, gira tu dispositivo
+          </h2>
+          <p className="text-white/40 text-xs md:text-sm mt-4 font-light italic tracking-wider">
+            La presentación está diseñada exclusivamente para formato horizontal.
+          </p>
+        </div>
+      )}
+      <main className={`fixed inset-0 bg-black overflow-hidden select-none ${isMobile ? 'flex items-center justify-center' : 'w-screen h-screen'}`}>
+        <div 
+          className={isMobile ? "relative overflow-hidden bg-black flex-shrink-0 shadow-[0_0_50px_rgba(0,0,0,0.5)]" : "w-full h-full"}
+          style={isMobile ? { 
+            width: '1920px', 
+            height: '1080px', 
+            transform: `scale(${scale})`,
+            transformOrigin: 'center center'
+          } : undefined}
+        >
+          {/* Navigation Toggle Button - Bottom Left */}
       <button 
         onClick={() => setShowNavGrid(true)}
         className="fixed bottom-8 left-10 z-[60] w-12 h-12 flex items-center justify-center group"
@@ -109,7 +155,7 @@ function App() {
             initial={{ opacity: 0, filter: "blur(20px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 z-10 bg-black"
           >
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -135,7 +181,7 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.3 }}
               className="absolute inset-0 bg-black"
             >
               <Chapter 
@@ -152,7 +198,7 @@ function App() {
             initial={{ opacity: 0, filter: "blur(20px)" }}
             animate={{ opacity: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 z-10 bg-black"
           >
             <div className="absolute inset-0 z-0 overflow-hidden">
@@ -171,7 +217,9 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }
 
