@@ -200,7 +200,7 @@ const NeuralMap: React.FC = () => {
 
       {/* Nodes Layer */}
       <div className="absolute inset-0 z-20">
-        {nodesWithPositions.map((node, i) => {
+        {nodesWithPositions.map((node) => {
           if (!node.x || !node.y) return null;
           
           const isSelected = selectedNode?.id === node.id;

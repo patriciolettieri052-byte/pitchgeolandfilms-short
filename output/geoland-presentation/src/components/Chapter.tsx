@@ -186,8 +186,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className={`relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : 'items-center text-center'}`}
-        style={{ 
+        className={variant === 'neural-map' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : 'items-center text-center'}`}
+        style={variant === 'neural-map' ? { width: '100%', height: '100%' } : { 
           maxWidth: maxWidth || (variant?.startsWith('backtest') || variant === 'business-units' || variant === 'reviews' ? '1400px' : '1045px'),
           paddingLeft: align === 'left' ? '50px' : undefined,
           paddingRight: align === 'right' ? '50px' : undefined
