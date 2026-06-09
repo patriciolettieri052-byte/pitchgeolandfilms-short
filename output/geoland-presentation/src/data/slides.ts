@@ -15,7 +15,7 @@ export const slides: SlideData[] = [
   { id: 12, title: "", text: "Se sigue operando con lógica obsoleta.<br>Datos fragmentados, procesos desconectados y sin una inteligencia que unifique todo.", backgroundMedia: "13.mp4", overlayOpacity: 0, align: "right", maxWidth: "1000px" },
   { id: 13, title: "Hasta ahora...", text: "", backgroundMedia: "", overlayOpacity: 0 },
   { id: 14, variant: "apertura2", title: "PRESENTAMOS:", text: "", backgroundMedia: "", overlayOpacity: 0 },
-  { id: 15, title: "", text: "El Sistema de Inteligencia de Decisión", backgroundMedia: "", overlayOpacity: 60, variant: "portada81" },
+  { id: 15, title: "", text: "El Sistema de Inteligencia de Decisión", backgroundMedia: "fondo-portada3.mp4", overlayOpacity: 60, variant: "portada81" },
   { id: 16, title: "", text: "<span class='estilo-subtitulo block mb-2'>El Sistema de Inteligencia de Decisión,</span> que combina la comprensión contextual de la IA con el rigor del software de precisión.<br/><br/>Diseñado para transformar información fragmentada en decisiones más rápidas, precisas y eficientes.", backgroundMedia: "17.png", align: "right", maxWidth: "800px", overlayOpacity: 10 },
   { id: 17, title: "", text: "<span class='estilo-subtitulo'>Analiza el mercado como un equipo de analistas expertos, comprende el objetivo del inversor, y entrega oportunidades evaluadas y priorizadas.</span>", backgroundMedia: "18-2.png", align: "left", maxWidth: "800px", overlayOpacity: 10 },
   { id: 18, title: "", text: "<span class='estilo-subtitulo block mb-2'>No es un portal. No es un listado.</span>Es un Sistema de Inteligencia de Decisión impulsado por IA y Agentes.", backgroundMedia: "19.mp4", variant: "texto", align: "right", maxWidth: "1000px" },
