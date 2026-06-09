@@ -28,9 +28,8 @@ const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: s
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
             className={`mt-8 text-xs md:text-sm uppercase tracking-[0.5em] font-extralight text-white/70 text-center whitespace-nowrap w-full max-w-[80vw] ${subtitleClassName || ''}`}
-          >
-            {subtitle}
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
         )}
       </div>
     </motion.div>

@@ -205,45 +205,72 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             )}
 
             <div className="flex flex-col gap-6">
-              {/* Top Row */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {parseReviews(text).slice(0, 4).map((r, i) => (
-                  <motion.div
-                    key={`top-${i}`}
-                    variants={itemVariants}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 p-5 rounded-lg flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="text-[0.6rem] uppercase tracking-widest text-geoland-blue font-bold mb-1">{r.role}</div>
-                      <div className="text-[0.55rem] uppercase tracking-wider text-white/40 mb-3">{r.location} • {r.context}</div>
-                      <p className="text-xs italic font-light leading-relaxed text-white/90">
-                        {r.quote}
-                      </p>
+              {(() => {
+                const reviews = parseReviews(text);
+                if (reviews.length === 1) {
+                  const r = reviews[0];
+                  return (
+                    <div className="flex justify-center w-full mt-10">
+                      <motion.div
+                        variants={itemVariants}
+                        className="bg-white/5 backdrop-blur-md border border-white/10 p-10 md:p-14 rounded-xl flex flex-col justify-between w-full max-w-3xl text-center shadow-2xl"
+                      >
+                        <div className="flex flex-col items-center">
+                          <div className="text-sm md:text-lg uppercase tracking-widest text-geoland-blue font-bold mb-3">{r.role}</div>
+                          <div className="text-xs md:text-sm uppercase tracking-wider text-white/60 mb-8">{r.location} • {r.context}</div>
+                          <p className="text-2xl md:text-4xl font-cormorant italic font-light leading-relaxed text-white">
+                            {r.quote}
+                          </p>
+                        </div>
+                      </motion.div>
                     </div>
-                    <StarRating rating={[4, 4.5, 5][Math.floor(Math.random() * 3)]} />
-                  </motion.div>
-                ))}
-              </div>
+                  );
+                }
+                
+                return (
+                  <>
+                    {/* Top Row */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                      {reviews.slice(0, 4).map((r, i) => (
+                        <motion.div
+                          key={`top-${i}`}
+                          variants={itemVariants}
+                          className="bg-white/5 backdrop-blur-md border border-white/10 p-5 rounded-lg flex flex-col justify-between"
+                        >
+                          <div>
+                            <div className="text-[0.6rem] uppercase tracking-widest text-geoland-blue font-bold mb-1">{r.role}</div>
+                            <div className="text-[0.55rem] uppercase tracking-wider text-white/40 mb-3">{r.location} • {r.context}</div>
+                            <p className="text-xs italic font-light leading-relaxed text-white/90">
+                              {r.quote}
+                            </p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
 
-              {/* Bottom Row */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {parseReviews(text).slice(4, 8).map((r, i) => (
-                  <motion.div
-                    key={`bottom-${i}`}
-                    variants={itemVariants}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 p-5 rounded-lg flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="text-[0.6rem] uppercase tracking-widest text-geoland-blue font-bold mb-1">{r.role}</div>
-                      <div className="text-[0.55rem] uppercase tracking-wider text-white/40 mb-3">{r.location} • {r.context}</div>
-                      <p className="text-xs italic font-light leading-relaxed text-white/90">
-                        {r.quote}
-                      </p>
-                    </div>
-                    <StarRating rating={[4, 4.5, 5][Math.floor(Math.random() * 3)]} />
-                  </motion.div>
-                ))}
-              </div>
+                    {/* Bottom Row */}
+                    {reviews.length > 4 && (
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        {reviews.slice(4, 8).map((r, i) => (
+                          <motion.div
+                            key={`bottom-${i}`}
+                            variants={itemVariants}
+                            className="bg-white/5 backdrop-blur-md border border-white/10 p-5 rounded-lg flex flex-col justify-between"
+                          >
+                            <div>
+                              <div className="text-[0.6rem] uppercase tracking-widest text-geoland-blue font-bold mb-1">{r.role}</div>
+                              <div className="text-[0.55rem] uppercase tracking-wider text-white/40 mb-3">{r.location} • {r.context}</div>
+                              <p className="text-xs italic font-light leading-relaxed text-white/90">
+                                {r.quote}
+                              </p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </div>
         ) : variant === 'barras' ? (
@@ -495,7 +522,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         ) : variant === 'portada' ? (
           <Logo intro />
         ) : variant === 'portada81' ? (
-          <Logo intro subtitle={text} subtitleClassName="!mt-[17px]" />
+          <Logo intro subtitle={text} subtitleClassName="!mt-[17px] !text-[9px] md:!text-[11px] !tracking-[0.2em]" />
         ) : variant === 'portadafinal' ? (
           <Logo intro subtitle="JOIN US" />
         ) : variant === 'apertura' ? (

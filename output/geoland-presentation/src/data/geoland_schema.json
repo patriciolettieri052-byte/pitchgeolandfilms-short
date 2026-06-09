@@ -1,5 +1,5 @@
 {
-  "schema_id": "geoland_neural_os_v2",
+  "schema_id": "geoland_neural_os_v3",
   "metadata": {
     "target_audience": "Investment Fund / VC Technical Due Diligence",
     "theme": "Ultra-Modern Neural Network / Deep Tech",
@@ -7,170 +7,149 @@
   },
   "neural_layers": [
     {
-      "id": "l1_sensory",
-      "label": "Sensory Input Layer",
-      "function": "High-throughput data ingestion & signal capture",
+      "id": "l1_ingestion",
+      "label": "Ingestion & Filter",
+      "function": "Initial ingestion, zero-trust filtering",
       "intensity": 0.85
     },
     {
-      "id": "l2_perceptual",
-      "label": "Perceptual Filtering (S0-S2)",
-      "function": "Noise reduction, veto-logic & geospatial alignment",
+      "id": "l2_enrichment",
+      "label": "Data Enrichment",
+      "function": "Semantic and contextual enrichment",
       "intensity": 0.70
     },
     {
-      "id": "l3_cognitive",
-      "label": "Cognitive Synthesis (S3-S7)",
-      "function": "Semantic enrichment & investment strategy mapping",
+      "id": "l3_financial",
+      "label": "Financial Core",
+      "function": "Deep financial modeling & heuristics",
       "intensity": 0.92
     },
     {
-      "id": "l4_analytical",
-      "label": "Analytical Engine (S4-S9)",
-      "function": "Deep financial modeling & predictive scoring",
+      "id": "l4_vision",
+      "label": "Deep Analysis",
+      "function": "Computer vision and final scoring",
       "intensity": 1.0
     },
     {
-      "id": "l5_heuristic",
-      "label": "Heuristic Validation (S6-S10)",
-      "function": "Computer vision & multi-agent verification",
-      "intensity": 0.88
-    },
-    {
-      "id": "l6_persistence",
-      "label": "Neural Memory (S11)",
-      "function": "Dataset solidification & vector persistence",
+      "id": "l5_persistence",
+      "label": "Consolidation",
+      "function": "Validation and persistence",
       "intensity": 0.60
     }
   ],
   "nodes": [
     {
-      "id": "node_raw_signals",
-      "layer": "l1_sensory",
-      "label": "Digital Signal Ingestion",
-      "agents": ["Scrapers", "Webhooks", "Partner APIs"],
-      "tech_stack": "FastAPI / Celery / RabbitMQ",
-      "description": "Captura masiva de oportunidades en tiempo real desde múltiples fuentes globales."
+      "id": "s0",
+      "layer": "l1_ingestion",
+      "label": "s0 Hard Veto",
+      "lane": "fast",
+      "description": "Campos mínimos, mercado soportado, precio/superficie válidos, ≥1 foto. Descarta basura sin gastar recursos."
     },
     {
-      "id": "s0_veto",
-      "layer": "l2_perceptual",
-      "label": "S0: Zero-Trust Veto",
-      "type": "agent",
-      "logic": "Heuristic Filtering",
-      "description": "Eliminación instantánea de assets que no cumplen con los parámetros base del fondo (hard-filters)."
+      "id": "s1",
+      "layer": "l1_ingestion",
+      "label": "s1 Normalizer",
+      "lane": "fast",
+      "description": "FX → USD (live + fallback), superficie → m², calcula precio_m2_usd."
     },
     {
-      "id": "s1_normalizer",
-      "layer": "l2_perceptual",
-      "label": "S1: Data Normalizer",
-      "type": "agent",
-      "description": "Estandarización de unidades, monedas y formatos para comparativa cross-border."
+      "id": "s2",
+      "layer": "l1_ingestion",
+      "label": "s2 Geo & Qualify",
+      "lane": "fast",
+      "veto_condition": "veto aqs<30",
+      "description": "Geocoding + reverse geocoding (barrio real), resuelve DISTRICT_OVERRIDE, AQS parcial."
     },
     {
-      "id": "s2_geo_qualify",
-      "layer": "l2_perceptual",
-      "label": "S2: Geo-Spatial Qualifier",
-      "type": "agent",
-      "description": "Validación de ubicación exacta y micro-market matching."
+      "id": "s3",
+      "layer": "l2_enrichment",
+      "label": "s3 Enrichment",
+      "lane": "fast",
+      "description": "Completa campos faltantes desde el city master: fiscalidad, yields, costos de reforma, datos STR de Airbnb."
     },
     {
-      "id": "s3_enrichment",
-      "layer": "l3_cognitive",
-      "label": "S3: Multi-Source Enrichment",
-      "type": "agent",
-      "description": "Inyección de datos externos (catastro, servicios, demografía)."
+      "id": "s3b",
+      "layer": "l2_enrichment",
+      "label": "s3b Text Extractor",
+      "lane": "fast",
+      "is_llm": true,
+      "description": "Extrae datos financieros explícitos del texto del anuncio. Falla en silencio."
     },
     {
-      "id": "s3b_text",
-      "layer": "l3_cognitive",
-      "label": "S3b: Semantic Extractor",
-      "type": "ai_agent",
-      "model": "GPT-4o / Claude 3.5 Sonnet",
-      "description": "Extracción de insights ocultos en descripciones no estructuradas."
+      "id": "s7",
+      "layer": "l2_enrichment",
+      "label": "s7 Strategy",
+      "lane": "fast",
+      "is_llm": true,
+      "description": "Clasifica la estrategia óptima (14 posibles). Corre antes de s4 porque el cálculo depende de ella."
     },
     {
-      "id": "s7_strategy",
-      "layer": "l3_cognitive",
-      "label": "S7: Strategy Mapper",
-      "type": "agent",
-      "description": "Clasificación automática: Flip, Yield, Value-Add, o Development."
+      "id": "s4",
+      "layer": "l3_financial",
+      "label": "s4 Financial Core",
+      "lane": "fast",
+      "description": "IRR / NOI / cap rate por estrategia. Veto WACC. irr_post_tax para inversor extranjero. <b>Fuente única de verdad financiera.</b>"
     },
     {
-      "id": "s4_financial",
-      "layer": "l4_analytical",
-      "label": "S4: Financial Core Engine",
-      "type": "processor",
-      "description": "Cálculo dinámico de flujos de caja, CAP rates e impuestos por jurisdicción."
+      "id": "s5",
+      "layer": "l3_financial",
+      "label": "s5 Pre-Scorer",
+      "lane": "fast",
+      "veto_condition": "veto score<30",
+      "description": "GATE DE COSTO. Calcula pre_score y decide carril (skip_slow_lane)."
     },
     {
-      "id": "s5_pre_scorer",
-      "layer": "l4_analytical",
-      "label": "S5: Predictive Pre-Scorer",
-      "type": "ai_agent",
-      "description": "Primera estimación de rentabilidad basada en históricos masivos."
+      "id": "s6",
+      "layer": "l3_financial",
+      "label": "s6 Pre-Verificador",
+      "lane": "fast",
+      "description": "Coherencia sin LLM: veta precio_m2 incoherente e IRR negativo, levanta flags blandos."
     },
     {
-      "id": "s9_final_scorer",
-      "layer": "l4_analytical",
-      "label": "S9: G-Score Neural Evaluator",
-      "type": "ai_agent",
-      "description": "Puntuación final multivariable proprietaria de Geoland."
+      "id": "s8",
+      "layer": "l4_vision",
+      "label": "s8 Vision",
+      "lane": "slow",
+      "is_llm": true,
+      "llm_label": "LLM visión",
+      "description": "Análisis visual de fotos (calidad, reforma, mismatch). Saltea si LOW o estrategia sin necesidad visual."
     },
     {
-      "id": "s6_pre_verificator",
-      "layer": "l5_heuristic",
-      "label": "S6: Cross-Reference Verifier",
-      "type": "agent",
-      "description": "Detección de duplicados y anomalías en datos de mercado."
+      "id": "s9",
+      "layer": "l4_vision",
+      "label": "s9 Scorer Final",
+      "lane": "slow",
+      "veto_condition": "veto aqs<45",
+      "description": "AQS final + confidence_final (única fuente)."
     },
     {
-      "id": "s8_vision",
-      "layer": "l5_heuristic",
-      "label": "S8: Computer Vision Agent",
-      "type": "ai_agent",
-      "model": "ViT / Custom CNN",
-      "description": "Análisis estético y de estado de conservación mediante procesamiento de imágenes."
+      "id": "s10",
+      "layer": "l5_persistence",
+      "label": "s10 Verificador Final",
+      "lane": "slow",
+      "is_llm": true,
+      "description": "Auditoría de inconsistencias. Saltea si LOW."
     },
     {
-      "id": "s10_final_verificator",
-      "layer": "l5_heuristic",
-      "label": "S10: Final Compliance Check",
-      "type": "agent",
-      "description": "Validación de integridad total antes de la presentación al inversor."
-    },
-    {
-      "id": "s11_dataset",
-      "layer": "l6_persistence",
-      "label": "S11: Neural Knowledge Base",
-      "type": "storage",
-      "description": "Solidificación en Vector DB y bases relacionales para re-entrenamiento."
+      "id": "s11",
+      "layer": "l5_persistence",
+      "label": "s11 Dataset",
+      "lane": "slow",
+      "description": "Ensambla Layer 1/2/4, calcula G-Score, persiste en Supabase."
     }
   ],
   "synapses": [
-    { "from": "node_raw_signals", "to": "s0_veto", "bandwidth": "high", "type": "stream" },
-    { "from": "s0_veto", "to": "s1_normalizer", "type": "activation" },
-    { "from": "s1_normalizer", "to": "s2_geo_qualify", "type": "activation" },
-    { "from": "s2_geo_qualify", "to": "s3_enrichment", "type": "activation" },
-    { "from": "s3_enrichment", "to": "s3b_text", "type": "data_burst" },
-    { "from": "s3b_text", "to": "s7_strategy", "type": "insight_transfer" },
-    { "from": "s7_strategy", "to": "s4_financial", "type": "activation" },
-    { "from": "s4_financial", "to": "s5_pre_scorer", "type": "neural_flow" },
-    { "from": "s5_pre_scorer", "to": "s6_pre_verificator", "type": "validation_trigger" },
-    { "from": "s6_pre_verificator", "to": "s8_vision", "type": "trigger" },
-    { "from": "s8_vision", "to": "s9_final_scorer", "type": "feature_injection" },
-    { "from": "s9_final_scorer", "to": "s10_final_verificator", "type": "decision_flow" },
-    { "from": "s10_final_verificator", "to": "s11_dataset", "type": "persistence" }
-  ],
-  "ui_animation_hints": {
-    "particle_speed": "dynamic",
-    "glow_intensity": "based_on_gscore",
-    "neural_connection_style": "curved_organic",
-    "color_palette": {
-      "primary": "#00f2ff",
-      "secondary": "#7000ff",
-      "accent": "#ff007a",
-      "background": "#050505"
-    }
-  }
+    { "from": "s0", "to": "s1", "type": "flow" },
+    { "from": "s1", "to": "s2", "type": "flow" },
+    { "from": "s2", "to": "s3", "type": "flow" },
+    { "from": "s3", "to": "s3b", "type": "flow" },
+    { "from": "s3b", "to": "s7", "type": "flow" },
+    { "from": "s7", "to": "s4", "type": "flow" },
+    { "from": "s4", "to": "s5", "type": "flow" },
+    { "from": "s5", "to": "s6", "type": "flow" },
+    { "from": "s6", "to": "s8", "type": "flow" },
+    { "from": "s8", "to": "s9", "type": "flow" },
+    { "from": "s9", "to": "s10", "type": "flow" },
+    { "from": "s10", "to": "s11", "type": "flow" }
+  ]
 }
