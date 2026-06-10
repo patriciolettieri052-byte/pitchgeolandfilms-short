@@ -34,7 +34,7 @@ function App() {
 
   const nextSlide = useCallback(() => {
     if (isAnimating) return;
-    if (currentIdx < slides.length) {
+    if (currentIdx < slides.length - 1) {
       setIsAnimating(true);
       setCurrentIdx(prev => prev + 1);
       setTimeout(() => setIsAnimating(false), 300); // Matching animation duration
@@ -192,30 +192,6 @@ function App() {
           )
         ))}
 
-        {currentIdx === slides.length && (
-          <motion.div
-            key="outro"
-            initial={{ opacity: 0, filter: "blur(20px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 z-10 bg-black"
-          >
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <video 
-                src="/assets/portada2.mp4" 
-                autoPlay 
-                muted 
-                loop 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/60 z-10"></div>
-            </div>
-            <div className="relative z-20 w-full h-full flex items-center justify-center">
-              <Logo intro subtitle="JOIN US" />
-            </div>
-          </motion.div>
-        )}
       </AnimatePresence>
         </div>
       </main>
