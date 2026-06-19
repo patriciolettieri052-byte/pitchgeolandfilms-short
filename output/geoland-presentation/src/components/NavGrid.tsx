@@ -75,7 +75,7 @@ const NavItem: React.FC<{ slide: NavSlide; index: number; isActive: boolean; onS
 
       {/* Active Indicator */}
       {isActive && (
-        <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)] z-20" />
+        <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_8px_rgba(247,246,237,0.8)] z-20" />
       )}
     </motion.div>
   );
@@ -83,9 +83,9 @@ const NavItem: React.FC<{ slide: NavSlide; index: number; isActive: boolean; onS
 
 const NavGrid: React.FC<NavGridProps> = ({ isOpen, onClose, onSelect, currentIndex }) => {
   const allSlides = useMemo(() => [
-    { id: 'intro', title: 'PORTADA', backgroundMedia: 'portada.mp4', index: -1 },
+    { id: 'intro', title: 'PORTADA', backgroundMedia: 'portada2.mp4', index: -1 },
     ...slides.map((s, i) => ({ ...s, index: i })),
-    { id: 'outro', title: 'CIERRE', backgroundMedia: 'portada.mp4', index: slides.length }
+    { id: 'outro', title: 'CIERRE', backgroundMedia: 'portada2.mp4', index: slides.length }
   ], [slides]);
 
   const [currentPage, setCurrentPage] = useState(0);

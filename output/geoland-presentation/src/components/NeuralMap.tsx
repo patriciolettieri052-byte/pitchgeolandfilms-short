@@ -94,7 +94,7 @@ const NeuralMap: React.FC = () => {
     <div className="w-full h-full bg-black relative overflow-hidden font-jost flex-shrink-0" ref={containerRef}>
       
       {/* Background Grid & Glow */}
-      <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F7F6ED 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       <div className="absolute left-[10%] top-[50%] w-[80%] h-[20%] bg-geoland-blue/10 blur-[150px] pointer-events-none rounded-full" />
 
       {/* Legend & Title */}
@@ -133,10 +133,10 @@ const NeuralMap: React.FC = () => {
                     transition={{ duration: 1.5, delay: 1 + (fromNode.x! / width) }}
                     d={path}
                     fill="none"
-                    stroke="rgba(255,255,255,0.25)"
+                    stroke="rgba(247,246,237,0.25)"
                     strokeWidth={2}
                   />
-                  <motion.circle r={2} fill="#ffffff" filter="blur(1px)">
+                  <motion.circle r={2} fill="#F7F6ED" filter="blur(1px)">
                     <animateMotion 
                       dur={`${Math.random() * 2 + 3}s`} 
                       repeatCount="indefinite" 
@@ -145,7 +145,7 @@ const NeuralMap: React.FC = () => {
                       keyTimes="0;1"
                     />
                   </motion.circle>
-                  <motion.circle r={4} fill="#ffffff" opacity="0.3" filter="blur(3px)">
+                  <motion.circle r={4} fill="#F7F6ED" opacity="0.3" filter="blur(3px)">
                     <animateMotion 
                       dur={`${Math.random() * 2 + 3}s`} 
                       repeatCount="indefinite" 

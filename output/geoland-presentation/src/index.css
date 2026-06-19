@@ -23,17 +23,17 @@
   /* Global typography rules per briefing */
   h1, h2, h3, h4, .title {
     @apply uppercase font-extralight text-center; /* Weight 200 */
-    color: white !important;
+    color: #F7F6ED !important;
   }
 
   .subtitle {
     @apply font-normal; /* Weight 400 */
-    color: white !important;
+    color: #F7F6ED !important;
   }
 
   p, span, div, .body-text {
     @apply font-extralight; /* Weight 200 */
-    color: white !important;
+    color: #F7F6ED !important;
   }
 
   strong, b {
@@ -94,8 +94,8 @@
     text-align: center;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
-    -webkit-text-stroke: 1.5px #ffffff;
-    text-stroke: 1.5px #ffffff;
+    -webkit-text-stroke: 1.5px #F7F6ED;
+    text-stroke: 1.5px #F7F6ED;
     line-height: 0.8;
     font-weight: normal;
   }
@@ -103,22 +103,22 @@
     font-family: 'League Gothic', sans-serif;
     font-size: 60px !important;
     text-transform: uppercase;
-    color: #d3d0cb !important;
+    color: #F7F6ED !important;
     line-height: 0.84;
     font-weight: normal;
   }
   .texto-cuerpo-cinematic {
     font-family: 'Arimo', sans-serif;
     font-size: 20px !important;
-    color: #d3d0cb !important;
+    color: #F7F6ED !important;
     line-height: 1.4;
-    font-weight: 400;
+    font-weight: 200;
   }
   .titulo-cuerpo-bold,
   .titulo-cuerpo-bold span {
     font-family: 'Arimo', sans-serif;
     font-size: 20px !important;
-    color: #d3d0cb !important;
+    color: #F7F6ED !important;
     line-height: 1.4;
     font-weight: 700 !important;
     text-transform: none !important;
@@ -126,7 +126,7 @@
   .texto-fuentes-descripcion {
     font-family: 'Arimo', sans-serif;
     font-size: 9pt !important;
-    color: #d3d0cb !important;
+    color: #F7F6ED !important;
     font-weight: 400 !important;
     text-transform: none !important;
   }

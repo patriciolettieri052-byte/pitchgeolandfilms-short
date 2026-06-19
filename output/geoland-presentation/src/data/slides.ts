@@ -10,7 +10,7 @@ export interface SlideData {
   isItalic?: boolean;
   titleSize?: string;
   variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
-  align?: "left" | "center" | "right";
+  align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
   ctaText?: string;
@@ -202,7 +202,8 @@ export const slides: SlideData[] = [
     text: "",
     variant: "titulo-chico",
     backgroundMedia: "",
-    overlayOpacity: 0
+    overlayOpacity: 0,
+    align: "center-left"
   },
   {
     id: 24,
@@ -257,7 +258,7 @@ export const slides: SlideData[] = [
   {
     id: 29,
     title: "",
-    text: "Incluso, puedes activar una locación y contactar desde GEOLAND a profesionales verificado para validarla, prepararla y convertirla en una opción lista para rodar.",
+    text: "Incluso, puedes activar una locación y contactar desde GEOLAND a profesionales verificados para validarla, prepararla y convertirla en una opción lista para rodar.",
     variant: "texto",
     backgroundMedia: "30.png",
     overlayOpacity: 35,
@@ -315,9 +316,9 @@ export const slides: SlideData[] = [
   {
     id: 35,
     title: "FUENTES DE DATOS DEL SISTEMA",
-    text: "Además, incorpora feedback operativo de producciones reales. Toda esta información se cruza con el Production Strategy Vector (PSV) para recomendar qué locación conviene, por qué, con qué riesgos, a qué coste y cómo hacerla filmable.",
+    text: "Toda esta información se cruza con el PSV para recomendar qué locación conviene,<br/>por qué, con qué riesgos, a qué coste y cómo hacerla filmable.",
     variant: "diagrama-fuentes",
-    backgroundMedia: "diagram1.png",
+    backgroundMedia: "",
     overlayOpacity: 70
   },
   {
@@ -330,7 +331,7 @@ export const slides: SlideData[] = [
   },
   {
     id: 37,
-    title: "MARKET SIZE",
+    title: "TAMAÑO DE MERCADO",
     text: "TAM | 300.000 COMPAÑÍAS | TOTAL ADDRESSABLE MARKET - Mercado total potencial global ;; SAM | 60.000 COMPAÑÍAS | SERVICEABLE AVAILABLE MARKET - Compañías que realizan producciones de forma recurrente, gestionan múltiples locaciones y enfrentan decisiones complejas de producción, logistica, permisos, costes y viabilidad ;; SOM | 2.000 - 4.000 COMPAÑÍAS (3% al 6.7% del SAM) | SERVICEABLE OBTAINABLE MARKET - Mercado capturable realista",
     variant: "market",
     backgroundMedia: "",
@@ -338,7 +339,7 @@ export const slides: SlideData[] = [
   },
   {
     id: 38,
-    title: "LAS SOLUCIONES ACTUALES RESUELVEN PARTES AISLADAS DEL PROCESO",
+    title: "LAS SOLUCIONES ACTUALES<br/>RESUELVEN PARTES AISLADAS DEL PROCESO",
     text: "ShotDeck | Solo referencias visuales ;; Set Scouter | Marketplace de locaciones ;; StudioBinder | Planificacion de produccion ;; Wrapbook | Payroll y operaciones ;; Reel-Scout | Solo bases de locaciones ;; Production HUB | Directorio industrial",
     variant: "soluciones-grid",
     backgroundMedia: "",
@@ -487,7 +488,7 @@ export const slides: SlideData[] = [
     title: "GEOLAND",
     text: "Decision System for Film Production",
     variant: "portada81",
-    backgroundMedia: "portada.mp4",
+    backgroundMedia: "portada2.mp4",
     overlayOpacity: 45
   },
   {

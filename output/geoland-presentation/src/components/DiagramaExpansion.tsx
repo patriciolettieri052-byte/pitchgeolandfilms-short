@@ -104,55 +104,33 @@ export const DiagramaExpansion: React.FC<DiagramaExpansionProps> = ({ title, tex
               const isHovered = hoveredIndex === idx;
               const isDimmed = isAnyHovered && !isHovered;
               
-              let bgStrokeColor = 'rgba(255, 255, 255, 0.12)';
-              let activeStrokeColor = 'rgba(56, 189, 248, 0.35)';
-              let strokeWidth = 1.5;
-              let dotColor = 'rgba(255, 255, 255, 0.7)';
+              let strokeColor = 'rgba(247, 246, 237, 0.15)';
+              let strokeWidth = 1.2;
+              let dotColor = 'rgba(247, 246, 237, 0.5)';
 
               if (isHovered) {
-                bgStrokeColor = 'rgba(56, 189, 248, 0.25)';
-                activeStrokeColor = '#38bdf8';
-                strokeWidth = 2.2;
-                dotColor = '#38bdf8';
+                strokeColor = 'rgba(247, 246, 237, 0.6)';
+                strokeWidth = 2.0;
+                dotColor = 'rgba(247, 246, 237, 0.9)';
               } else if (isDimmed) {
-                bgStrokeColor = 'rgba(255, 255, 255, 0.04)';
-                activeStrokeColor = 'rgba(56, 189, 248, 0.08)';
-                dotColor = 'rgba(255, 255, 255, 0.2)';
+                strokeColor = 'rgba(247, 246, 237, 0.04)';
+                strokeWidth = 1.0;
+                dotColor = 'rgba(247, 246, 237, 0.15)';
               }
 
               return (
                 <g key={`branch-${idx}`}>
-                  {/* Faint static connection line (structure) - grows out of the center core */}
+                  {/* Solid connection line */}
                   <motion.path
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
                     transition={{ duration: 0.7, ease: "easeOut", delay: idx * 0.06 }}
                     d={branch.pathD}
-                    stroke={bgStrokeColor}
+                    stroke={strokeColor}
                     strokeWidth={strokeWidth}
                     fill="none"
                     className="transition-all duration-300"
                   />
-                  
-                  {/* Dynamic fiber-optic dash flow overlay - fades in and moves */}
-                  <motion.path
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4, delay: idx * 0.06 + 0.35 }}
-                    d={branch.pathD}
-                    stroke={activeStrokeColor}
-                    strokeWidth={strokeWidth}
-                    fill="none"
-                    strokeDasharray="6, 12"
-                    className="transition-colors duration-300"
-                  >
-                    <animate
-                      attributeName="stroke-dashoffset"
-                      values={isHovered ? "36;0" : "72;0"}
-                      dur={isHovered ? "0.8s" : "2.5s"}
-                      repeatCount="indefinite"
-                    />
-                  </motion.path>
                   
                   {/* Outer label joint dot */}
                   <motion.circle
@@ -177,42 +155,12 @@ export const DiagramaExpansion: React.FC<DiagramaExpansionProps> = ({ title, tex
                     fill={dotColor}
                     className="transition-colors duration-300"
                   />
-
-                  {/* High-fidelity glowing flow particle */}
-                  <motion.circle
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: isDimmed ? 0.25 : 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: idx * 0.06 + 0.5 }}
-                    r={isHovered ? 2.5 : 1.8}
-                    fill={isHovered ? "#38bdf8" : "rgba(56, 189, 248, 0.7)"}
-                    style={{
-                      filter: isHovered ? 'drop-shadow(0 0 3px rgba(56,189,248,0.8))' : 'none'
-                    }}
-                  >
-                    <animateMotion 
-                      dur={isHovered ? "1.2s" : "3.0s"} 
-                      repeatCount="indefinite" 
-                      path={branch.pathD}
-                    />
-                  </motion.circle>
-
-                  {/* Secondary staggered flow particle when hovered */}
-                  {isHovered && (
-                    <circle r={1.8} fill="#38bdf8" opacity={0.6} style={{ filter: 'drop-shadow(0 0 2px rgba(56,189,248,0.6))' }}>
-                      <animateMotion 
-                        dur="1.2s" 
-                        begin="0.6s"
-                        repeatCount="indefinite" 
-                        path={branch.pathD}
-                      />
-                    </circle>
-                  )}
                 </g>
               );
             })}
           </g>
         </svg>
-
+ 
         {/* Central Core Circle Wrapper (Static Positioning) */}
         <div 
           className="absolute z-30 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none"
@@ -230,48 +178,18 @@ export const DiagramaExpansion: React.FC<DiagramaExpansionProps> = ({ title, tex
               delay: 0.1
             }}
           >
-            {/* Concentric sonar pulses (processing scan ripples) */}
-            {[0, 1].map((i) => (
-              <motion.div
-                key={`sonar-${i}`}
-                className="absolute rounded-full border border-white/10 bg-white/5"
-                style={{
-                  width: 204,
-                  height: 204,
-                }}
-                animate={{
-                  scale: [1, 1.35],
-                  opacity: [0.35, 0],
-                }}
-                transition={{
-                  duration: 4.0,
-                  repeat: Infinity,
-                  delay: i * 2.0,
-                  ease: "easeOut",
-                }}
-              />
-            ))}
-
-            {/* Concentric rotating rings */}
+            {/* Concentric solid rings (no dashes or rotations) */}
             <div className="absolute inset-0 rounded-full border border-white/5" />
-            <div className="absolute inset-2 rounded-full border border-dashed border-white/10 animate-[spin_60s_linear_infinite]" />
-            <div className="absolute inset-4 rounded-full border border-dashed border-geoland-blue/5 animate-[spin_35s_linear_infinite] [animation-direction:reverse]" />
+            <div className="absolute inset-2 rounded-full border border-white/10" />
+            <div className="absolute inset-4 rounded-full border border-white/5" />
             
-            {/* Core Glassmorphic Circle Card with breathing glow */}
+            {/* Core Glassmorphic Circle Card with simple breathing glow */}
             <motion.div 
               className="absolute w-[172px] h-[172px] rounded-full bg-zinc-950/80 backdrop-blur-2xl border border-white/20 flex flex-col items-center justify-center text-center shadow-2xl cursor-default"
               animate={{
                 boxShadow: isAnyHovered 
-                  ? [
-                      "0 0 20px rgba(56,189,248,0.1)",
-                      "0 0 35px rgba(56,189,248,0.25)",
-                      "0 0 20px rgba(56,189,248,0.1)"
-                    ]
-                  : [
-                      "0 0 15px rgba(255,255,255,0.03)",
-                      "0 0 25px rgba(255,255,255,0.08)",
-                      "0 0 15px rgba(255,255,255,0.03)"
-                    ]
+                  ? "0 0 25px rgba(247, 246, 237, 0.12)"
+                  : "0 0 15px rgba(247, 246, 237, 0.03)"
               }}
               transition={{
                 duration: 3,
@@ -317,7 +235,7 @@ export const DiagramaExpansion: React.FC<DiagramaExpansionProps> = ({ title, tex
               >
                 <span 
                   className={`whitespace-nowrap uppercase tracking-wider transition-colors duration-300 ${
-                    isHovered ? 'text-geoland-blue font-bold' : 'text-white font-medium'
+                    isHovered ? 'text-white font-bold' : 'text-white/60 font-medium'
                   }`}
                   style={{
                     fontFamily: "'League Gothic', sans-serif",

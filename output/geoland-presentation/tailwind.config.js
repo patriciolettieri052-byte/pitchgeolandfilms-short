@@ -12,6 +12,7 @@ export default {
         monsieur: ['"Monsieur La Doulaise"', 'cursive'],
       },
       colors: {
+        white: '#F7F6ED',
         geoland: {
           blue: '#38bdf8', // Blue for highlighted titles
         }
