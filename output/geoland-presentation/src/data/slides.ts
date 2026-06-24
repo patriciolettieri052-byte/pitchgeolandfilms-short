@@ -9,7 +9,7 @@ export interface SlideData {
   isBold?: boolean;
   isItalic?: boolean;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -339,6 +339,22 @@ export const slides: SlideData[] = [
   },
   {
     id: 38,
+    title: "PRICING",
+    text: "",
+    variant: "titulo-grande",
+    backgroundMedia: "",
+    overlayOpacity: 0
+  },
+  {
+    id: 39,
+    title: "",
+    text: "",
+    variant: "pricing",
+    backgroundMedia: "",
+    overlayOpacity: 0
+  },
+  {
+    id: 40,
     title: "LAS SOLUCIONES ACTUALES<br/>RESUELVEN PARTES AISLADAS DEL PROCESO",
     text: "ShotDeck | Solo referencias visuales ;; Set Scouter | Marketplace de locaciones ;; StudioBinder | Planificacion de produccion ;; Wrapbook | Payroll y operaciones ;; Reel-Scout | Solo bases de locaciones ;; Production HUB | Directorio industrial",
     variant: "soluciones-grid",
@@ -346,7 +362,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 39,
+    id: 41,
     title: "NINGUNA ORGANIZA LA DECISIÓN OPERACIONAL COMPLETA.",
     text: "",
     variant: "titulo-chico",
@@ -354,7 +370,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 40,
+    id: 42,
     title: "BUILT TO SCALE.<br/>ONE SYSTEM. MULTIPLE INDUSTRIES.",
     text: "",
     variant: "titulo-chico",
@@ -362,15 +378,15 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 41,
+    id: 43,
     title: "80% UNIVERSAL. 20% ADAPTABLE.",
     text: "",
     variant: "titulo-chico",
-    backgroundMedia: "42.mp4",
+    backgroundMedia: "Para la 41.mp4",
     overlayOpacity: 45
   },
   {
-    id: 42,
+    id: 44,
     title: "GEOLAND ES PARA PRODUCTION FILM.",
     text: "Pero el motor central es común para otras verticales en un futuro: scoring,<br/>agentes, variables, contexto, análisis comparativo, visión computacional,<br/>verificación y explicación.",
     variant: "titulo-grande",
@@ -378,7 +394,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 45
   },
   {
-    id: 43,
+    id: 45,
     title: "",
     text: "Pudiendo más adelante, adaptar el contexto operacional.",
     variant: "texto",
@@ -386,7 +402,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 44,
+    id: 46,
     title: "REAL ESTATE AND FARMLAND",
     text: "ROI / IRR / NOI, RIESGO Y CONTEXTO MACRO, REGULACIÓN Y FISCALIDAD, COMPARABLES GLOBALES, DEMANDA Y CRECIMIENTO, UBICACIÓN Y CONECTIVIDAD, COSTES OPERATIVOS, VISIÓN COMPUTACIONAL DEL ACTIVO, ESTRATEGIAS DE INVERSIÓN, TIMING DE MERCADO.",
     variant: "diagrama-expansion",
@@ -394,7 +410,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 45,
+    id: 47,
     title: "AVIATION & AERONAUTICS",
     text: "RUTAS Y SLOTS, CLIMA Y CONDICIONES OPERATIVAS, COMBUSTIBLE Y COSTES, MANTENIMIENTO Y DISPONIBILIDAD, ASIGNACIÓN DE TRIPULACIÓN, RIESGO OPERATIVO, TIMING Y EFICIENCIA, COORDINACIÓN MULTI-SISTEMA, DISPONIBILIDAD DE ASSETS, OPTIMIZACIÓN OPERACIONAL.",
     variant: "diagrama-expansion",
@@ -402,7 +418,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 46,
+    id: 48,
     title: "LOGISTICS & SUPPLY CHAIN",
     text: "RUTAS Y TIEMPOS OPERATIVOS, COSTES LOGÍSTICOS, CONGESTIÓN Y CAPACIDAD, CLIMA Y RIESGO OPERATIVO, RIESGO GEOPOLÍTICO, PUERTOS - HUBS Y NODOS CRÍTICOS, DISTRIBUCIÓN DE ASSETS, SUPPLY CHAIN FRAGMENTATION, OPTIMIZACIÓN MULTI-VARIABLE, EFICIENCIA OPERACIONAL.",
     variant: "diagrama-expansion",
@@ -410,7 +426,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 47,
+    id: 49,
     title: "RETAIL EXPANSION",
     text: "DEMOGRAFÍA Y CONSUMO, TRÁFICO Y MOVILIDAD, COMPETENCIA Y SATURACIÓN, COSTES INMOBILIARIOS, POTENCIAL COMERCIAL, CRECIMIENTO URBANO, INGRESOS Y CONTEXTO ECONÓMICO, ACCESIBILIDAD Y CONECTIVIDAD, RIESGO OPERATIVO, EXPANSIÓN MULTI-CIUDAD.",
     variant: "diagrama-expansion",
@@ -418,7 +434,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 48,
+    id: 50,
     title: "EL PATRÓN ES SIEMPRE EL MISMO:",
     text: "Datos fragmentados -> análisis complejo -> decisión clara.",
     variant: "titulo-grande",
@@ -426,7 +442,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 45
   },
   {
-    id: 49,
+    id: 51,
     title: "TEAM",
     text: "",
     variant: "titulo-grande",
@@ -434,25 +450,25 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 50,
-    title: "",
-    text: `<div class='flex flex-col md:flex-row gap-16 justify-center items-start w-full max-w-[1200px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full md:w-1/2'><img src='team/pato_transparent.png' class='w-48 h-48 md:w-64 md:h-64 object-cover object-top mb-8 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.5rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Patricio Lettieri</h3><h4 class='text-geoland-blue tracking-[0.2em] text-[10px] md:text-xs uppercase mb-6' style="font-family:'Arimo',sans-serif;">Co-Founder - Data Infrastucture</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/60 text-xs md:text-sm leading-relaxed font-light text-center'>Especialista en data, análisis e IA aplicada, con más de 15 años de experiencia en marketing analítico y operaciones estratégicas para marcas como John Deere y Porsche. En GEOLAND conecta fuentes de datos, modelos inteligentes y ejecución operativa para transformar información compleja en decisiones claras y accionables.</p></div><div class='flex flex-col items-center text-center w-full md:w-1/2'><img src='team/pepe_transparent.png' class='w-48 h-48 md:w-64 md:h-64 object-cover object-top mb-8 scale-[1.15] origin-top [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.5rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>José Luis Curcio</h3><h4 class='text-geoland-blue tracking-[0.2em] text-[10px] md:text-xs uppercase mb-6' style="font-family:'Arimo',sans-serif;">Co-Founder, Product vision & Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/60 text-xs md:text-sm leading-relaxed font-light text-center'>Publicista, estratega y director creativo con más de 18 años innovando para marcas globales como Coca-Cola, Ford y Samsung. Desde su experiencia en campañas y rodajes internacionales, conceptualizó GEOLAND y hoy lidera la visión, el diseño estratégico y la orquestación del equipo para convertir creatividad, tecnología y complejidad operativa en un sistema de inteligencia de decisión.</p></div></div>`,
-    backgroundMedia: "",
-    overlayOpacity: 0,
-    align: "center",
-    maxWidth: "1400px"
-  },
-  {
-    id: 51,
-    title: "",
-    text: `<div class='flex flex-col md:flex-row gap-16 justify-center items-start w-full max-w-[1200px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full md:w-1/2'><img src='team/juancarlos_transparent.png' class='w-48 h-48 md:w-64 md:h-64 object-cover object-top mb-8 scale-[1.25] origin-top [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.5rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Juan Carlos Casalderrey</h3><h4 class='text-geoland-blue tracking-[0.2em] text-[10px] md:text-xs uppercase mb-6' style="font-family:'Arimo',sans-serif;">Partner - Engineering / Mythology Labs</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/60 text-xs md:text-sm leading-relaxed font-light text-center'>Formado en Arquitectura y Diseño de Sistemas y Contratos Complejos en Tecnología. Desarrollador, consultor técnico y Co-Founder de Mythology Labs. En GEOLAND, aporta criterio técnico, liderazgo operativo y capacidad para ejecutar una plataforma robusta, escalable y orientada a negocio.</p></div><div class='flex flex-col items-center text-center w-full md:w-1/2'><img src='team/damian_transparent.png' class='w-48 h-48 md:w-64 md:h-64 object-cover object-top mb-8 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.5rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Damián Scheck</h3><h4 class='text-geoland-blue tracking-[0.2em] text-[10px] md:text-xs uppercase mb-6' style="font-family:'Arimo',sans-serif;">Partner - Engineering / Mythology Labs</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/60 text-xs md:text-sm leading-relaxed font-light text-center'>Analista de Sistemas de Computación, Licenciado en Sistemas, desarrollador de software, Co-Founder y CTO de Mythology Labs. En GEOLAND, lidera la arquitectura técnica, la calidad del código y el desarrollo de una plataforma robusta, escalable y segura, preparada para crecer con estándares profesionales de ingeniería.</p></div></div>`,
-    backgroundMedia: "",
-    overlayOpacity: 0,
-    align: "center",
-    maxWidth: "1400px"
-  },
-  {
     id: 52,
+    title: "",
+    text: `<div class='flex flex-col md:flex-row print:flex-row gap-16 justify-center items-start w-full max-w-[1200px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full md:w-1/2 print:w-1/2'><img src='team/pato_transparent.png' class='w-48 h-48 md:w-64 md:h-64 print:w-64 print:h-64 object-cover object-top mb-8 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.9rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Patricio Lettieri</h3><h4 class='text-geoland-blue tracking-[0.2em] text-xs md:text-sm uppercase mb-4' style="font-family:'Arimo',sans-serif;">Co-Founder - Data Infrastucture</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-sm md:text-base leading-relaxed font-light text-center max-w-[420px] mx-auto'>Especialista en data, análisis e IA aplicada, con más de 15 años de experiencia en marketing analítico y operaciones estratégicas para marcas como John Deere y Porsche. En GEOLAND conecta fuentes de datos, modelos inteligentes y ejecución operativa para transformar información compleja en decisiones claras y accionables.</p></div><div class='flex flex-col items-center text-center w-full md:w-1/2 print:w-1/2'><div class='scale-[1.15] origin-top print:scale-100 mb-8'><img src='team/pepe_transparent.png' class='w-48 h-48 md:w-64 md:h-64 print:w-64 print:h-64 object-cover object-top [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.9rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>José Luis Curcio</h3><h4 class='text-geoland-blue tracking-[0.2em] text-xs md:text-sm uppercase mb-4' style="font-family:'Arimo',sans-serif;">Co-Founder, Product vision & Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-sm md:text-base leading-relaxed font-light text-center max-w-[420px] mx-auto'>Publicista, estratega y director creativo con más de 18 años innovando para marcas globales como Coca-Cola, Ford y Samsung. Desde su experiencia en campañas y rodajes internacionales, conceptualizó GEOLAND y hoy lidera la visión, el diseño estratégico y la orquestación del equipo para convertir creatividad, tecnología y complejidad operativa en un sistema de inteligencia de decisión.</p></div></div>`,
+    backgroundMedia: "",
+    overlayOpacity: 0,
+    align: "center",
+    maxWidth: "1400px"
+  },
+  {
+    id: 53,
+    title: "",
+    text: `<div class='flex flex-col md:flex-row print:flex-row gap-16 justify-center items-start w-full max-w-[1200px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full md:w-1/2 print:w-1/2'><div class='scale-[1.25] origin-top print:scale-100 mb-8'><img src='team/juancarlos_transparent.png' class='w-48 h-48 md:w-64 md:h-64 print:w-64 print:h-64 object-cover object-top [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.9rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Juan Carlos Casalderrey</h3><h4 class='text-geoland-blue tracking-[0.2em] text-xs md:text-sm uppercase mb-4' style="font-family:'Arimo',sans-serif;">Partner - Engineering / Mythology Labs</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-sm md:text-base leading-relaxed font-light text-center max-w-[420px] mx-auto'>Formado en Arquitectura y Diseño de Sistemas y Contratos Complejos en Tecnología. Desarrollador, consultor técnico y Co-Founder de Mythology Labs. En GEOLAND, aporta criterio técnico, liderazgo operativo y capacidad para ejecutar una plataforma robusta, escalable y orientada a negocio.</p></div><div class='flex flex-col items-center text-center w-full md:w-1/2 print:w-1/2'><img src='team/damian_transparent.png' class='w-48 h-48 md:w-64 md:h-64 print:w-64 print:h-64 object-cover object-top mb-8 [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /><h3 style="font-family:'League Gothic',sans-serif;font-size:1.9rem;letter-spacing:0.12em;" class='text-white mb-2 uppercase'>Damián Scheck</h3><h4 class='text-geoland-blue tracking-[0.2em] text-xs md:text-sm uppercase mb-4' style="font-family:'Arimo',sans-serif;">Partner - Engineering / Mythology Labs</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-sm md:text-base leading-relaxed font-light text-center max-w-[420px] mx-auto'>Analista de Sistemas de Computación, Licenciado en Sistemas, desarrollador de software, Co-Founder y CTO de Mythology Labs. En GEOLAND, lidera la arquitectura técnica, la calidad del código y el desarrollo de una plataforma robusta, escalable y segura, preparada para crecer con estándares profesionales de ingeniería.</p></div></div>`,
+    backgroundMedia: "",
+    overlayOpacity: 0,
+    align: "center",
+    maxWidth: "1400px"
+  },
+  {
+    id: 54,
     title: "VALIDACIÓN INICIAL",
     text: "",
     variant: "validation-hud",
@@ -460,15 +476,15 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 53,
+    id: 55,
     title: "ASESORES & EARLY USERS",
     text: "Andy Hosman | Director | Luky Monday - US & LATAM / Go East Creative - Middle East & Asia / Hungry Man - Brasil / Oriental Films - U.S, LATAM, Spain. ;; Nico Bottero | Director & Producer | Los Modernos Films - Traviamento Films / Netflix - Coordinador de Arte. ;; Oliver Garland | Director & Founder | Olga Lee - Producción audiovisual destacada con presencia global, laureada a nivel internacional - U.S, LATAM, Europe. ;; Paulo Carneiro | Director & Execitive Producer | Máster por la ESTC de Lisboa y HEAD de Ginebra. En 2018 fundó Bam Bam Cinema y dirigió Bostofrio, premiada y exhibida en más de 40 festivales. Sus trabajos posteriores incluyen Périphérique Nord y A savana e a Montanha (2024), también premiada. ;; Fede Cetta | Executive Producer & Founder | El Cielo Cine - Reconocida por su proyección internacional, sus producciones han participado en festivales de Cannes, Visions du Réel, BAFICI y Ventana Sur. La compañía desarrolla largometrajes, documentales y producciones internacionales premiadas. ;; Natalia Azzato | Producer | El Camino Films - Productora audiovisual con operaciones en Uruguay, Argentina, Brasil y Chile, especializada en brindar soporte de producción en Sudamérica para proyectos internacionales, especialmente de Norteamérica y Europa.",
     variant: "advisors",
-    backgroundMedia: "",
-    overlayOpacity: 0
+    backgroundMedia: "53.png",
+    overlayOpacity: 45
   },
   {
-    id: 54,
+    id: 56,
     title: "ALCANCE OPERATIVO & ROADMAP",
     text: "",
     variant: "roadmap",
@@ -476,7 +492,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 55,
+    id: 57,
     title: "THE FUTURE BELONGS TO BETTER DECISIONS",
     text: "",
     variant: "titulo-chico",
@@ -484,7 +500,25 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 56,
+    id: 58,
+    title: "ROUND",
+    text: "",
+    variant: "titulo-grande",
+    backgroundMedia: "",
+    overlayOpacity: 0
+  },
+  {
+    id: 59,
+    title: "RONDA EARLY SEED",
+    text: `<div class="flex flex-row gap-12 items-stretch w-full max-w-[1200px] mx-auto mt-6"><div class="flex flex-col justify-between w-1/2 gap-6"><div class="grid grid-cols-2 gap-6 h-full"><div class="flex flex-col justify-center items-center p-6 bg-black/70 border border-white/10 rounded-xl text-center backdrop-blur-md"><span class="text-white text-5xl md:text-6xl font-extralight tracking-tight font-jost mb-2">€295K</span><span class="text-geoland-blue text-[10px] tracking-[0.2em] font-medium uppercase mb-1" style="font-family:'Arimo',sans-serif;">Ronda Early Seed</span></div><div class="flex flex-col justify-center items-center p-6 bg-black/70 border border-white/10 rounded-xl text-center backdrop-blur-md"><span class="text-white text-5xl md:text-6xl font-extralight tracking-tight font-jost mb-2">15%</span><span class="text-geoland-blue text-[10px] tracking-[0.2em] font-medium uppercase mb-1" style="font-family:'Arimo',sans-serif;">Equity Ofrecido</span></div><div class="flex flex-col justify-center items-center p-6 bg-black/70 border border-white/10 rounded-xl text-center backdrop-blur-md"><span class="text-white text-5xl md:text-6xl font-extralight tracking-tight font-jost mb-2">€1.7M</span><span class="text-geoland-blue text-[10px] tracking-[0.2em] font-medium uppercase mb-1" style="font-family:'Arimo',sans-serif;">Val. Pre-Money</span></div><div class="flex flex-col justify-center items-center p-6 bg-black/70 border border-white/10 rounded-xl text-center backdrop-blur-md"><span class="text-white text-5xl md:text-6xl font-extralight tracking-tight font-jost mb-2">12m</span><span class="text-geoland-blue text-[10px] tracking-[0.2em] font-medium uppercase mb-1" style="font-family:'Arimo',sans-serif;">Runway Garantizado</span></div></div></div><div class="flex flex-col justify-center w-1/2 p-8 bg-black/70 border border-white/10 rounded-xl backdrop-blur-md text-left"><h3 class="text-white font-jost font-bold text-sm tracking-[0.25em] uppercase mb-6 border-b border-white/10 pb-4 text-left">Uso de Fondos</h3><ul class="space-y-5 text-left text-white/70 font-light text-sm" style="font-family:'Arimo',sans-serif;"><li class="flex items-start gap-3"><span class="text-geoland-blue mt-0.5 font-bold">—</span><span><strong>Equipo</strong> (4 founders full-time)</span></li><li class="flex items-start gap-3"><span class="text-geoland-blue mt-0.5 font-bold">—</span><span><strong>Red local</strong> de scouts, fixers y location managers verificados</span></li><li class="flex items-start gap-3"><span class="text-geoland-blue mt-0.5 font-bold">—</span><span><strong>Dataset de locaciones</strong> e infraestructura tecnológica</span></li><li class="flex items-start gap-3"><span class="text-geoland-blue mt-0.5 font-bold">—</span><span><strong>Pre-lanzamiento</strong> comercial</span></li><li class="flex items-start gap-3"><span class="text-geoland-blue mt-0.5 font-bold">—</span><span><strong>Legal & contable</strong></span></li></ul></div></div>`,
+    variant: "titulo-chico",
+    backgroundMedia: "round.png",
+    overlayOpacity: 45,
+    align: "center-left",
+    maxWidth: "1200px"
+  },
+  {
+    id: 60,
     title: "GEOLAND",
     text: "Decision System for Film Production",
     variant: "portada81",
@@ -492,7 +526,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 45
   },
   {
-    id: 57,
+    id: 61,
     title: "LET'S TALK",
     text: "",
     variant: "titulo-grande",

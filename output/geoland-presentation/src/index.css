@@ -131,3 +131,50 @@
     text-transform: none !important;
   }
 }
+
+@media print {
+  /* Configuración básica de página y scrollbars */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    background-color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Forzamos el tamaño exacto 16:9 y eliminamos los márgenes */
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+
+  /* Desactivamos la escala interactiva del contenedor de la app */
+  main {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Clase para cada slide impreso */
+  .print-slide {
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    width: 1920px !important;
+    height: 1080px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: #000000 !important;
+  }
+
+  /* Desactivar animaciones y filtros CSS durante la impresión */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

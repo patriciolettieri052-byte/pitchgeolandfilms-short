@@ -3,7 +3,7 @@ import Chapter from './components/Chapter';
 import Logo from './components/Logo';
 import NavGrid from './components/NavGrid';
 import { slides } from './data/slides';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { Home } from 'lucide-react';
 
 function App() {
@@ -93,6 +93,41 @@ function App() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [nextSlide, prevSlide, showNavGrid]);
+
+  const isPrint = new URLSearchParams(window.location.search).has('print');
+
+  if (isPrint) {
+    return (
+      <MotionConfig transition={{ duration: 0 }} reducedMotion="always">
+        <div className="bg-black w-full min-h-screen">
+          {/* Slide de Portada (Intro) */}
+          <div className="print-slide relative w-[1920px] h-[1080px] overflow-hidden">
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              <img 
+                src="assets/portada2.jpg" 
+                className="w-full h-full object-cover"
+                alt="portada"
+              />
+              <div className="absolute inset-0 bg-black/60 z-10"></div>
+            </div>
+            <div className="relative z-20 w-full h-full flex items-center justify-center">
+              <Logo intro />
+            </div>
+          </div>
+
+          {/* Diapositivas Secuenciales */}
+          {slides.map((slide) => (
+            <div key={slide.id} className="print-slide relative w-[1920px] h-[1080px] overflow-hidden">
+              <Chapter 
+                {...slide} 
+                overlayOpacity={slide.overlayOpacity}
+              />
+            </div>
+          ))}
+        </div>
+      </MotionConfig>
+    );
+  }
 
   return (
     <>

@@ -15,7 +15,7 @@ const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: s
           <img 
             src="/logo.svg" 
             alt="Geoland OS Logo" 
-            className="w-full h-auto brightness-200 invert"
+            className="w-full h-auto brightness-200 invert keep-filter"
             style={{ 
               filter: 'invert(1) brightness(2)',
               display: 'block'

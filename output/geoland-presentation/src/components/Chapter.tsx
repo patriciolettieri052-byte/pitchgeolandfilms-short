@@ -20,7 +20,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -157,14 +157,21 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
       >
         {backgroundMedia && (
           isVideo ? (
-            <video 
-              src={backgroundMedia.startsWith('backtesting') || backgroundMedia.startsWith('escala') ? `assets/${backgroundMedia}` : `assets/${backgroundMedia}`}
-              autoPlay 
-              muted
-              loop 
-              playsInline 
-              className="w-full h-full object-cover"
-            />
+            <>
+              <video 
+                src={backgroundMedia.startsWith('backtesting') || backgroundMedia.startsWith('escala') ? `assets/${backgroundMedia}` : `assets/${backgroundMedia}`}
+                autoPlay 
+                muted
+                loop 
+                playsInline 
+                className="w-full h-full object-cover print:hidden"
+              />
+              <img 
+                src={`assets/${backgroundMedia.replace(/\.mp4$/i, '.jpg')}`} 
+                className="w-full h-full object-cover hidden print:block"
+                alt="background-poster"
+              />
+            </>
           ) : (
             <img 
               src={`assets/${backgroundMedia}`} 
@@ -175,7 +182,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         )}
         {/* Dark Overlay - ensures text readability */}
         <div 
-          className="absolute inset-0 bg-black z-10" 
+          className="absolute inset-0 bg-black z-10 bg-overlay-dark" 
           style={{ opacity: (overlayOpacity ?? 60) / 100 }}
         />
       </motion.div>
@@ -236,7 +243,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 return (
                   <>
                     {/* Top Row */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4 print:grid-cols-4 gap-4">
                       {reviews.slice(0, 4).map((r, i) => (
                         <motion.div
                           key={`top-${i}`}
@@ -256,7 +263,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
 
                     {/* Bottom Row */}
                     {reviews.length > 4 && (
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-4 print:grid-cols-4 gap-4">
                         {reviews.slice(4, 8).map((r, i) => (
                           <motion.div
                             key={`bottom-${i}`}
@@ -383,7 +390,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 {title}
               </motion.div>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 print:grid-cols-4 gap-6">
               {parseBacktestStats(text).map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -415,7 +422,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 {title}
               </motion.div>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-4 print:grid-cols-4 gap-6 mb-16">
               {parseBacktestCities(text).map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -464,7 +471,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           </div>
         ) : variant === 'numeric' ? (
           <div className="w-full max-w-[1400px] mx-auto py-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 justify-center items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-16 md:gap-32 print:gap-32 justify-center items-center">
               {parseNumeric(text).map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -507,7 +514,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             </motion.div>
             
             {/* Columns Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-x-20 md:gap-y-0 justify-center items-start w-full">
+            <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-12 md:gap-x-20 print:gap-x-20 md:gap-y-0 print:gap-y-0 justify-center items-start w-full">
               {/* TAM Column */}
               <motion.div 
                 variants={itemVariants}
@@ -730,6 +737,156 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </span>
               </motion.div>
             </div>
+          </div>
+        ) : variant === 'pricing' ? (
+          <div className="w-full max-w-[1250px] mx-auto py-6 px-4 flex flex-col justify-center items-center min-h-[85vh] select-none font-jost">
+            {/* Slide Title */}
+            <motion.div 
+              variants={itemVariants} 
+              className="text-center mb-8 uppercase text-white/50 tracking-[0.25em]"
+              style={{
+                fontFamily: "'Arimo', sans-serif",
+                fontSize: '13px',
+                fontWeight: 500
+              }}
+            >
+              ESTRUCTURA DE PRECIOS Y MODELO DE INGRESOS
+            </motion.div>
+            
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8 w-full items-stretch justify-center mb-8">
+              {/* Card 1: On-Demand */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-8 justify-between"
+              >
+                <div className="flex flex-col space-y-6">
+                  <div>
+                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">1. ON-DEMAND</h3>
+                    <div className="flex items-baseline gap-2 mt-3">
+                      <span className="text-4xl font-light text-white font-jost">€349</span>
+                      <span className="text-xs text-white/40 uppercase tracking-widest">/ PROYECTO</span>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t border-white/5 pt-4">
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
+                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">SCOUTS & PRODUCTORAS INDEPENDIENTES</h4>
+                    <p className="text-xs text-white/50 leading-relaxed font-light font-arimo">
+                      Ideal para validación inicial y proyectos puntuales sin costos fijos.
+                    </p>
+                  </div>
+                  
+                  <div className="border-t border-white/5 pt-4">
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <ul className="space-y-2 text-xs text-white/70 font-light list-disc pl-4 font-arimo">
+                      <li>G-Score por escena y locación</li>
+                      <li>Carga e interpretación básica de guion</li>
+                      <li>Filtro inicial de permisos</li>
+                      <li>Exportación de reporte PDF</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <button className="w-full py-3 border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 hover:text-white rounded-xl text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300">
+                    SELECCIONAR
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Card 2: Production Hub (Highlighted) */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col bg-white/[0.07] border border-white rounded-2xl p-8 justify-between relative shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+              >
+                <div className="flex flex-col space-y-6">
+                  <div>
+                    <h3 className="text-white/85 text-xs tracking-[0.15em] font-semibold uppercase">2. PRODUCTION HUB</h3>
+                    <div className="flex items-baseline gap-2 mt-3">
+                      <span className="text-4xl font-medium text-white font-jost">€899</span>
+                      <span className="text-xs text-white/50 uppercase tracking-widest">/ MES</span>
+                    </div>
+                    <span className="text-[10px] text-white/40 block mt-1 font-jost">€10.788 / AÑO</span>
+                  </div>
+                  
+                  <div className="border-t border-white/10 pt-4">
+                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
+                    <h4 className="text-xs text-white font-bold uppercase tracking-wider mb-2 font-arimo">PRODUCTORAS MEDIANAS & AGENCIAS</h4>
+                    <p className="text-xs text-white/60 leading-relaxed font-light font-arimo">
+                      Escalabilidad continua, multiusuario y optimización de recursos recurrentes.
+                    </p>
+                  </div>
+                  
+                  <div className="border-t border-white/10 pt-4">
+                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <ul className="space-y-2 text-xs text-white/80 font-light list-disc pl-4 font-arimo">
+                      <li>3 proyectos activos en simultáneo</li>
+                      <li>Análisis multi-escena y multi-locación</li>
+                      <li>Production Board + memoria operacional</li>
+                      <li>Soporte prioritario</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <button className="w-full py-3 bg-white text-black hover:bg-white/90 rounded-xl text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-md">
+                    MÁS POPULAR
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Card 3: Enterprise */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-8 justify-between"
+              >
+                <div className="flex flex-col space-y-6">
+                  <div>
+                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">3. ENTERPRISE</h3>
+                    <div className="flex items-baseline gap-2 mt-3 flex-wrap">
+                      <span className="text-3xl font-light text-white font-jost">€3K - €15K+</span>
+                      <span className="text-xs text-white/40 uppercase tracking-widest">/ MES</span>
+                    </div>
+                    <span className="text-[10px] text-white/30 block mt-1 font-jost">€36K - €180K+ / AÑO</span>
+                  </div>
+                  
+                  <div className="border-t border-white/5 pt-4">
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
+                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">GRANDES PRODUCTORAS & STUDIOS</h4>
+                    <p className="text-xs text-white/50 leading-relaxed font-light font-arimo">
+                      Soluciones a gran escala, automatización y máxima gobernanza de datos.
+                    </p>
+                  </div>
+                  
+                  <div className="border-t border-white/5 pt-4">
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <ul className="space-y-2 text-xs text-white/70 font-light list-disc pl-4 font-arimo">
+                      <li>Volumen ilimitado de proyectos</li>
+                      <li>Data layer dedicado</li>
+                      <li>Memoria operacional privada</li>
+                      <li>SSO, auditoría, API e integraciones</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <button className="w-full py-3 border border-white/20 hover:border-white/40 hover:bg-white/5 text-white/80 hover:text-white rounded-xl text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300">
+                    CONTACTAR VENTAS
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Footer Text */}
+            <motion.div 
+              variants={itemVariants}
+              className="text-center mt-4 border-t border-white/5 pt-6 w-full max-w-[1250px]"
+            >
+              <p className="text-[10px] text-white/35 font-arimo uppercase tracking-wider">
+                ARR estimado. Márgenes protegidos por escalabilidad basada en consumo.
+              </p>
+            </motion.div>
           </div>
         ) : variant === 'soluciones-grid' ? (
           <div className="w-full max-w-[1000px] mx-auto flex flex-col justify-center min-h-[78vh] py-12 px-4 select-none">
