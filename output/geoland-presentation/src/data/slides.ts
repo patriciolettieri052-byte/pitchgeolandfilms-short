@@ -286,7 +286,7 @@ export const slides: SlideData[] = [
   {
     id: 32,
     title: "Continuidad visual entre ciudades distintas.",
-    text: "El guion pide París, Viena y una ciudad alpina, pero GEOLAND detecta que varias escenas pueden resolverse en un único cluster operativo en Budapest y alrededores, manteniendo continuidad visual europea mediante calles, fachadas, interiores institucionales y rooftops compatibles. El sistema reduce cambios de ciudad, evita traslados largos, reutiliza iluminación, concentra permisos y mantiene una coherencia estética que el espectador no percibiría como sustitución. Eso convierte tres países en una operación mucho más simple.",
+    text: "El guion pedía París, Viena y una ciudad alpina, pero GEOLAND detectó que varias escenas podían resolverse en un único cluster operativo en Budapest y alrededores, manteniendo continuidad visual europea. Menos traslados, menos permisos y menor complejidad operativa, sin que el espectador percibiera la sustitución.",
     variant: "titulo-cuerpo-bold",
     backgroundMedia: "33.mp4",
     overlayOpacity: 45,
@@ -296,7 +296,7 @@ export const slides: SlideData[] = [
   {
     id: 33,
     title: "El rebate que no conviene.",
-    text: "Una producción quiere elegir una ciudad por su incentivo fiscal más alto, pero GEOLAND calcula que la distancia entre locaciones, la falta de proveedores técnicos cercanos y la complejidad de permisos anulan gran parte del beneficio. Recomienda otra ciudad con menor rebate, pero con estudios, rental houses, hoteles, crew local, hospitales y accesos logísticos dentro de un radio de 25 minutos.  El sistema demuestra que el \"mejor incentivo\" no siempre es la mejor decisión económica. Y en segundos.",
+    text: "Una ciudad ofreció el incentivo fiscal más alto, pero GEOLAND detectó que permisos, distancias y falta de proveedores anulaban parte del beneficio. Recomendó otra con menor incentivo, pero mejor infraestructura, crew local y logística: el mayor incentivo fiscal no siempre es la mejor decisión económica.",
     variant: "titulo-cuerpo-bold",
     backgroundMedia: "34.mp4",
     overlayOpacity: 45,
