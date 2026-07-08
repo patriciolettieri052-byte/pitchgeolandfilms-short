@@ -12,13 +12,11 @@ const F = {
 };
 
 const ValidationCard: React.FC<{
-  tag: string;
-  title: string;
   statNumber: string;
   statLabel: string;
   subtext: string;
   delay: number;
-}> = ({ tag, title, statNumber, statLabel, subtext, delay }) => (
+}> = ({ statNumber, statLabel, subtext, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
@@ -27,11 +25,9 @@ const ValidationCard: React.FC<{
       borderColor: 'rgba(247,246,237,0.18)',
       background: 'rgba(12,12,12,0.85)',
     }}
-    // @ts-ignore
-    transition2={{ duration: 0.35 }}
     style={{
       border: `1px solid ${F.border}`,
-      padding: '32px 28px',
+      padding: '24px',
       display: 'flex',
       flexDirection: 'column',
       background: 'rgba(8,8,8,0.5)',
@@ -41,54 +37,30 @@ const ValidationCard: React.FC<{
       borderRadius: '8px'
     }}
   >
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'center', textAlign: 'center' }}>
+      <span style={{
+        fontFamily: F.gothic,
+        fontSize: 'clamp(3rem, 4.5vw, 4rem)',
+        color: F.white,
+        lineHeight: 0.9,
+        letterSpacing: '-0.02em',
+        fontWeight: 'normal',
+        marginBottom: '8px'
+      }}>
+        {statNumber}
+      </span>
       <p style={{
-        fontFamily: F.arimo, fontSize: '9px', letterSpacing: '0.3em',
-        textTransform: 'uppercase', color: F.dimRed, margin: '0 0 8px 0'
+        fontFamily: F.arimo, fontSize: '10px', letterSpacing: '0.15em',
+        textTransform: 'uppercase', color: F.dimBr, margin: '0 0 12px 0', fontWeight: 'bold'
       }}>
-        {tag}
+        {statLabel}
       </p>
-
-      <h2 style={{
-        fontFamily: F.gothic, fontSize: 'clamp(1.5rem,2.5vw,2.2rem)',
-        textTransform: 'uppercase', letterSpacing: '0.05em', color: F.white,
-        fontWeight: 'normal', margin: '0 0 16px 0', lineHeight: 1
+      <div style={{ width: '40px', height: 1, background: 'rgba(247,246,237,0.15)', marginBottom: 12 }} />
+      <p style={{
+        fontFamily: F.arimo, fontSize: '11px', lineHeight: 1.5, color: F.dim, margin: 0, flexGrow: 1
       }}>
-        {title}
-      </h2>
-
-      <div style={{ width: '100%', height: 1, background: 'rgba(247,246,237,0.06)', marginBottom: 20 }} />
-
-      <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-          <span style={{
-            fontFamily: F.gothic,
-            fontSize: 'clamp(4rem, 6.5vw, 6rem)',
-            color: F.white,
-            lineHeight: 0.8,
-            flexShrink: 0,
-            letterSpacing: '-0.02em',
-            fontWeight: 'normal',
-          }}>
-            {statNumber}
-          </span>
-          <div style={{ paddingTop: 2 }}>
-            <p style={{
-              fontFamily: F.gothic, fontSize: 'clamp(0.8rem,1.3vw,1.1rem)',
-              textTransform: 'uppercase', letterSpacing: '0.07em', color: F.dimBr,
-              margin: '0', fontWeight: 'normal', lineHeight: 1.1
-            }}>
-              {statLabel}
-            </p>
-          </div>
-        </div>
-
-        <p style={{
-          fontFamily: F.arimo, fontSize: '11px', lineHeight: 1.6, color: F.dim, margin: 0
-        }}>
-          {subtext}
-        </p>
-      </div>
+        {subtext}
+      </p>
     </div>
   </motion.div>
 );
@@ -96,79 +68,67 @@ const ValidationCard: React.FC<{
 const ValidationHud: React.FC = () => {
   return (
     <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-      overflow: 'hidden',
-      background: '#000000',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '24px'
+      position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: '120px', paddingRight: '120px'
     }}>
-      {/* Title */}
-      <motion.h1
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.05 }}
-        style={{
-          fontFamily: F.gothic,
-          fontSize: 'clamp(1.8rem, 3.5vw, 3.2rem)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.12em',
-          color: F.white,
-          fontWeight: 'normal',
-          margin: '0 0 12px 0',
-          textAlign: 'center',
-          lineHeight: 1,
-        }}
-      >
-        VALIDACIÓN INICIAL
-      </motion.h1>
-
-      {/* Subtitle */}
-      <p style={{
-        fontFamily: F.arimo,
-        fontSize: '10px',
-        letterSpacing: '0.12em',
-        color: 'rgba(247,246,237,0.4)',
-        margin: '0 0 40px 0',
-        textTransform: 'uppercase',
-        textAlign: 'center',
-        maxWidth: '650px',
-        lineHeight: 1.5
-      }}>
-        Módulo de pruebas operativas privadas con productoras asociadas de mercados seleccionados
-      </p>
+      {/* Header Section */}
+      <div className="w-full max-w-[1000px] mb-12">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-start text-left max-w-[900px]"
+        >
+          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+            BETA NETWORK
+          </span>
+          <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
+            VALIDACIÓN INICIAL
+          </h1>
+          <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
+            Módulo de pruebas operativas privadas con productoras asociadas de mercados seleccionados.
+          </p>
+        </motion.div>
+      </div>
 
       {/* Grid container */}
-      <div style={{ width: '100%', maxWidth: '900px' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1px 1fr',
-          gap: '0 40px',
-          width: '100%',
-          alignItems: 'stretch',
-        }}>
+      <div style={{ width: '100%', maxWidth: '1400px' }}>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
           <ValidationCard
-            tag="BETA NETWORK"
-            title="PRODUCTORAS ACTIVAS"
-            statNumber="6"
-            statLabel="PRODUCTORAS DE CINE"
-            subtext="Actualmente testeando y nutriendo el sistema de manera privada."
+            statNumber="10"
+            statLabel="MESES"
+            subtext="Probando el sistema en entornos reales."
+            delay={0.1}
+          />
+          <ValidationCard
+            statNumber="3"
+            statLabel="CIUDADES OPERATIVAS"
+            subtext="Barcelona, Madrid y Lisboa."
             delay={0.2}
           />
-
-          <div style={{ width: 1, background: 'rgba(247,246,237,0.08)', alignSelf: 'stretch' }} />
-
           <ValidationCard
-            tag="COMMERCIAL DEMAND"
-            title="VALIDACIÓN DE PAGO"
-            statNumber="4"
-            statLabel="PRODUCTORAS INTERESADAS"
-            subtext="De las 6 productoras activas, afirman explícitamente que pagarían por un producto con estas características."
+            statNumber="6"
+            statLabel="PRODUCTORAS ACTIVAS"
+            subtext="Testeando y nutriendo el sistema."
             delay={0.3}
+          />
+          <ValidationCard
+            statNumber="+620"
+            statLabel="PROCESOS"
+            subtext="Análisis y búsquedas operativas completadas."
+            delay={0.4}
+          />
+          <ValidationCard
+            statNumber="5/6"
+            statLabel="USO RECURRENTE"
+            subtext="Productoras con uso constante de la herramienta."
+            delay={0.5}
+          />
+          <ValidationCard
+            statNumber="60%"
+            statLabel="PARA PRESUPUESTOS"
+            subtext="El sistema ya está integrado en decisiones financieras reales, no solo en búsquedas exploratorias."
+            delay={0.6}
           />
         </div>
       </div>

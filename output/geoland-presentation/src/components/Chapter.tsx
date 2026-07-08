@@ -8,6 +8,17 @@ import DiagramaExpansion from './DiagramaExpansion';
 import RoadmapCinematic from './RoadmapCinematic';
 import AdvisorsHud from './AdvisorsHud';
 import ValidationHud from './ValidationHud';
+import HowItWorksHud from './HowItWorksHud';
+import CaseStudyHud from './CaseStudyHud';
+import FinancialHud from './FinancialHud';
+import RoundHud from './RoundHud';
+import ProblemHud1 from './ProblemHud1';
+import ProblemHud2 from './ProblemHud2';
+import ProblemHud3 from './ProblemHud3';
+import ProblemHud4 from './ProblemHud4';
+import ProblemHud5 from './ProblemHud5';
+import IdeaHud from './IdeaHud';
+import VisionCards from './VisionCards';
 
 interface ChapterProps {
   id: number;
@@ -20,7 +31,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -30,13 +41,18 @@ interface ChapterProps {
 
 
 
-const getBigTitleStyle = (text: string) => {
+const getBigTitleStyle = (text: string, titleSize?: string) => {
   const length = text.replace(/<[^>]*>/g, '').length;
   let fontSize = 470;
   if (length > 8) {
     fontSize = Math.min(470, 1920 / (length * 0.35));
   }
   fontSize = fontSize * 0.85; // 15% reduction
+  if (titleSize === "small") {
+    fontSize = fontSize * 0.8; // 20% further reduction
+  } else if (titleSize && !isNaN(Number(titleSize))) {
+    fontSize = fontSize * Number(titleSize);
+  }
   fontSize = Math.max(50, fontSize);
   return {
     fontSize: `${fontSize}px`,
@@ -199,11 +215,11 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
-        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' ? { width: '100%', height: '100%' } : { 
-          maxWidth: maxWidth || (variant?.startsWith('backtest') || variant === 'business-units' || variant === 'reviews' ? '1400px' : '1045px'),
-          paddingLeft: align === 'left' ? ((id >= 24 && id <= 29) || id === 34 ? '120px' : '50px') : undefined,
-          paddingRight: align === 'right' ? ((id >= 24 && id <= 29) || id === 34 ? '120px' : '50px') : undefined
+        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
+        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' ? { width: '100%', height: '100%' } : { 
+          maxWidth: maxWidth || (variant?.startsWith('backtest') || variant === 'business-units' || variant === 'reviews' ? '1400px' : '1400px'),
+          paddingLeft: '120px',
+          paddingRight: '120px'
         }}
       >
         {variant === 'reviews' ? (
@@ -499,19 +515,24 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             </div>
           </div>
         ) : variant === 'market' ? (
-          <div className="w-full max-w-[1150px] mx-auto py-8 px-4 flex flex-col justify-center items-center min-h-[80vh] select-none">
-            {/* Slide Title */}
-            <motion.div 
-              variants={itemVariants} 
-              className="text-center mb-16 md:mb-20 uppercase text-white/50 tracking-[0.25em]"
-              style={{
-                fontFamily: "'Arimo', sans-serif",
-                fontSize: '13px',
-                fontWeight: 500
-              }}
-            >
-              TAMAÑO DE MERCADO
-            </motion.div>
+          <div className="w-full max-w-[1400px] py-8 px-4 flex flex-col justify-center items-start min-h-[80vh] select-none">
+            {/* Header Section */}
+            <div className="w-full mb-16">
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col items-start text-left max-w-[900px]"
+              >
+                <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                  {overline || "MERCADO"}
+                </span>
+                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
+                  TAMAÑO DE MERCADO
+                </h1>
+                <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
+                  Compañías productoras a nivel global.
+                </p>
+              </motion.div>
+            </div>
             
             {/* Columns Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-12 md:gap-x-20 print:gap-x-20 md:gap-y-0 print:gap-y-0 justify-center items-start w-full">
@@ -553,7 +574,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                       fontSize: '13.5px'
                     }}
                   >
-                    Mercado total potencial global
+                    Compañías productoras a nivel global.
                   </p>
                 </div>
 
@@ -739,19 +760,24 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             </div>
           </div>
         ) : variant === 'pricing' ? (
-          <div className="w-full max-w-[1250px] mx-auto py-6 px-4 flex flex-col justify-center items-center min-h-[85vh] select-none font-jost">
-            {/* Slide Title */}
-            <motion.div 
-              variants={itemVariants} 
-              className="text-center mb-8 uppercase text-white/50 tracking-[0.25em]"
-              style={{
-                fontFamily: "'Arimo', sans-serif",
-                fontSize: '13px',
-                fontWeight: 500
-              }}
-            >
-              ESTRUCTURA DE PRECIOS Y MODELO DE INGRESOS
-            </motion.div>
+          <div className="w-full max-w-[1400px] py-6 px-4 flex flex-col justify-center items-start min-h-[85vh] select-none font-jost">
+            {/* Header Section */}
+            <div className="w-full mb-16">
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col items-start text-left max-w-[900px]"
+              >
+                <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                  {overline || "MODELO DE NEGOCIO"}
+                </span>
+                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
+                  ESTRUCTURA DE PRECIOS
+                </h1>
+                <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
+                  Modelo de ingresos basado en volumen y escalabilidad.
+                </p>
+              </motion.div>
+            </div>
             
             {/* Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-8 w-full items-stretch justify-center mb-8">
@@ -889,20 +915,21 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             </motion.div>
           </div>
         ) : variant === 'soluciones-grid' ? (
-          <div className="w-full max-w-[1000px] mx-auto flex flex-col justify-center min-h-[78vh] py-12 px-4 select-none">
+          <div className="w-full max-w-[1400px] flex flex-col justify-center min-h-[78vh] py-12 px-4 select-none">
             {title && (
-              <div className="w-full flex justify-center mb-16">
-                <motion.h2 
+              <div className="w-full mb-16">
+                <motion.div 
                   variants={itemVariants}
-                  className="text-center max-w-[883px] mx-auto uppercase text-white/50 tracking-[0.2em]"
-                  style={{ 
-                    fontFamily: "'Arimo', sans-serif",
-                    fontSize: '15px', 
-                    fontWeight: 500,
-                    lineHeight: '1.4', 
-                  }}
-                  dangerouslySetInnerHTML={{ __html: title }}
-                />
+                  className="flex flex-col items-start text-left max-w-[900px]"
+                >
+                  <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                    {overline || "COMPETENCIA"}
+                  </span>
+                  <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title.replace('<br/>', ' ') }} />
+                  {text && text.includes(';;') === false && (
+                    <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light" dangerouslySetInnerHTML={{ __html: text }} />
+                  )}
+                </motion.div>
               </div>
             )}
             
@@ -948,20 +975,21 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
             </div>
           </div>
         ) : variant === 'diagrama-fuentes' ? (
-          <div className="w-full max-w-[1400px] mx-auto py-8 flex flex-col justify-between h-[80vh]">
+          <div className="w-full max-w-[1400px] pt-2 pb-8 flex flex-col justify-start h-[85vh] gap-2">
             {title && (
-              <div className="w-full flex justify-center mb-4">
-                <motion.h2 
+              <div className="w-full mb-2">
+                <motion.div 
                   variants={itemVariants}
-                  className="text-center max-w-[883px] mx-auto uppercase text-white/50 tracking-[0.2em]"
-                  style={{ 
-                    fontFamily: "'Arimo', sans-serif",
-                    fontSize: '15px', 
-                    fontWeight: 500,
-                    lineHeight: '1.4', 
-                  }}
-                  dangerouslySetInnerHTML={{ __html: title }}
-                />
+                  className="flex flex-col items-center text-center max-w-[900px] mx-auto"
+                >
+                  <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+                    {overline || "DATA ARCHITECTURE"}
+                  </span>
+                  <h1 className="text-white font-gothic text-4xl md:text-5xl tracking-wide uppercase mb-3" dangerouslySetInnerHTML={{ __html: title }} />
+                  {text && (
+                    <p className="text-white/70 font-arimo text-sm md:text-base leading-relaxed font-light" dangerouslySetInnerHTML={{ __html: text.replace('<br/>', ' ') }} />
+                  )}
+                </motion.div>
               </div>
             )}
             
@@ -969,17 +997,31 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               <DiagramaFuentes />
             </div>
             
-            {text && (
-              <motion.div variants={itemVariants} className="mt-10 text-center max-w-2xl mx-auto z-30">
-                <p 
-                  className="texto-fuentes-descripcion leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: text }}
-                />
-              </motion.div>
-            )}
           </div>
         ) : variant === 'validation-hud' ? (
           <ValidationHud />
+        ) : variant === 'how-it-works-hud' ? (
+          <HowItWorksHud />
+        ) : variant === 'case-study-hud' ? (
+          <CaseStudyHud />
+        ) : variant === 'financial-hud' ? (
+          <FinancialHud />
+        ) : variant === 'round-hud' ? (
+          <RoundHud />
+        ) : variant === 'problem-hud-1' ? (
+          <ProblemHud1 />
+        ) : variant === 'problem-hud-2' ? (
+          <ProblemHud2 />
+        ) : variant === 'problem-hud-3' ? (
+          <ProblemHud3 />
+        ) : variant === 'problem-hud-4' ? (
+          <ProblemHud4 />
+        ) : variant === 'problem-hud-5' ? (
+          <ProblemHud5 />
+        ) : variant === 'idea-hud' ? (
+          <IdeaHud />
+        ) : variant === 'vision-cards' ? (
+          <VisionCards />
         ) : variant === 'advisors' ? (
           <AdvisorsHud title={title} text={text} />
         ) : variant === 'roadmap' ? (
@@ -987,6 +1029,17 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         ) : variant === 'titulo-grande' ? (
           text ? (
             <div className={`flex flex-col w-fit ${align === 'left' ? 'items-start text-left mr-auto' : align === 'right' ? 'items-end text-right ml-auto' : 'items-start text-left mx-auto'}`} style={{ maxWidth: maxWidth || '1000px' }}>
+              <motion.div 
+                variants={itemVariants}
+                className="relative w-48 md:w-60 h-auto mb-8"
+              >
+                <img 
+                  src="/logo.svg" 
+                  alt="Geoland OS Logo" 
+                  className="w-full h-auto brightness-200 invert keep-filter"
+                  style={{ filter: 'invert(1) brightness(2)' }} 
+                />
+              </motion.div>
               {title && (
                 <motion.h2 
                   variants={itemVariants}
@@ -1008,7 +1061,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 <motion.h2 
                   variants={itemVariants}
                   className="titulo-grande-cinematic mb-8"
-                  style={getBigTitleStyle(title)}
+                  style={getBigTitleStyle(title, titleSize)}
                 >
                   <span dangerouslySetInnerHTML={{ __html: title }} />
                 </motion.h2>

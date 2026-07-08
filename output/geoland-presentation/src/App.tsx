@@ -111,7 +111,7 @@ function App() {
               <div className="absolute inset-0 bg-black/60 z-10"></div>
             </div>
             <div className="relative z-20 w-full h-full flex items-center justify-center">
-              <Logo intro />
+              <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" />
             </div>
           </div>
 
@@ -204,7 +204,7 @@ function App() {
               <div className="absolute inset-0 bg-black/60 z-10"></div>
             </div>
             <div className="relative z-20 w-full h-full flex items-center justify-center">
-              <Logo intro />
+              <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" />
             </div>
           </motion.div>
         )}

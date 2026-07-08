@@ -32,7 +32,7 @@ export const DiagramaFuentes: React.FC = () => {
   return (
     <div className="w-full h-full flex items-center justify-center relative select-none">
       {/* Scaling Container to fit slide dimensions perfectly */}
-      <div className="relative w-[1100px] h-[500px] shrink-0 scale-[1.35] transition-transform origin-center">
+      <div className="relative w-[1100px] h-[500px] shrink-0 scale-[1.15] md:scale-[1.2] transition-transform origin-center">
         
         {/* SVG Canvas for connection lines and joints */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none">

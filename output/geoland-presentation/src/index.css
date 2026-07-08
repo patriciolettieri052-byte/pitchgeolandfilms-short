@@ -22,18 +22,17 @@
 
   /* Global typography rules per briefing */
   h1, h2, h3, h4, .title {
-    @apply uppercase font-extralight text-center; /* Weight 200 */
-    color: #F7F6ED !important;
+    @apply uppercase;
+    color: #F7F6ED;
   }
 
   .subtitle {
     @apply font-normal; /* Weight 400 */
-    color: #F7F6ED !important;
+    color: #F7F6ED;
   }
 
   p, span, div, .body-text {
-    @apply font-extralight; /* Weight 200 */
-    color: #F7F6ED !important;
+    color: #F7F6ED;
   }
 
   strong, b {

@@ -10,6 +10,8 @@ export default {
         jost: ['Jost', 'sans-serif'],
         cormorant: ['Cormorant', 'serif'],
         monsieur: ['"Monsieur La Doulaise"', 'cursive'],
+        gothic: ['"League Gothic"', 'sans-serif'],
+        arimo: ['Arimo', 'sans-serif'],
       },
       colors: {
         white: '#F7F6ED',

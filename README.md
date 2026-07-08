@@ -6,7 +6,7 @@ Presentación interactiva y cinemática en formato web para **GEOLAND Films** (D
 
 Este repositorio está preconfigurado con una GitHub Action para desplegarse automáticamente.
 1. Al subir los cambios a la rama `main`, la GitHub Action compilará el proyecto y lo publicará en la rama `gh-pages`.
-2. Podrás acceder a la presentación desde: `https://<tu-usuario-de-github>.github.io/geoland-pitch-films-fc/`
+2. Podrás acceder a la presentación desde: `https://<tu-usuario-de-github>.github.io/pitchgeolandfilms-short/`
 
 ---
 
