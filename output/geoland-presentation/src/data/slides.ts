@@ -76,7 +76,7 @@ export const slides: SlideData[] = [
     text: "",
     variant: "idea-hud",
     backgroundMedia: "29.png",
-    overlayOpacity: 75
+    overlayOpacity: 55
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ export const slides: SlideData[] = [
   {
     id: 10,
     title: "FUENTES DE DATOS DEL SISTEMA",
-    text: "Toda esta información se cruza con el PSV para recomendar qué locación conviene,<br/>por qué, con qué riesgos, a qué coste y cómo hacerla filmable.",
+    text: "",
     variant: "diagrama-fuentes",
     backgroundMedia: "17.mp4",
     overlayOpacity: 85
@@ -109,6 +109,7 @@ export const slides: SlideData[] = [
   },
   {
     id: 13,
+    title: "Un mercado global de USD 360B anuales",
     text: "",
     variant: "market",
     backgroundMedia: "9.png",

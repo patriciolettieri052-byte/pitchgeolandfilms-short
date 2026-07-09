@@ -525,9 +525,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MERCADO"}
                 </span>
-                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-                  TAMAÑO DE MERCADO
-                </h1>
+                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || "Un mercado global de USD 360B anuales" }} />
                 <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
                   Compañías productoras a nivel global.
                 </p>
