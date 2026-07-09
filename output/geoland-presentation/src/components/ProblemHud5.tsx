@@ -13,7 +13,7 @@ const MetricCard: React.FC<{
     transition={{ duration: 0.6, delay, ease: 'easeOut' }}
     className="flex flex-col items-center justify-center text-center bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md h-full min-h-[160px]"
   >
-    <div className="text-[#e27329] text-[36px] md:text-[44px] font-gothic tracking-wide uppercase mb-3 leading-none">
+    <div className="text-white text-[36px] md:text-[44px] font-gothic tracking-wide uppercase mb-3 leading-none">
       {value}
     </div>
     <p className="text-white/50 text-[11px] md:text-[12px] font-arimo font-light leading-normal max-w-[220px]">
@@ -34,7 +34,7 @@ const ProblemHud5: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             EL PROBLEMA
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">

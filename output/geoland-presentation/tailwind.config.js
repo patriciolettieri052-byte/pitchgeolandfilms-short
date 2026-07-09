@@ -16,7 +16,7 @@ export default {
       colors: {
         white: '#F7F6ED',
         geoland: {
-          blue: '#38bdf8', // Blue for highlighted titles
+          blue: '#F7F6ED', // Changed blue highlights to project white
         }
       },
       fontWeight: {

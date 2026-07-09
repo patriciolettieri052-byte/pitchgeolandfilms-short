@@ -14,7 +14,7 @@ const ProblemHud3: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             EL PROBLEMA
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6 leading-[1.1]">
@@ -31,14 +31,14 @@ const ProblemHud3: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md shadow-2xl"
           >
-            <TriangleAlert size={32} className="text-[#e27329] mb-6" strokeWidth={1.5} />
-            <h2 className="text-[#e27329] text-[50px] md:text-[64px] font-gothic tracking-wide uppercase mb-2 leading-none">
+            <TriangleAlert size={32} className="text-white mb-6" strokeWidth={1.5} />
+            <h2 className="text-white text-[50px] md:text-[64px] font-gothic tracking-wide uppercase mb-2 leading-none">
               1 DE CADA 7
             </h2>
             <p className="text-white text-xl md:text-[24px] font-bold font-arimo leading-[1.2] mb-6">
               permisos de rodaje en locación<br/>genera una incidencia formal.
             </p>
-            <div className="w-10 h-[1px] bg-[#e27329] mb-6"></div>
+            <div className="w-10 h-[1px] bg-white mb-6"></div>
             <p className="text-white/40 text-xs md:text-sm font-arimo italic leading-relaxed">
               Fuente: Los Angeles County / FilmLA FY 2021–2022.<br/>
               399 concerns sobre 2.741 permisos.

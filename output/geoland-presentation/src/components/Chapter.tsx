@@ -417,7 +417,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                     {item.label}
                   </span>
                   <div className="flex items-baseline gap-1 mb-4">
-                    <span className={`text-4xl md:text-5xl font-cormorant font-bold ${item.color === 'green' ? 'text-[#4a7c59]' : item.color === 'red' ? 'text-[#8b0000]' : 'text-white'}`}>
+                    <span className={`text-4xl md:text-5xl font-cormorant font-bold ${item.color === 'green' ? 'text-[#F7F6ED]' : item.color === 'red' ? 'text-[#F7F6ED]' : 'text-white'}`}>
                       {item.value.split('/')[0]}
                     </span>
                     {item.value.includes('/') && (
@@ -459,7 +459,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                       initial={{ width: 0 }}
                       animate={{ width: `${item.percentage}%` }}
                       transition={{ ...transition, delay: 0.35 + idx * 0.1 }}
-                      className="absolute inset-y-0 left-0 bg-[#4a7c59]"
+                      className="absolute inset-y-0 left-0 bg-[#F7F6ED]"
                     />
                   </div>
 
@@ -522,7 +522,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 variants={itemVariants}
                 className="flex flex-col items-start text-left max-w-[900px]"
               >
-                <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MERCADO"}
                 </span>
                 <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
@@ -767,7 +767,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 variants={itemVariants}
                 className="flex flex-col items-start text-left max-w-[900px]"
               >
-                <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MODELO DE NEGOCIO"}
                 </span>
                 <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
@@ -922,7 +922,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                   variants={itemVariants}
                   className="flex flex-col items-start text-left max-w-[900px]"
                 >
-                  <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                  <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                     {overline || "COMPETENCIA"}
                   </span>
                   <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title.replace('<br/>', ' ') }} />
@@ -982,7 +982,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                   variants={itemVariants}
                   className="flex flex-col items-center text-center max-w-[900px] mx-auto"
                 >
-                  <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+                  <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
                     {overline || "DATA ARCHITECTURE"}
                   </span>
                   <h1 className="text-white font-gothic text-4xl md:text-5xl tracking-wide uppercase mb-3" dangerouslySetInnerHTML={{ __html: title }} />
@@ -1028,7 +1028,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           <RoadmapCinematic title={title} />
         ) : variant === 'titulo-grande' ? (
           text ? (
-            <div className={`flex flex-col w-fit ${align === 'left' ? 'items-start text-left mr-auto' : align === 'right' ? 'items-end text-right ml-auto' : 'items-start text-left mx-auto'}`} style={{ maxWidth: maxWidth || '1000px' }}>
+            <div className={`flex flex-col w-fit ${align === 'left' ? 'items-start text-left mr-auto' : align === 'right' ? 'items-end text-right ml-auto' : align === 'center' ? 'items-center text-center mx-auto' : 'items-start text-left mx-auto'}`} style={{ maxWidth: maxWidth || '1000px' }}>
               <motion.div 
                 variants={itemVariants}
                 className="relative w-48 md:w-60 h-auto mb-8"
@@ -1043,14 +1043,14 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               {title && (
                 <motion.h2 
                   variants={itemVariants}
-                  className={`titulo-chico-cinematic mb-6 ${align === 'right' ? 'text-right' : 'text-left'}`}
+                  className={`titulo-chico-cinematic mb-6 ${align === 'right' ? 'text-right' : align === 'center' ? 'text-center' : 'text-left'}`}
                 >
                   <span dangerouslySetInnerHTML={{ __html: title }} />
                 </motion.h2>
               )}
               <motion.div 
                 variants={itemVariants}
-                className={`texto-cuerpo-cinematic ${align === 'right' ? 'text-right' : 'text-left'}`}
+                className={`texto-cuerpo-cinematic ${align === 'right' ? 'text-right' : align === 'center' ? 'text-center' : 'text-left'}`}
               >
                 <div dangerouslySetInnerHTML={{ __html: text }} />
               </motion.div>

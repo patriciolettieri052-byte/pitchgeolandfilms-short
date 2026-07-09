@@ -14,7 +14,7 @@ const CaseStudyHud: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[900px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             PRUEBA REAL
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
@@ -85,7 +85,7 @@ const CaseStudyHud: React.FC = () => {
               "GEOLAND convirtió una búsqueda urgente y compleja en una selección accionable de locaciones - concentrando la producción en un único hub y haciendo viable el rodaje en los 2 días previstos."
             </p>
             <div className="mt-auto border-t border-white/10 pt-4">
-              <p className="font-arimo text-[12px] text-[#4a7c59] tracking-wider uppercase">
+              <p className="font-arimo text-[12px] text-[#F7F6ED] tracking-wider uppercase">
                 ✓ Producción viable en el plazo previsto.
               </p>
             </div>

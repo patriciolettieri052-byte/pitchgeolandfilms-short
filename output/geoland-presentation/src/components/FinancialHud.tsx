@@ -27,7 +27,7 @@ const FinancialHud: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[900px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             PROYECCIONES
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
@@ -48,7 +48,7 @@ const FinancialHud: React.FC = () => {
         >
           <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
             <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Con</span>
-            <span className="font-gothic text-5xl text-[#4a7c59]">€295K</span>
+            <span className="font-gothic text-5xl text-[#F7F6ED]">€295K</span>
           </div>
           <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
             <span className="font-gothic text-4xl text-white mb-2">12 Meses</span>

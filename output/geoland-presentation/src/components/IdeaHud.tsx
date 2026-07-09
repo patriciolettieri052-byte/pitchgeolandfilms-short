@@ -5,13 +5,13 @@ const IdeaHud: React.FC = () => {
     <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1000px] flex flex-col items-start text-left mt-[-20px]">
         
-        <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+        <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
           LA IDEA
         </span>
         <h1 className="text-white font-gothic text-6xl md:text-[85px] tracking-wide uppercase leading-none mb-3">
           GEOLAND
         </h1>
-        <h2 className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-8">
+        <h2 className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-8">
           Decision System for Film Production
         </h2>
         

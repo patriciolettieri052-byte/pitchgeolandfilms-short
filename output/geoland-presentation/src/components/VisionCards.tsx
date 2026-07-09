@@ -12,9 +12,9 @@ const VisionCard: React.FC<{
     initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay, ease: 'easeOut' }}
-    className="flex flex-col bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md h-full relative group hover:border-[#e27329]/30 transition-all duration-300"
+    className="flex flex-col bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md h-full relative group hover:border-white/30 transition-all duration-300"
   >
-    <div className="text-white/20 mb-6 group-hover:text-[#e27329]/60 transition-colors duration-300">
+    <div className="text-white/20 mb-6 group-hover:text-white/60 transition-colors duration-300">
       {icon}
     </div>
     
@@ -40,7 +40,7 @@ const VisionCards: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             VISIÓN
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">

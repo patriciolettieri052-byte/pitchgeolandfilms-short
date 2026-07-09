@@ -14,7 +14,7 @@ const ProblemCard: React.FC<{
     transition={{ duration: 0.6, delay, ease: 'easeOut' }}
     className="flex flex-col h-full bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md"
   >
-    <div className="w-12 h-12 rounded-full border border-[#e27329] flex items-center justify-center text-[#e27329] mb-8">
+    <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white mb-8">
       {icon}
     </div>
     
@@ -40,7 +40,7 @@ const ProblemHud2: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1100px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             EL PROBLEMA
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">

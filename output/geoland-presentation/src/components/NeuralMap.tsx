@@ -106,9 +106,9 @@ const NeuralMap: React.FC = () => {
       >
         <h2 className="text-white text-3xl font-cormorant font-bold uppercase tracking-[0.2em] mb-4">Pipeline Execution</h2>
         <div className="flex gap-6 justify-center items-center bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 text-[10px] tracking-widest text-white/70 uppercase">
-          <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-[#4a7c59]"></div> Fast Lane (Pasan Veto)</div>
-          <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-[#cc3333]"></div> Slow Lane (Sólo High)</div>
-          <div className="flex items-center gap-2"><div className="px-2 py-0.5 bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/50 rounded text-[8px]">LLM</div> Consume Modelo</div>
+          <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-[#F7F6ED]"></div> Fast Lane (Pasan Veto)</div>
+          <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-[#F7F6ED]"></div> Slow Lane (Sólo High)</div>
+          <div className="flex items-center gap-2"><div className="px-2 py-0.5 bg-[#F7F6ED]/20 text-[#F7F6ED] border border-[#F7F6ED]/50 rounded text-[8px]">LLM</div> Consume Modelo</div>
         </div>
       </motion.div>
 
@@ -164,7 +164,7 @@ const NeuralMap: React.FC = () => {
               
               const isSelected = selectedNode?.id === node.id;
               const isFast = node.lane === 'fast';
-              const laneColor = isFast ? '#4a7c59' : '#cc3333';
+              const laneColor = isFast ? '#F7F6ED' : '#F7F6ED';
               
               const delay = 1.2 + (node.x / width) * 1.5;
 
@@ -203,7 +203,7 @@ const NeuralMap: React.FC = () => {
                           </span>
                         )}
                         {node.is_llm && (
-                          <span className="bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/50 text-[7px] font-bold px-1.5 py-0.5 rounded uppercase tracking-widest whitespace-nowrap">
+                          <span className="bg-[#F7F6ED]/20 text-[#F7F6ED] border border-[#F7F6ED]/50 text-[7px] font-bold px-1.5 py-0.5 rounded uppercase tracking-widest whitespace-nowrap">
                             {node.llm_label || 'LLM'}
                           </span>
                         )}
@@ -243,11 +243,11 @@ const NeuralMap: React.FC = () => {
 
             <div className="mb-8 mt-4">
               <div className="flex items-center gap-3 mb-4 flex-wrap">
-                <span className="text-[10px] tracking-[0.4em] uppercase font-bold px-2 py-1 rounded" style={{ backgroundColor: selectedNode.lane === 'fast' ? '#4a7c59' : '#cc3333', color: 'white' }}>
+                <span className="text-[10px] tracking-[0.4em] uppercase font-bold px-2 py-1 rounded" style={{ backgroundColor: selectedNode.lane === 'fast' ? '#F7F6ED' : '#F7F6ED', color: 'white' }}>
                   {selectedNode.lane === 'fast' ? 'FAST LANE' : 'SLOW LANE'}
                 </span>
                 {selectedNode.is_llm && (
-                  <span className="bg-[#d4af37]/20 text-[#d4af37] border border-[#d4af37]/50 text-[10px] tracking-[0.2em] font-bold px-2 py-1 rounded uppercase">
+                  <span className="bg-[#F7F6ED]/20 text-[#F7F6ED] border border-[#F7F6ED]/50 text-[10px] tracking-[0.2em] font-bold px-2 py-1 rounded uppercase">
                     {selectedNode.llm_label || 'LLM'}
                   </span>
                 )}

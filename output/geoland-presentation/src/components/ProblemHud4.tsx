@@ -22,7 +22,7 @@ const CaseCard: React.FC<{
       {icon}
     </div>
     
-    <span className="text-[#e27329] font-arimo text-[10px] tracking-[0.1em] font-bold mb-4 block uppercase">
+    <span className="text-white font-arimo text-[10px] tracking-[0.1em] font-bold mb-4 block uppercase">
       {overline}
     </span>
     
@@ -34,10 +34,10 @@ const CaseCard: React.FC<{
       {description}
     </p>
     
-    <div className="w-10 h-[1px] bg-[#e27329] mb-6"></div>
+    <div className="w-10 h-[1px] bg-white mb-6"></div>
     
     <div className="mb-6">
-      <div className="text-[#e27329] text-3xl md:text-4xl font-gothic tracking-wide uppercase leading-none mb-2">
+      <div className="text-white text-3xl md:text-4xl font-gothic tracking-wide uppercase leading-none mb-2">
         {extraCost}
       </div>
       <div className="text-white/40 text-xs md:text-sm font-arimo font-light">
@@ -65,7 +65,7 @@ const ProblemHud4: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-[#e27329] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             REFERENCIAS EXTERNAS
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
@@ -117,7 +117,7 @@ const ProblemHud4: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex items-center gap-6 bg-black/50 border border-white/10 rounded-xl p-6 w-full mt-4 backdrop-blur-md"
         >
-          <TriangleAlert size={28} className="text-[#e27329] shrink-0" strokeWidth={1.5} />
+          <TriangleAlert size={28} className="text-white shrink-0" strokeWidth={1.5} />
           <div className="flex flex-col">
             <p className="text-white/80 text-sm font-arimo leading-relaxed font-light">
               Una locación puede fallar por <strong className="text-white font-bold">clima</strong>, <strong className="text-white font-bold">cambio visual</strong> del entorno o <strong className="text-white font-bold">falta de control operativo</strong>.
