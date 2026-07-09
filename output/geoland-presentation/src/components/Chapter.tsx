@@ -24,6 +24,7 @@ import GoToMarketStrategyHud from './GoToMarketStrategyHud';
 import WhyNowHud from './WhyNowHud';
 import DefensibilityHud from './DefensibilityHud';
 import UnitEconomicsHud from './UnitEconomicsHud';
+import FinancialRoadmapHud from './FinancialRoadmapHud';
 
 interface ChapterProps {
   id: number;
@@ -36,7 +37,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -220,8 +221,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
-        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' ? { width: '100%', height: '100%' } : { 
+        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
+        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' ? { width: '100%', height: '100%' } : { 
           maxWidth: maxWidth || (variant?.startsWith('backtest') || variant === 'business-units' || variant === 'reviews' ? '1400px' : '1400px'),
           paddingLeft: '120px',
           paddingRight: '120px'
@@ -1005,6 +1006,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           <DefensibilityHud title={title} overline={overline} text={text} />
         ) : variant === 'unit-economics-hud' ? (
           <UnitEconomicsHud title={title} overline={overline} text={text} />
+        ) : variant === 'financial-roadmap-hud' ? (
+          <FinancialRoadmapHud title={title} overline={overline} text={text} />
         ) : variant === 'advisors' ? (
           <AdvisorsHud title={title} text={text} />
         ) : variant === 'roadmap' ? (
