@@ -768,12 +768,10 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MODELO DE NEGOCIO"}
                 </span>
-                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-                  ESTRUCTURA DE PRECIOS
-                </h1>
-                <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-                  Modelo de ingresos basado en volumen y escalabilidad.
-                </p>
+                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || "MONETIZACIÓN" }} />
+                {text && (
+                  <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light" dangerouslySetInnerHTML={{ __html: text }} />
+                )}
               </motion.div>
             </div>
             
