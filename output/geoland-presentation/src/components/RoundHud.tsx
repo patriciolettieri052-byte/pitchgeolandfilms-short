@@ -7,7 +7,7 @@ const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ v
     className="flex flex-col justify-center items-center p-6 bg-black/50 border border-white/10 rounded-xl text-center backdrop-blur-md h-full"
   >
     <span className="text-white text-5xl md:text-6xl font-extralight tracking-tight font-gothic mb-2">{value}</span>
-    <span className="text-geoland-blue text-[10px] tracking-[0.2em] font-medium uppercase mb-1 font-arimo">{label}</span>
+    <span className="text-white/40 text-[10px] tracking-[0.2em] font-medium uppercase mb-1 font-arimo">{label}</span>
   </motion.div>
 );
 
@@ -55,24 +55,24 @@ const RoundHud: React.FC = () => {
           </h3>
           <ul className="space-y-5 text-left text-white/70 font-light text-xs font-arimo">
             <li className="flex items-start gap-3">
-              <span className="text-geoland-blue mt-0.5 font-bold">—</span>
-              <span><strong>Equipo</strong> (4 founders full-time)</span>
+              <span className="text-white/40 mt-0.5 font-bold">—</span>
+              <span><strong>Equipo:</strong> pasar a todos los founders a dedicación full-time</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-geoland-blue mt-0.5 font-bold">—</span>
+              <span className="text-white/40 mt-0.5 font-bold">—</span>
               <span><strong>Red local</strong> de scouts, fixers y location managers verificados</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-geoland-blue mt-0.5 font-bold">—</span>
+              <span className="text-white/40 mt-0.5 font-bold">—</span>
               <span><strong>Dataset de locaciones</strong> e infraestructura tecnológica</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-geoland-blue mt-0.5 font-bold">—</span>
-              <span><strong>Pre-lanzamiento</strong> comercial</span>
+              <span className="text-white/40 mt-0.5 font-bold">—</span>
+              <span><strong>Pre-lanzamiento comercial</strong> y conversión de freemium a pago</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-geoland-blue mt-0.5 font-bold">—</span>
-              <span><strong>Legal & contable</strong></span>
+              <span className="text-white/40 mt-0.5 font-bold">—</span>
+              <span><strong>Legal, IP</strong> y contabilidad</span>
             </li>
           </ul>
         </motion.div>
