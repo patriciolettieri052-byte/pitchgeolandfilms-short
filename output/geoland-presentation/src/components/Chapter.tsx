@@ -760,7 +760,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         ) : variant === 'pricing' ? (
           <div className="w-full max-w-[1400px] py-6 px-4 flex flex-col justify-center items-start min-h-[85vh] select-none font-jost">
             {/* Header Section */}
-            <div className="w-full mb-16">
+            <div className="w-full mb-6">
               <motion.div 
                 variants={itemVariants}
                 className="flex flex-col items-start text-left max-w-[900px]"
