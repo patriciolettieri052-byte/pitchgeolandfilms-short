@@ -37,14 +37,14 @@ export const slides: SlideData[] = [
   {
     id: 3,
     text: "",
-    variant: "problem-hud-2",
+    variant: "problem-hud-3",
     backgroundMedia: "3.mp4",
     overlayOpacity: 80
   },
   {
     id: 4,
     text: "",
-    variant: "problem-hud-3",
+    variant: "problem-hud-2",
     backgroundMedia: "3.mp4",
     overlayOpacity: 80
   },
