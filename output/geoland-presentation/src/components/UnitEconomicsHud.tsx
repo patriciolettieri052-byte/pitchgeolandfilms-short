@@ -31,7 +31,7 @@ const UnitEconomicsHud: React.FC<{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
       display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: '120px', paddingRight: '120px'
     }}>
-      <div className="w-full max-w-[1150px] py-4 flex flex-col justify-center items-start select-none font-jost">
+      <div className="w-full max-w-[950px] py-4 flex flex-col justify-center items-start select-none font-jost">
         {/* Header Section */}
         <div className="w-full mb-6">
           <motion.div 
@@ -54,12 +54,12 @@ const UnitEconomicsHud: React.FC<{
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full space-y-4 mb-6"
+          className="w-full space-y-3 mb-4"
         >
           {/* Row 1: On-Demand */}
           <motion.div 
             variants={itemVariants}
-            className="w-full bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-md flex flex-col gap-3"
+            className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2"
           >
             <div className="flex justify-between items-center text-sm md:text-base">
               <span className="text-white font-bold tracking-wide uppercase font-arimo">
@@ -70,7 +70,7 @@ const UnitEconomicsHud: React.FC<{
               </span>
             </div>
             <div className="flex items-center w-full">
-              <div className="flex-grow h-3 bg-white/10 rounded-full overflow-hidden relative mr-4">
+              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: "99%" }}
@@ -87,7 +87,7 @@ const UnitEconomicsHud: React.FC<{
           {/* Row 2: Hub (Highlighted) */}
           <motion.div 
             variants={itemVariants}
-            className="w-full bg-white/[0.08] border border-white/20 rounded-xl p-5 backdrop-blur-md flex flex-col gap-3 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
+            className="w-full bg-white/[0.08] border border-white/20 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
           >
             <div className="flex justify-between items-center text-sm md:text-base">
               <div className="flex items-center">
@@ -103,7 +103,7 @@ const UnitEconomicsHud: React.FC<{
               </span>
             </div>
             <div className="flex items-center w-full">
-              <div className="flex-grow h-3 bg-white/10 rounded-full overflow-hidden relative mr-4">
+              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: "99%" }}
@@ -120,7 +120,7 @@ const UnitEconomicsHud: React.FC<{
           {/* Row 3: Enterprise */}
           <motion.div 
             variants={itemVariants}
-            className="w-full bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-md flex flex-col gap-3"
+            className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2"
           >
             <div className="flex justify-between items-center text-sm md:text-base">
               <span className="text-white font-bold tracking-wide uppercase font-arimo">
@@ -131,7 +131,7 @@ const UnitEconomicsHud: React.FC<{
               </span>
             </div>
             <div className="flex items-center w-full">
-              <div className="flex-grow h-3 bg-white/10 rounded-full overflow-hidden relative mr-4">
+              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: "99%" }}
@@ -151,7 +151,7 @@ const UnitEconomicsHud: React.FC<{
           variants={itemVariants}
           initial="hidden"
           animate="visible"
-          className="w-full p-5 bg-white/10 border border-white/20 rounded-xl flex flex-col gap-2 mb-4 backdrop-blur-md"
+          className="w-full py-3.5 px-5 bg-white/10 border border-white/20 rounded-xl flex flex-col gap-2 mb-4 backdrop-blur-md"
         >
           <h4 className="text-white font-bold text-base tracking-wide uppercase font-arimo">
             Analizar 1.000 locaciones nos cuesta ~€10.
