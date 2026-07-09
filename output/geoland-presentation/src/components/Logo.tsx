@@ -27,7 +27,7 @@ const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: s
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className={`mt-6 text-[6.5px] md:text-[8px] uppercase tracking-[0.15em] font-light text-white/50 text-center whitespace-nowrap w-full max-w-[80vw] ${subtitleClassName || ''}`}
+            className={`mt-6 text-[7.5px] md:text-[9.2px] uppercase tracking-[0.15em] font-light text-white/50 text-center whitespace-nowrap w-full max-w-[80vw] ${subtitleClassName || ''}`}
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
         )}
