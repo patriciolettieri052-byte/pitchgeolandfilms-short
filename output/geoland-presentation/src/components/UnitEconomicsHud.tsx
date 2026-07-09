@@ -17,7 +17,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
   }
 };
 
@@ -25,7 +25,7 @@ const UnitEconomicsHud: React.FC<{
   title?: string;
   overline?: string;
   text?: string;
-}> = ({ title, overline, text }) => {
+}> = ({ title, overline }) => {
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',

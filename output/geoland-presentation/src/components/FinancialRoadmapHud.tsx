@@ -17,7 +17,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
   }
 };
 
@@ -122,7 +122,7 @@ const FinancialRoadmapHud: React.FC<{
                   <motion.div 
                     initial={{ height: 0 }}
                     animate={{ height: `${col.barHeight}%` }}
-                    transition={{ duration: 1.2, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1.2, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
                     className={`w-3 rounded-t ${col.barColor} backdrop-blur-sm`}
                   />
                 </div>

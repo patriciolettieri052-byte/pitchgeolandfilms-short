@@ -9,7 +9,7 @@ export interface SlideData {
   isBold?: boolean;
   isItalic?: boolean;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud" | "skin-in-the-game-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
