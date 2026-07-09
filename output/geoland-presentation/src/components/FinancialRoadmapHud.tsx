@@ -32,35 +32,45 @@ const FinancialRoadmapHud: React.FC<{
       clients: "40",
       arpa: "€6.8K",
       arr: "€272K",
-      desc: "Principalmente On-Demand"
+      desc: "Principalmente On-Demand",
+      barHeight: 12,
+      barColor: "bg-white/15"
     },
     {
       year: "Año 2",
       clients: "155",
       arpa: "€9.5K",
       arr: "€1.47M",
-      desc: "On-Demand + primeros Hub"
+      desc: "On-Demand + primeros Hub",
+      barHeight: 28,
+      barColor: "bg-white/35"
     },
     {
       year: "Año 3",
       clients: "400",
       arpa: "€12K",
       arr: "€4.8M",
-      desc: "Hub gana peso + primeros Enterprise"
+      desc: "Hub gana peso + primeros Enterprise",
+      barHeight: 50,
+      barColor: "bg-white/55"
     },
     {
       year: "Año 4",
       clients: "900",
       arpa: "€15K",
       arr: "€13.5M",
-      desc: "Hub + Enterprise"
+      desc: "Hub + Enterprise",
+      barHeight: 75,
+      barColor: "bg-white/75"
     },
     {
       year: "Año 5",
       clients: "2000",
       arpa: "€18K",
       arr: "€36M",
-      desc: "Hub consolidado + Enterprise"
+      desc: "Hub consolidado + Enterprise",
+      barHeight: 100,
+      barColor: "bg-white"
     }
   ];
 
@@ -103,9 +113,19 @@ const FinancialRoadmapHud: React.FC<{
                 key={idx} 
                 className={`flex flex-col items-center text-center ${idx >= 2 ? 'pt-6 md:pt-0' : ''} ${idx > 0 ? 'md:pl-4' : ''}`}
               >
-                <span className="text-white/40 font-arimo text-[10px] tracking-[0.2em] uppercase font-bold mb-4 block">
+                <span className="text-white/40 font-arimo text-[10px] tracking-[0.2em] uppercase font-bold mb-3 block">
                   {col.year}
                 </span>
+                
+                {/* Ascending vertical bar */}
+                <div className="h-12 w-full flex items-end justify-center mb-4">
+                  <motion.div 
+                    initial={{ height: 0 }}
+                    animate={{ height: `${col.barHeight}%` }}
+                    transition={{ duration: 1.2, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                    className={`w-3 rounded-t ${col.barColor} backdrop-blur-sm`}
+                  />
+                </div>
                 
                 {/* Clients block */}
                 <div className="mb-4">
