@@ -27,7 +27,11 @@ const GoToMarketHud: React.FC<{
   text?: string;
 }> = ({ title, overline, text }) => {
   return (
-    <div className="w-full max-w-[1400px] py-4 px-4 flex flex-col justify-center items-start min-h-[90vh] select-none font-jost">
+    <div style={{
+      position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: '120px', paddingRight: '120px'
+    }}>
+      <div className="w-full max-w-[1150px] py-4 flex flex-col justify-center items-start select-none font-jost">
       {/* Header Section */}
       <div className="w-full mb-8">
         <motion.div 
@@ -182,6 +186,7 @@ const GoToMarketHud: React.FC<{
           primero adopción y confianza; luego monetización. Pedir contrato anual en el primer contacto reduce conversión.
         </span>
       </motion.div>
+    </div>
     </div>
   );
 };
