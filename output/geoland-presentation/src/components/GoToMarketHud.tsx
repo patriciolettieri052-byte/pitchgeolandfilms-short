@@ -182,7 +182,7 @@ const GoToMarketHud: React.FC<{
         <span className="text-white font-bold tracking-wider uppercase mr-3 shrink-0">
           Principio comercial:
         </span>
-        <span className="text-white/60 font-light leading-relaxed">
+        <span className="text-white/85 font-bold leading-relaxed">
           primero adopción y confianza; luego monetización. Pedir contrato anual en el primer contacto reduce conversión.
         </span>
       </motion.div>
