@@ -40,7 +40,7 @@ const StepCard: React.FC<{
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <p style={{
         fontFamily: F.arimo, fontSize: '10px', letterSpacing: '0.3em',
-        textTransform: 'uppercase', color: '#4478FF', margin: '0 0 12px 0', fontWeight: 'bold'
+        textTransform: 'uppercase', color: '#EAD8C0', margin: '0 0 12px 0', fontWeight: 'bold'
       }}>
         {step}
       </p>
@@ -78,7 +78,7 @@ const HowItWorksHud: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[900px]"
         >
-          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span style={{ color: '#EAD8C0' }} className="font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             WORKFLOW
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
