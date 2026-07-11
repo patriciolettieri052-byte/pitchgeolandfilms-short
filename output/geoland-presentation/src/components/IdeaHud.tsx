@@ -3,7 +3,7 @@ import React from 'react';
 const IdeaHud: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
-      <div className="w-full max-w-[720px] flex flex-col items-start text-left mt-[-20px]">
+      <div className="w-full max-w-[610px] flex flex-col items-start text-left mt-[-20px]">
         
         <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
           LA IDEA
@@ -20,9 +20,9 @@ const IdeaHud: React.FC = () => {
         </p>
         
         <div className="flex flex-col gap-3 font-arimo text-lg md:text-xl">
-          <span className="text-white/30 font-light">No es un portal.</span>
-          <span className="text-white/30 font-light">No es un dashboard.</span>
-          <span className="text-white/30 font-light">No es una herramienta de búsqueda.</span>
+          <span className="text-white font-medium">No es un portal.</span>
+          <span className="text-white font-medium">No es un dashboard.</span>
+          <span className="text-white font-medium">No es una herramienta de búsqueda.</span>
           <span className="text-white font-bold mt-2">Es el sistema que conecta cada dato con cada decisión de producción.</span>
         </div>
 
