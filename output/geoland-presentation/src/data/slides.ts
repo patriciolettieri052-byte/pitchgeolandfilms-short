@@ -45,7 +45,7 @@ export const slides: SlideData[] = [
     id: 4,
     text: "",
     variant: "problem-hud-2",
-    backgroundMedia: "3.mp4",
+    backgroundMedia: "split:6.mp4,7.mp4,8.mp4",
     overlayOpacity: 80
   },
   {

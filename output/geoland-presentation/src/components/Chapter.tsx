@@ -179,7 +179,40 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         className="absolute inset-0 z-0"
       >
         {backgroundMedia && (
-          isVideo ? (
+          backgroundMedia.startsWith('split:') ? (
+            (() => {
+              const splitVideos = backgroundMedia.replace('split:', '').split(',');
+              return (
+                <>
+                  <div className="w-full h-full grid grid-cols-3 print:hidden">
+                    {splitVideos.map((vid, idx) => (
+                      <div key={idx} className="relative w-full h-full overflow-hidden border-r border-white/5 last:border-r-0">
+                        <video 
+                          src={`assets/${vid}`}
+                          autoPlay 
+                          muted
+                          loop 
+                          playsInline 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="w-full h-full grid grid-cols-3 hidden print:grid">
+                    {splitVideos.map((vid, idx) => (
+                      <div key={idx} className="relative w-full h-full overflow-hidden border-r border-white/5 last:border-r-0">
+                        <img 
+                          src={`assets/${vid.replace(/\.mp4$/i, '.jpg')}`} 
+                          className="w-full h-full object-cover"
+                          alt={`background-poster-${idx}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </>
+              );
+            })()
+          ) : isVideo ? (
             <>
               <video 
                 src={backgroundMedia.startsWith('backtesting') || backgroundMedia.startsWith('escala') ? `assets/${backgroundMedia}` : `assets/${backgroundMedia}`}
