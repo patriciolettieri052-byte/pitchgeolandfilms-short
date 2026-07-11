@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: string }> = ({ intro, subtitle, subtitleClassName }) => {
+const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: string; stretchSubtitle?: boolean }> = ({ intro, subtitle, subtitleClassName, stretchSubtitle }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
@@ -10,8 +10,8 @@ const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: s
       className={`flex flex-col items-center justify-center w-full ${intro ? 'h-full' : 'py-12'}`}
       style={{ minHeight: intro ? '100%' : 'auto' }}
     >
-      <div className="flex flex-col items-center">
-        <div className="relative w-60 md:w-80 h-auto">
+      <div className="flex flex-col items-center w-60 md:w-80">
+        <div className="relative w-full h-auto">
           <img 
             src="/logo.svg" 
             alt="Geoland OS Logo" 
@@ -23,13 +23,39 @@ const Logo: React.FC<{ intro?: boolean; subtitle?: string; subtitleClassName?: s
           />
         </div>
         {intro && subtitle && (
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className={`mt-6 text-[7.5px] md:text-[9.2px] uppercase tracking-[0.15em] font-light text-white/50 text-center whitespace-nowrap w-full max-w-[80vw] ${subtitleClassName || ''}`}
-            dangerouslySetInnerHTML={{ __html: subtitle }}
-          />
+          stretchSubtitle ? (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className={`w-full mt-6 ${subtitleClassName || ''}`}
+            >
+              <svg viewBox="0 0 320 12" className="w-full overflow-visible">
+                <text
+                  x="160"
+                  y="10"
+                  fill="rgba(255, 255, 255, 0.5)"
+                  fontSize="9.2"
+                  fontFamily="Arimo, sans-serif"
+                  textAnchor="middle"
+                  textLength="320"
+                  lengthAdjust="spacing"
+                  style={{ letterSpacing: '0.15em', fontWeight: 300 }}
+                  className="uppercase"
+                >
+                  {subtitle}
+                </text>
+              </svg>
+            </motion.div>
+          ) : (
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className={`mt-6 text-[7.5px] md:text-[9.2px] uppercase tracking-[0.15em] font-light text-white/50 text-center whitespace-nowrap w-full max-w-[80vw] ${subtitleClassName || ''}`}
+              dangerouslySetInnerHTML={{ __html: subtitle }}
+            />
+          )
         )}
       </div>
     </motion.div>
