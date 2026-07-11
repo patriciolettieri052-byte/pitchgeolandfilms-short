@@ -75,7 +75,7 @@ export const slides: SlideData[] = [
     id: 8,
     text: "",
     variant: "idea-hud",
-    backgroundMedia: "29.png",
+    backgroundMedia: "25.png",
     overlayOpacity: 55
   },
   {
