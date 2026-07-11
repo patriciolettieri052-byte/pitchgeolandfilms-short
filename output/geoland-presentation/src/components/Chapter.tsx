@@ -239,7 +239,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         {/* Dark Overlay - ensures text readability */}
         <div 
           className="absolute inset-0 bg-black z-10 bg-overlay-dark" 
-          style={{ opacity: (overlayOpacity ?? 60) / 100 }}
+          style={{ opacity: Math.max(0, ((overlayOpacity ?? 60) - 20) / 100) }}
         />
       </motion.div>
 

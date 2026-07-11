@@ -108,7 +108,7 @@ function App() {
                 className="w-full h-full object-cover"
                 alt="portada"
               />
-              <div className="absolute inset-0 bg-black/60 z-10"></div>
+              <div className="absolute inset-0 bg-black/40 z-10"></div>
             </div>
             <div className="relative z-20 w-full h-full flex items-center justify-center">
               <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
@@ -201,7 +201,7 @@ function App() {
                 loop 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/60 z-10"></div>
+              <div className="absolute inset-0 bg-black/40 z-10"></div>
             </div>
             <div className="relative z-20 w-full h-full flex items-center justify-center">
               <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
