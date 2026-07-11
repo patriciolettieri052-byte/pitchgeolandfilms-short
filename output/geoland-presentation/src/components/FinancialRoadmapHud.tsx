@@ -123,7 +123,7 @@ const FinancialRoadmapHud: React.FC<{
                     initial={{ height: 0 }}
                     animate={{ height: `${col.barHeight}%` }}
                     transition={{ duration: 1.2, delay: idx * 0.12, ease: [0.22, 1, 0.36, 1] as const }}
-                    className={`w-3 rounded-t ${col.barColor} backdrop-blur-sm`}
+                    className={`w-3 ${col.barColor} backdrop-blur-sm`}
                   />
                 </div>
                 
