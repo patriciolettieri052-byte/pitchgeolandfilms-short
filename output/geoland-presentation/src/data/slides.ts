@@ -20,7 +20,7 @@ export interface SlideData {
 export const slides: SlideData[] = [
   {
     id: 1,
-    title: "THE PROBLEM",
+    title: "PROBLEM",
     text: "",
     variant: "titulo-grande",
     backgroundMedia: "",
