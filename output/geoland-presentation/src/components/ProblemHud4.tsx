@@ -22,7 +22,7 @@ const CaseCard: React.FC<{
       {icon}
     </div>
     
-    <span className="text-white font-arimo text-[10px] tracking-[0.1em] font-bold mb-4 block uppercase">
+    <span style={{ color: '#EAD8C0' }} className="font-arimo text-[10px] tracking-[0.15em] font-bold mb-4 block uppercase">
       {overline}
     </span>
     
