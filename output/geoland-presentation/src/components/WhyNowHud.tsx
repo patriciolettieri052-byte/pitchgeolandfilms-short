@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Database, Brain, Scan, Crosshair } from 'lucide-react';
+import { Crosshair } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,7 +65,6 @@ const WhyNowHud: React.FC<{
             variants={itemVariants}
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
-            <TrendingUp size={24} className="text-white/45 mb-4 shrink-0" strokeWidth={1.5} />
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
               1. más producción
             </h4>
@@ -79,7 +78,6 @@ const WhyNowHud: React.FC<{
             variants={itemVariants}
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
-            <Database size={24} className="text-white/45 mb-4 shrink-0" strokeWidth={1.5} />
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
               2. más datos fragmentados
             </h4>
@@ -93,7 +91,6 @@ const WhyNowHud: React.FC<{
             variants={itemVariants}
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
-            <Brain size={24} className="text-white/45 mb-4 shrink-0" strokeWidth={1.5} />
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
               3. mejor tecnología
             </h4>
@@ -107,7 +104,6 @@ const WhyNowHud: React.FC<{
             variants={itemVariants}
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
-            <Scan size={24} className="text-white/45 mb-4 shrink-0" strokeWidth={1.5} />
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
               4. white space claro
             </h4>
