@@ -65,7 +65,7 @@ const ProblemHud4: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span style={{ color: '#EAD8C0' }} className="font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             REFERENCIAS EXTERNAS
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
