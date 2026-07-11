@@ -119,7 +119,7 @@ const ValidationHud: React.FC = () => {
             delay={0.4}
           />
           <ValidationCard
-            statNumber="9/11"
+            statNumber="8/11"
             statLabel="USO RECURRENTE"
             subtext="Productoras con uso constante de la herramienta."
             delay={0.5}
