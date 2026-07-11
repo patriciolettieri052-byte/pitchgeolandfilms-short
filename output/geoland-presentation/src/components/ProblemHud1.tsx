@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coins, TrendingUp, Layers } from 'lucide-react';
 
 const ProblemCard: React.FC<{
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   description: string;
   footer: string;
@@ -15,9 +14,11 @@ const ProblemCard: React.FC<{
     transition={{ duration: 0.6, delay, ease: 'easeOut' }}
     className="flex flex-col h-full bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md"
   >
-    <div className="text-white/30 mb-8">
-      {icon}
-    </div>
+    {icon && (
+      <div className="text-white/30 mb-8">
+        {icon}
+      </div>
+    )}
     
     <h3 className="text-white text-3xl font-gothic tracking-wide uppercase mb-4">
       {title}
@@ -61,21 +62,18 @@ const ProblemHud1: React.FC = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
           <ProblemCard 
-            icon={<Coins size={36} strokeWidth={1.5} />}
             title="USD 670K–1.3M"
             description="por día de rodaje en locación, en producciones profesionales."
             footer="Fuente: Motion Picture Association"
             delay={0.2}
           />
           <ProblemCard 
-            icon={<TrendingUp size={36} strokeWidth={1.5} />}
             title="+USD 300K/día"
             description="de gasto local promedio en producciones de alto presupuesto."
             footer="Fuente: Olsberg SPI / MPA"
             delay={0.3}
           />
           <ProblemCard 
-            icon={<Layers size={36} strokeWidth={1.5} />}
             title="Decenas de variables"
             description="permisos, accesos, tráfico, parking, generadores, seguridad, ruido y comunidad."
             footer="Fuente: NYC Mayor's Office of Media & Entertainment"
