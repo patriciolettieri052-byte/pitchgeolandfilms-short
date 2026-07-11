@@ -18,7 +18,7 @@ const CaseStudyHud: React.FC = () => {
             PRUEBA REAL
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-            Caso de Estudio
+            Uno de nuestros casos reales
           </h1>
           <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
             Caso Real - Activación en Barcelona
@@ -47,7 +47,7 @@ const CaseStudyHud: React.FC = () => {
               </div>
               <div className="flex justify-between border-b border-white/10 pb-2">
                 <span className="font-arimo text-[11px] text-white/40 uppercase tracking-widest">Presupuesto</span>
-                <span className="font-gothic text-xl text-white">~200K</span>
+                <span className="font-gothic text-xl text-white">200K</span>
               </div>
             </div>
             <p className="font-arimo text-[12px] text-white/70 leading-relaxed font-light mt-auto">
@@ -68,7 +68,7 @@ const CaseStudyHud: React.FC = () => {
               </p>
             </div>
             <div className="mt-auto">
-              <h3 className="font-arimo text-[10px] uppercase text-[#ff4b4b] tracking-widest mb-2 border-b border-white/10 pb-1">Riesgos Operativos</h3>
+              <h3 style={{ color: '#EAD8C0' }} className="font-arimo text-[10px] uppercase tracking-widest mb-2 border-b border-white/10 pb-1">Riesgos Operativos</h3>
               <p className="font-arimo text-[12px] text-white/70 leading-relaxed font-light">
                 Disponibilidad limitada de locaciones con cerámicas específicas, permisos y ruido urbano.
               </p>
