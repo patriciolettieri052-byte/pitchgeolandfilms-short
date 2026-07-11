@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building, Users, Plane } from 'lucide-react';
 
 const ProblemCard: React.FC<{
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   title: string;
   description: string;
   delay: number;
@@ -14,9 +13,11 @@ const ProblemCard: React.FC<{
     transition={{ duration: 0.6, delay, ease: 'easeOut' }}
     className="flex flex-col h-full bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-md"
   >
-    <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white mb-8">
-      {icon}
-    </div>
+    {icon && (
+      <div className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white mb-8">
+        {icon}
+      </div>
+    )}
     
     <h3 className="text-white text-2xl font-gothic tracking-wide uppercase mb-4">
       {title}
@@ -54,19 +55,16 @@ const ProblemHud2: React.FC = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
           <ProblemCard 
-            icon={<Building size={22} strokeWidth={2} />}
             title="Una obra al lado del set"
             description="Martillos, taladros y vibraciones contaminan el sonido directo — aunque la locación sea perfecta, la escena no puede rodarse."
             delay={0.2}
           />
           <ProblemCard 
-            icon={<Users size={22} strokeWidth={2} />}
             title="Un festival a metros del rodaje"
             description="Accesos bloqueados, tráfico cortado y seguridad alterada. La producción queda detenida mientras el presupuesto sigue corriendo."
             delay={0.3}
           />
           <ProblemCard 
-            icon={<Plane size={22} strokeWidth={2} />}
             title="Una ruta aérea sobre una escena de época"
             description="Cada pocos minutos cruza un avión. La imagen no funciona, el sonido tampoco."
             delay={0.4}
