@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Cpu, Server, Map, Database, RefreshCw, Headphones } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -44,133 +45,125 @@ const UnitEconomicsHud: React.FC<{
               {overline || "UNIT ECONOMICS"}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-2">
-              {title || "Márgenes brutos superiores al 99%."}
+              {title || "Margen bruto estimado del ~87%."}
             </h1>
           </motion.div>
         </div>
 
-        {/* Rows Container */}
-        <motion.div 
+        {/* Main Grid/Containers */}
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="w-full space-y-3 mb-4"
+          className="w-full flex flex-col gap-5"
         >
-          {/* Row 1: On-Demand */}
-          <motion.div 
+          {/* Top Card: Margen Bruto ~87% */}
+          <motion.div
             variants={itemVariants}
-            className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2"
+            className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col gap-4"
           >
-            <div className="flex justify-between items-center text-sm md:text-base">
-              <span className="text-white font-bold tracking-wide uppercase font-arimo">
-                On-Demand
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
+              <span className="text-5xl md:text-6xl font-gothic tracking-wide text-[#22c55e] leading-none">
+                ~87%
               </span>
-              <span className="text-white/50 text-xs md:text-sm font-light font-arimo">
-                Cobramos <strong className="text-white font-semibold">€349</strong> · nos cuesta <strong className="text-white font-semibold">€0.80</strong>
-              </span>
-            </div>
-            <div className="flex items-center w-full">
-              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "99%" }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-                  className="h-full bg-white rounded-full"
-                />
-              </div>
-              <span className="text-white font-bold text-xs md:text-sm tracking-wider shrink-0 font-arimo">
-                nos queda 99%
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Row 2: Hub (Highlighted) */}
-          <motion.div 
-            variants={itemVariants}
-            className="w-full bg-white/[0.08] border border-white/20 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2 shadow-[0_0_15px_rgba(255,255,255,0.02)]"
-          >
-            <div className="flex justify-between items-center text-sm md:text-base">
-              <div className="flex items-center">
-                <span className="text-white font-bold tracking-wide uppercase font-arimo">
-                  Hub
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-lg md:text-xl font-arimo">
+                  Margen bruto
                 </span>
-                <span className="bg-white text-black font-extrabold uppercase text-[9px] px-2 py-0.5 rounded-full ml-3 tracking-wider font-arimo">
-                  Más popular
+                <span className="text-white/40 text-xs md:text-sm font-light font-arimo">
+                  Por encima de la mediana SaaS (75–80%)
                 </span>
               </div>
-              <span className="text-white/50 text-xs md:text-sm font-light font-arimo">
-                Cobramos <strong className="text-white font-semibold">€899/mes</strong> · nos cuesta <strong className="text-white font-semibold">€4.50</strong>
-              </span>
             </div>
-            <div className="flex items-center w-full">
-              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
+
+            {/* Custom Progress Bar */}
+            <div className="w-full">
+              <div className="w-full h-3.5 bg-white/15 rounded-full overflow-hidden flex">
                 <motion.div 
                   initial={{ width: 0 }}
-                  animate={{ width: "99%" }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-                  className="h-full bg-white rounded-full"
+                  animate={{ width: "87%" }}
+                  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] as const, delay: 0.2 }}
+                  className="h-full bg-[#16a34a] rounded-l-full"
                 />
+                <div className="h-full w-[13%] bg-white/30" />
               </div>
-              <span className="text-white font-bold text-xs md:text-sm tracking-wider shrink-0 font-arimo">
-                nos queda 99%
-              </span>
+              <div className="flex justify-between items-center mt-2 text-[10px] md:text-xs font-semibold tracking-wider font-arimo">
+                <span className="text-[#22c55e] uppercase">Margen</span>
+                <span className="text-white/40 uppercase">COGS · ~13%</span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Row 3: Enterprise */}
-          <motion.div 
-            variants={itemVariants}
-            className="w-full bg-white/5 border border-white/10 rounded-xl py-3.5 px-5 backdrop-blur-md flex flex-col gap-2"
+          {/* Bottom Grid: 2 Columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full items-stretch">
+            {/* Left Card: Qué compone el COGS */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between"
+            >
+              <div>
+                <h3 className="text-white/40 font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                  QUÉ COMPONE EL COGS
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <Cpu className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>IA / LLM por búsqueda</span>
+                  </li>
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <Server className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>Servidores e infraestructura</span>
+                  </li>
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <Map className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>APIs de mapas y clima</span>
+                  </li>
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <Database className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>Almacenamiento de dataset</span>
+                  </li>
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <RefreshCw className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>Mantenimiento del dataset</span>
+                  </li>
+                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                    <Headphones className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                    <span>Soporte y QA</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            {/* Right Card: Por qué el margen mejora */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-2xl p-6 backdrop-blur-md flex flex-col"
+            >
+              <h3 className="text-[#22c55e] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                POR QUÉ EL MARGEN MEJORA
+              </h3>
+              <div className="flex flex-col gap-4 text-white/90 text-xs md:text-sm font-light leading-relaxed font-arimo">
+                <p>
+                  El coste de una búsqueda es casi todo fijo, no variable. La infraestructura ya está pagada; el cómputo por búsqueda es marginal.
+                </p>
+                <p>
+                  Cada ciudad se cura una vez y se reutiliza en todas las búsquedas siguientes — el margen sube con el volumen.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Footnote */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.4 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="w-full text-left"
           >
-            <div className="flex justify-between items-center text-sm md:text-base">
-              <span className="text-white font-bold tracking-wide uppercase font-arimo">
-                Enterprise
-              </span>
-              <span className="text-white/50 text-xs md:text-sm font-light font-arimo">
-                Cobramos <strong className="text-white font-semibold">€3K–15K/mes</strong> · nos cuesta <strong className="text-white font-semibold">€25</strong>
-              </span>
-            </div>
-            <div className="flex items-center w-full">
-              <div className="flex-grow h-2 bg-white/10 rounded-full overflow-hidden relative mr-4">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "99%" }}
-                  transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-                  className="h-full bg-white rounded-full"
-                />
-              </div>
-              <span className="text-white font-bold text-xs md:text-sm tracking-wider shrink-0 font-arimo">
-                nos queda 99%
-              </span>
-            </div>
+            <p className="text-[10px] text-white font-light leading-relaxed tracking-wide font-arimo">
+              Margen bruto estimado sobre COGS completo (cómputo, infraestructura, APIs, almacenamiento y soporte). No incluye la construcción de dataset y red local, que es inversión de la ronda, no coste de operación. Se recalibra con volumen real de producción.
+            </p>
           </motion.div>
-        </motion.div>
-
-        {/* Highlight Box */}
-        <motion.div 
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          className="w-full py-3.5 px-5 bg-white/10 border border-white/20 rounded-xl flex flex-col gap-2 mb-4 backdrop-blur-md"
-        >
-          <h4 className="text-white font-bold text-base tracking-wide uppercase font-arimo">
-            Analizar 1.000 locaciones nos cuesta ~€10.
-          </h4>
-          <p className="text-white/80 text-xs md:text-sm font-light leading-relaxed font-arimo">
-            Un solo cliente Hub lo paga con el 3% de su cuota. El cómputo nunca es el problema — invertimos en construir el dataset y la red, no en atender búsquedas.
-          </p>
-        </motion.div>
-
-        {/* Footnote text */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="w-full text-left"
-        >
-          <p className="text-[10px] text-white font-light leading-relaxed tracking-wide font-arimo">
-            La barra representa lo que queda después del costo de cómputo (IA + mapas + almacenamiento, ~€0.01 por búsqueda). No incluye el equipo humano de activación y curación — esa es la inversión que financia la ronda. Precios verificados a julio 2026.
-          </p>
         </motion.div>
       </div>
     </div>
