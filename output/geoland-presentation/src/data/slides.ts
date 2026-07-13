@@ -161,7 +161,7 @@ export const slides: SlideData[] = [
   {
     id: 19,
     overline: "UNIT ECONOMICS",
-    title: "Margen bruto estimado del ~87%.",
+    title: "Margen bruto estimado del 87%.",
     text: "",
     variant: "unit-economics-hud",
     backgroundMedia: "slide19.mp4",

@@ -45,7 +45,7 @@ const UnitEconomicsHud: React.FC<{
               {overline || "UNIT ECONOMICS"}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-2">
-              {title || "Margen bruto estimado del ~87%."}
+              {title || "Margen bruto estimado del 87%."}
             </h1>
           </motion.div>
         </div>
@@ -63,9 +63,9 @@ const UnitEconomicsHud: React.FC<{
             className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col gap-4"
           >
             <div className="flex flex-col md:flex-row md:items-center gap-4">
-              <span className="text-5xl md:text-6xl font-gothic tracking-wide text-[#22c55e] leading-none">
-                ~87%
-              </span>
+            <span className="text-[#22c55e] font-gothic text-5xl md:text-6xl tracking-wide leading-none">
+              87%
+            </span>
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg md:text-xl font-arimo">
                   Margen bruto
