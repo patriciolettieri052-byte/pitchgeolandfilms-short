@@ -38,7 +38,7 @@ export const slides: SlideData[] = [
     id: 3,
     text: "",
     variant: "problem-hud-3",
-    backgroundMedia: "3.mp4",
+    backgroundMedia: "slide3.mp4",
     overlayOpacity: 80
   },
   {
@@ -59,7 +59,7 @@ export const slides: SlideData[] = [
     id: 6,
     text: "",
     variant: "problem-hud-5",
-    backgroundMedia: "3.mp4",
+    backgroundMedia: "slide6.mp4",
     overlayOpacity: 80
   },
   {
@@ -119,7 +119,7 @@ export const slides: SlideData[] = [
     id: 14,
     text: "",
     variant: "pricing",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide14.mp4",
     overlayOpacity: 85
   },
   {
@@ -128,7 +128,7 @@ export const slides: SlideData[] = [
     title: "Adopción primero. Monetización después.",
     text: "En este mercado, cobrar antes de generar confianza frena la adopción. El cine y la publicidad son industrias de relación, urgencia y reputación: el freemium no es falta de tracción, es el mecanismo para entrar.",
     variant: "go-to-market-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide15.mp4",
     overlayOpacity: 85
   },
   {
@@ -137,7 +137,7 @@ export const slides: SlideData[] = [
     title: "De 11 productoras activas a 40 clientes pagos.",
     text: "Adopción primero, monetización después: abrimos la red, introducimos pagos por proyecto y activamos ciudades según la demanda real.",
     variant: "go-to-market-strategy-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide16.mp4",
     overlayOpacity: 85
   },
   {
@@ -146,7 +146,7 @@ export const slides: SlideData[] = [
     title: "más contenido. más datos. menos tiempo para decidir.",
     text: "streaming, producción global e ia multiplicaron la demanda. hoy hay que analizar más variables en menos tiempo, con datos cada vez más fragmentados.",
     variant: "why-now-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide17.mp4",
     overlayOpacity: 85
   },
   {
@@ -155,7 +155,7 @@ export const slides: SlideData[] = [
     title: "El sistema se vuelve más fuerte con cada producción.",
     text: "El moat no es “usar IA”. Es la memoria operacional propietaria que se acumula con cada análisis y activación.",
     variant: "defensibility-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide18.mp4",
     overlayOpacity: 85
   },
   {
@@ -164,7 +164,7 @@ export const slides: SlideData[] = [
     title: "Márgenes brutos superiores al 99%.",
     text: "",
     variant: "unit-economics-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide19.mp4",
     overlayOpacity: 85
   },
   {
@@ -173,7 +173,7 @@ export const slides: SlideData[] = [
     title: "De adopción gratuita a revenue recurrente.",
     text: "Proyección base: no depende de enterprise en el inicio. El crecimiento sale de convertir uso recurrente en Hub y expandir ciudades por demanda real.",
     variant: "financial-roadmap-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide20.mp4",
     overlayOpacity: 85
   },
   {
@@ -182,7 +182,7 @@ export const slides: SlideData[] = [
     title: "10 meses construyendo antes de pedir capital.",
     text: "El equipo ya asumió el riesgo inicial. La ronda permite convertir compromiso parcial en ejecución full-time.",
     variant: "skin-in-the-game-hud",
-    backgroundMedia: "8.mp4",
+    backgroundMedia: "slide21.mp4",
     overlayOpacity: 85
   },
 
@@ -200,7 +200,7 @@ export const slides: SlideData[] = [
     id: 23,
     text: "",
     variant: "financial-hud",
-    backgroundMedia: "7.mp4",
+    backgroundMedia: "slide23.mp4",
     overlayOpacity: 80
   },
   {
