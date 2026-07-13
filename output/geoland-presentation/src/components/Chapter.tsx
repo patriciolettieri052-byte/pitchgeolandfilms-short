@@ -224,6 +224,16 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               />
               <img 
                 src={`assets/${backgroundMedia.replace(/\.mp4$/i, '.jpg')}`} 
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (backgroundMedia.startsWith('slide')) {
+                    const numberOnly = backgroundMedia.replace('slide', '').replace(/\.mp4$/i, '.jpg');
+                    target.src = `assets/${numberOnly}`;
+                  }
+                  target.onerror = () => {
+                    target.src = 'assets/8.jpg';
+                  };
+                }}
                 className="w-full h-full object-cover hidden print:block"
                 alt="background-poster"
               />
