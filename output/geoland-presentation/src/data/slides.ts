@@ -112,7 +112,7 @@ export const slides: SlideData[] = [
     title: "Un mercado global de USD 360B anuales",
     text: "",
     variant: "market",
-    backgroundMedia: "9.png",
+    backgroundMedia: "",
     overlayOpacity: 85
   },
   {
