@@ -101,27 +101,31 @@ function App() {
       <MotionConfig transition={{ duration: 0 }} reducedMotion="always">
         <div className="bg-black w-full min-h-screen">
           {/* Slide de Portada (Intro) */}
-          <div className="print-slide relative w-[1920px] h-[1080px] overflow-hidden">
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <img 
-                src="assets/portada2.jpg" 
-                className="w-full h-full object-cover"
-                alt="portada"
-              />
-              <div className="absolute inset-0 bg-black/40 z-10"></div>
-            </div>
-            <div className="relative z-20 w-full h-full flex items-center justify-center">
-              <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
+          <div className="print-slide">
+            <div className="print-slide-inner">
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img 
+                  src="assets/portada2.jpg" 
+                  className="w-full h-full object-cover"
+                  alt="portada"
+                />
+                <div className="absolute inset-0 bg-black/40 z-10"></div>
+              </div>
+              <div className="relative z-20 w-full h-full flex items-center justify-center">
+                <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
+              </div>
             </div>
           </div>
 
           {/* Diapositivas Secuenciales */}
           {slides.map((slide) => (
-            <div key={slide.id} className="print-slide relative w-[1920px] h-[1080px] overflow-hidden">
-              <Chapter 
-                {...slide} 
-                overlayOpacity={slide.overlayOpacity}
-              />
+            <div key={slide.id} className="print-slide">
+              <div className="print-slide-inner">
+                <Chapter 
+                  {...slide} 
+                  overlayOpacity={slide.overlayOpacity}
+                />
+              </div>
             </div>
           ))}
         </div>
