@@ -41,7 +41,7 @@ const UnitEconomicsHud: React.FC<{
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left max-w-[1000px]"
           >
-            <span className="text-white/40 font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+            <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
               {overline || "UNIT ECONOMICS"}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-2">
@@ -63,7 +63,7 @@ const UnitEconomicsHud: React.FC<{
             className="w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col gap-4"
           >
             <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <span className="text-[#22c55e] font-gothic text-5xl md:text-6xl tracking-wide leading-none">
+            <span className="text-white font-gothic text-5xl md:text-6xl tracking-wide leading-none">
               87%
             </span>
               <div className="flex flex-col">
@@ -83,12 +83,12 @@ const UnitEconomicsHud: React.FC<{
                   initial={{ width: 0 }}
                   animate={{ width: "87%" }}
                   transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] as const, delay: 0.2 }}
-                  className="h-full bg-[#16a34a] rounded-l-full"
+                  className="h-full bg-white rounded-l-full"
                 />
                 <div className="h-full w-[13%] bg-white/30" />
               </div>
               <div className="flex justify-between items-center mt-2 text-[10px] md:text-xs font-semibold tracking-wider font-arimo">
-                <span className="text-[#22c55e] uppercase">Margen</span>
+                <span className="text-white uppercase">Margen</span>
                 <span className="text-white/40 uppercase">COGS · ~13%</span>
               </div>
             </div>
@@ -102,7 +102,7 @@ const UnitEconomicsHud: React.FC<{
               className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-white/40 font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                <h3 className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   QUÉ COMPONE EL COGS
                 </h3>
                 <ul className="space-y-3">
@@ -116,7 +116,7 @@ const UnitEconomicsHud: React.FC<{
                   </li>
                   <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
                     <Map className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>APIs de mapas y clima</span>
+                    <span>APIs</span>
                   </li>
                   <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
                     <Database className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
@@ -137,9 +137,9 @@ const UnitEconomicsHud: React.FC<{
             {/* Right Card: Por qué el margen mejora */}
             <motion.div
               variants={itemVariants}
-              className="bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-2xl p-6 backdrop-blur-md flex flex-col"
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col"
             >
-              <h3 className="text-[#22c55e] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+              <h3 className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                 POR QUÉ EL MARGEN MEJORA
               </h3>
               <div className="flex flex-col gap-4 text-white/90 text-xs md:text-sm font-light leading-relaxed font-arimo">

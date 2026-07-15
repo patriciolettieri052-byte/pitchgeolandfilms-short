@@ -31,7 +31,7 @@ const ProblemCard: React.FC<{
 
 const ProblemHud2: React.FC = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
+    <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-10">
         
         {/* Header Section */}
@@ -41,7 +41,7 @@ const ProblemHud2: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1100px]"
         >
-          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             EL PROBLEMA
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">

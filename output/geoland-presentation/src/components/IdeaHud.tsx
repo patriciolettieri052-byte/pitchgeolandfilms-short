@@ -5,15 +5,12 @@ const IdeaHud: React.FC = () => {
     <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
       <div className="w-full max-w-[610px] flex flex-col items-start text-left mt-[-20px]">
         
-        <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+        <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
           LA IDEA
         </span>
         <h1 className="text-white font-gothic text-6xl md:text-[85px] tracking-wide uppercase leading-none mb-3">
           GEOLAND
         </h1>
-        <h2 className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-5">
-          Decision System for Film Production
-        </h2>
         
         <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light mb-5 max-w-full">
           Un sistema de inteligencia de decisión que combina la comprensión contextual de la IA con el rigor de un software de precisión, para encontrar la mejor locación para cada escena — cruzando lo que la producción busca visualmente con lo que realmente necesita para rodar: permisos, costes, logística, clima, luz e infraestructura.

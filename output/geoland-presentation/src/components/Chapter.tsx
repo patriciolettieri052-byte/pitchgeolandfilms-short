@@ -167,6 +167,9 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
     animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" as const } }
   };
 
+  const isContain = false;
+  const objectClass = isContain ? 'object-contain' : 'object-cover';
+
   return (
     <div className={`w-full h-full flex items-center ${align === 'left' ? 'justify-start' : align === 'right' ? 'justify-end' : 'justify-center'} relative overflow-hidden bg-black`}>
       {/* Background Media Container */}
@@ -220,7 +223,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 muted
                 loop 
                 playsInline 
-                className="w-full h-full object-cover print:hidden"
+                className={`w-full h-full print:hidden ${objectClass}`}
               />
               <img 
                 src={`assets/${backgroundMedia.replace(/\.mp4$/i, '.jpg')}`} 
@@ -234,14 +237,14 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                     target.src = 'assets/8.jpg';
                   };
                 }}
-                className="w-full h-full object-cover hidden print:block"
+                className={`w-full h-full hidden print:block ${objectClass}`}
                 alt="background-poster"
               />
             </>
           ) : (
             <img 
               src={`assets/${backgroundMedia}`} 
-              className="w-full h-full object-cover"
+              className={`w-full h-full ${objectClass}`}
               alt="background"
             />
           )
@@ -572,7 +575,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 variants={itemVariants}
                 className="flex flex-col items-start text-left max-w-[900px]"
               >
-                <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MERCADO"}
                 </span>
                 <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || "Un mercado global de USD 360B anuales" }} />
@@ -815,7 +818,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 variants={itemVariants}
                 className="flex flex-col items-start text-left max-w-[900px]"
               >
-                <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                   {overline || "MODELO DE NEGOCIO"}
                 </span>
                 <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || "MONETIZACIÓN" }} />
@@ -940,7 +943,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                   variants={itemVariants}
                   className="flex flex-col items-start text-left max-w-[900px]"
                 >
-                  <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+                  <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
                     {overline || "COMPETENCIA"}
                   </span>
                   <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title.replace('<br/>', ' ') }} />
@@ -1000,7 +1003,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                   variants={itemVariants}
                   className="flex flex-col items-center text-center max-w-[900px] mx-auto"
                 >
-                  <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+                  <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
                     {overline || "DATA ARCHITECTURE"}
                   </span>
                   <h1 className="text-white font-gothic text-4xl md:text-5xl tracking-wide uppercase mb-3" dangerouslySetInnerHTML={{ __html: title }} />

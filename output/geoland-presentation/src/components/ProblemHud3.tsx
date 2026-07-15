@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TriangleAlert, LayoutGrid, Mail } from 'lucide-react';
+import { TriangleAlert } from 'lucide-react';
 
 const ProblemHud3: React.FC = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
+    <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-8 mt-[-30px]">
         
         {/* Header Section */}
@@ -14,7 +14,7 @@ const ProblemHud3: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
-          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+          <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
             EL PROBLEMA
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6 leading-[1.1]">
@@ -53,10 +53,7 @@ const ProblemHud3: React.FC = () => {
             className="flex flex-col gap-8"
           >
             {/* Item 1 */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 shrink-0 rounded-full bg-black/50 flex items-center justify-center border border-white/10">
-                <LayoutGrid size={20} className="text-white/40" strokeWidth={1.5} />
-              </div>
+            <div className="flex items-start">
               <p className="text-white/85 text-lg md:text-xl font-arimo leading-relaxed font-light mt-0.5">
                 Ruido. Parking. Tráfico.<br/>
                 Vecinos. Permisos. Seguridad.<br/>
@@ -69,10 +66,7 @@ const ProblemHud3: React.FC = () => {
             <div className="w-full h-[1px] bg-white/10 my-1"></div>
 
             {/* Item 2 */}
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 shrink-0 rounded-full bg-black/50 flex items-center justify-center border border-white/10">
-                <Mail size={20} className="text-white/40" strokeWidth={1.5} />
-              </div>
+            <div className="flex items-start">
               <p className="text-white/50 text-lg md:text-[19px] font-arimo leading-relaxed font-light mt-0.5">
                 Hoy todo eso vive disperso entre<br/>
                 <strong className="text-white font-bold">llamadas, emails, scouts, Excel,<br/>

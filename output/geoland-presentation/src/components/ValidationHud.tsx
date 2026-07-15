@@ -69,67 +69,69 @@ const ValidationHud: React.FC = () => {
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
-      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', paddingLeft: '120px', paddingRight: '120px'
+      display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingLeft: '120px', paddingRight: '120px'
     }}>
-      {/* Header Section */}
-      <div className="w-full max-w-[1000px] mb-12">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-start text-left max-w-[900px]"
-        >
-          <span className="text-white font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            BETA NETWORK
-          </span>
-          <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-            VALIDACIÓN INICIAL
-          </h1>
-          <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-            Módulo de pruebas operativas privadas con productoras asociadas de mercados seleccionados.
-          </p>
-        </motion.div>
-      </div>
+      <div className="w-full max-w-[1400px] flex flex-col items-start">
+        {/* Header Section */}
+        <div className="w-full mb-12">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start text-left max-w-[900px]"
+          >
+            <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
+              BETA NETWORK
+            </span>
+            <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
+              VALIDACIÓN INICIAL
+            </h1>
+            <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
+              Módulo de pruebas operativas privadas con productoras asociadas de mercados seleccionados.
+            </p>
+          </motion.div>
+        </div>
 
-      {/* Grid container */}
-      <div style={{ width: '100%', maxWidth: '1400px' }}>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-          <ValidationCard
-            statNumber="10"
-            statLabel="MESES"
-            subtext="Probando el sistema en entornos reales."
-            delay={0.1}
-          />
-          <ValidationCard
-            statNumber="3"
-            statLabel="CIUDADES OPERATIVAS"
-            subtext="Barcelona, Madrid y Lisboa."
-            delay={0.2}
-          />
-          <ValidationCard
-            statNumber="11"
-            statLabel="PRODUCTORAS ACTIVAS"
-            subtext="Testeando y nutriendo el sistema."
-            delay={0.3}
-          />
-          <ValidationCard
-            statNumber="+620"
-            statLabel="PROCESOS"
-            subtext="Análisis y búsquedas operativas completadas."
-            delay={0.4}
-          />
-          <ValidationCard
-            statNumber="8/11"
-            statLabel="USO RECURRENTE"
-            subtext="Productoras con uso constante de la herramienta."
-            delay={0.5}
-          />
-          <ValidationCard
-            statNumber="60%"
-            statLabel="PARA PRESUPUESTOS"
-            subtext="El sistema ya está integrado en decisiones financieras reales, no solo en búsquedas exploratorias."
-            delay={0.6}
-          />
+        {/* Grid container */}
+        <div className="w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
+            <ValidationCard
+              statNumber="10"
+              statLabel="MESES"
+              subtext="Probando el sistema en entornos reales."
+              delay={0.1}
+            />
+            <ValidationCard
+              statNumber="3"
+              statLabel="CIUDADES OPERATIVAS"
+              subtext="Barcelona, Madrid y Lisboa."
+              delay={0.2}
+            />
+            <ValidationCard
+              statNumber="11"
+              statLabel="PRODUCTORAS ACTIVAS"
+              subtext="Testeando y nutriendo el sistema."
+              delay={0.3}
+            />
+            <ValidationCard
+              statNumber="+620"
+              statLabel="PROCESOS"
+              subtext="Análisis y búsquedas operativas completadas."
+              delay={0.4}
+            />
+            <ValidationCard
+              statNumber="8/11"
+              statLabel="USO RECURRENTE"
+              subtext="Productoras con uso constante de la herramienta."
+              delay={0.5}
+            />
+            <ValidationCard
+              statNumber="60%"
+              statLabel="PARA PRESUPUESTOS"
+              subtext="El sistema ya está integrado en decisiones financieras reales, no solo en búsquedas exploratorias."
+              delay={0.6}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -88,7 +88,7 @@ const FinancialRoadmapHud: React.FC<{
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left max-w-[1000px]"
           >
-            <span className="text-white/40 font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+            <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
               {overline || "ROADMAP FINANCIERO"}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-4">
@@ -113,7 +113,7 @@ const FinancialRoadmapHud: React.FC<{
                 key={idx} 
                 className={`flex flex-col items-center text-center ${idx >= 2 ? 'pt-6 md:pt-0' : ''} ${idx > 0 ? 'md:pl-4' : ''}`}
               >
-                <span className="text-white/40 font-arimo text-[10px] tracking-[0.2em] uppercase font-bold mb-3 block">
+                <span className="text-[#EAD8C0] font-arimo text-[10px] tracking-[0.2em] uppercase font-bold mb-3 block">
                   {col.year}
                 </span>
                 

@@ -55,7 +55,7 @@ const CaseCard: React.FC<{
 
 const ProblemHud4: React.FC = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start pl-[120px] pr-[120px]">
+    <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-8 mt-[-30px]">
         
         {/* Header Section */}

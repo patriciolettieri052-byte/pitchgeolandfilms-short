@@ -41,7 +41,7 @@ const WhyNowHud: React.FC<{
             transition={{ duration: 0.8 }}
             className="flex flex-col items-start text-left max-w-[1000px]"
           >
-            <span className="text-white/40 font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
+            <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3">
               {overline || "WHY NOW"}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-4">
