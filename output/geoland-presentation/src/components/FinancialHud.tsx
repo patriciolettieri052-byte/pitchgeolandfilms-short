@@ -62,19 +62,19 @@ const FinancialHud: React.FC = () => {
             className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full"
           >
             <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Con</span>
+              <span className="font-arimo text-[10px] text-white tracking-widest uppercase mb-2">Con</span>
               <span className="font-gothic text-5xl text-[#F7F6ED]">€295K</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Runway</span>
+              <span className="font-arimo text-[10px] text-white tracking-widest uppercase mb-2">Runway</span>
               <span className="font-gothic text-4xl text-white">12 Meses</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Clientes Pagando</span>
+              <span className="font-arimo text-[10px] text-white tracking-widest uppercase mb-2">Clientes Pagando</span>
               <span className="font-gothic text-4xl text-white">40</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6">
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">ARR / Next Round Ready</span>
+              <span className="font-arimo text-[10px] text-white tracking-widest uppercase mb-2">ARR / Next Round Ready</span>
               <span className="font-gothic text-4xl text-white">€272K</span>
             </div>
           </motion.div>
