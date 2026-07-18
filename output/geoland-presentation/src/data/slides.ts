@@ -290,7 +290,7 @@ export const slides: SlideData[] = [
     title: "ROUND",
     text: "",
     variant: "titulo-grande",
-    backgroundMedia: "",
+    backgroundMedia: "11.png",
     overlayOpacity: 80,
     titleSize: "small"
   },
