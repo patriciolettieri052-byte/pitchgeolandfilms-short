@@ -25,8 +25,8 @@ if (!fs.existsSync(screenshotsDir)) {
     deviceScaleFactor: 2 // Esto simula una pantalla Retina (mayor densidad de píxeles)
   });
 
-  console.log('Navegando a http://localhost:4173 ...');
-  await page.goto('http://localhost:4173', { waitUntil: 'networkidle0' });
+  console.log('Navegando a http://localhost:5173 ...');
+  await page.goto('http://localhost:5173', { waitUntil: 'networkidle0' });
 
   // Forzar un mejor renderizado de fuentes
   await page.addStyleTag({
@@ -50,7 +50,15 @@ if (!fs.existsSync(screenshotsDir)) {
   
   for (let i = 1; i <= numSlides; i++) {
     console.log(`Capturando slide ${i}...`);
-    // Esperar a que terminen posibles animaciones (1.5 segundos)
+    
+    // Esperar a que la red se estabilice (para asegurar que las imágenes pesadas como round.png carguen)
+    try {
+      await page.waitForNetworkIdle({ idleTime: 1000, timeout: 5000 });
+    } catch (e) {
+      // Ignorar timeout
+    }
+    
+    // Esperar a que terminen posibles animaciones
     await new Promise(r => setTimeout(r, 1500));
     
     await page.screenshot({
