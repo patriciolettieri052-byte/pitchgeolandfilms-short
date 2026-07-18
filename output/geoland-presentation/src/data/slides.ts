@@ -282,7 +282,7 @@ export const slides: SlideData[] = [
     id: 32,
     text: "",
     variant: "financial-hud",
-    backgroundMedia: "slide23.mp4",
+    backgroundMedia: "11.png",
     overlayOpacity: 80
   },
   {
