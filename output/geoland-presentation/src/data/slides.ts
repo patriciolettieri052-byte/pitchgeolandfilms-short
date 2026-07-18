@@ -31,7 +31,7 @@ export const slides: SlideData[] = [
     id: 2,
     text: "",
     variant: "problem-hud-1",
-    backgroundMedia: "slide2.mp4",
+    backgroundMedia: "7.mp4",
     overlayOpacity: 95
   },
   {
@@ -45,7 +45,7 @@ export const slides: SlideData[] = [
     id: 4,
     text: "",
     variant: "problem-hud-2",
-    backgroundMedia: "split:6.mp4,7.mp4,8.mp4",
+    backgroundMedia: "8.mp4",
     overlayOpacity: 95
   },
   {
@@ -95,20 +95,29 @@ export const slides: SlideData[] = [
   },
   {
     id: 11,
+    title: "REAL PROOF",
+    text: "",
+    variant: "titulo-grande",
+    backgroundMedia: "",
+    overlayOpacity: 80,
+    titleSize: "small"
+  },
+  {
+    id: 12,
     text: "",
     variant: "case-study-hud",
     backgroundMedia: "caso_bcn_1.mp4",
     overlayOpacity: 80
   },
   {
-    id: 12,
+    id: 13,
     text: "",
     variant: "validation-hud",
     backgroundMedia: "53.png",
     overlayOpacity: 80
   },
   {
-    id: 13,
+    id: 14,
     title: "MARKET",
     text: "",
     variant: "titulo-grande",
@@ -117,7 +126,7 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 14,
+    id: 15,
     title: "Un mercado global de USD 360B anuales",
     text: "",
     variant: "market",
@@ -125,7 +134,16 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 15,
+    id: 16,
+    overline: "COMPETENCIA",
+    title: "Un mercado fragmentado, no una solución completa.",
+    text: "Cada herramienta resuelve una parte del problema — ninguna conecta lo visual, lo operativo y lo legal en una sola decisión.",
+    variant: "competition-hud",
+    backgroundMedia: "",
+    overlayOpacity: 85
+  },
+  {
+    id: 17,
     title: "PRICING",
     text: "",
     variant: "titulo-grande",
@@ -134,14 +152,14 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 16,
+    id: 18,
     text: "",
     variant: "pricing",
     backgroundMedia: "slide14.mp4",
     overlayOpacity: 85
   },
   {
-    id: 17,
+    id: 19,
     title: "GO-TO MARKET",
     text: "",
     variant: "titulo-grande",
@@ -150,7 +168,7 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 18,
+    id: 20,
     overline: "GO-TO-MARKET",
     title: "Adopción primero. Monetización después.",
     text: "En este mercado, cobrar antes de generar confianza frena la adopción. El cine y la publicidad son industrias de relación, urgencia y reputación: el freemium no es falta de tracción, es el mecanismo para entrar.",
@@ -159,7 +177,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 19,
+    id: 21,
     overline: "GO-TO-MARKET",
     title: "De 11 productoras activas a 40 clientes pagos.",
     text: "Adopción primero, monetización después: abrimos la red, introducimos pagos por proyecto y activamos ciudades según la demanda real.",
@@ -168,7 +186,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 20,
+    id: 22,
     title: "WHY NOW",
     text: "",
     variant: "titulo-grande",
@@ -177,7 +195,7 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 21,
+    id: 23,
     overline: "WHY NOW",
     title: "más contenido. más datos. menos tiempo para decidir.",
     text: "streaming, producción global e ia multiplicaron la demanda. hoy hay que analizar más variables en menos tiempo, con datos cada vez más fragmentados.",
@@ -186,7 +204,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 22,
+    id: 24,
     overline: "DEFENSIBILIDAD",
     title: "El sistema se vuelve más fuerte con cada producción.",
     text: "El moat no es “usar IA”. Es la memoria operacional propietaria que se acumula con cada análisis y activación.",
@@ -195,7 +213,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 23,
+    id: 25,
     title: "UNIT",
     text: "",
     variant: "titulo-grande",
@@ -204,7 +222,7 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 24,
+    id: 26,
     overline: "UNIT ECONOMICS",
     title: "Margen bruto del 87%.",
     text: "",
@@ -213,7 +231,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 25,
+    id: 27,
     title: "SKIN IN THE GAME",
     text: "",
     variant: "titulo-grande",
@@ -223,7 +241,7 @@ export const slides: SlideData[] = [
   },
 
   {
-    id: 26,
+    id: 28,
     overline: "SKIN IN THE GAME",
     title: "10 meses construyendo antes de pedir capital.",
     text: "El equipo ya asumió el riesgo inicial. La ronda permite convertir compromiso parcial en ejecución full-time.",
@@ -232,7 +250,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 85
   },
   {
-    id: 27,
+    id: 29,
     title: "TEAM",
     text: "",
     variant: "titulo-grande",
@@ -242,7 +260,7 @@ export const slides: SlideData[] = [
   },
 
   {
-    id: 28,
+    id: 30,
     title: "",
     text: `<div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 justify-center items-start w-full max-w-[1400px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/pepe_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.25] translate-y-[20px] md:translate-y-[28px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>José Luis Curcio</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder, Product Vision & Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>18+ años en campaigns globales (Coca-Cola, Ford, Samsung); origen directo de GEOLAND.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/pato_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[0.95] translate-y-[-12px] md:translate-y-[-16px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Patricio Lettieri</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder - Data Infrastructure</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>15+ años en marketing analytics e IA aplicada para marcas como John Deere y Porsche.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/damian_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.0] translate-y-[-8px] md:translate-y-[-10px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Damián Scheck</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & CTO</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>CTO; lidera arquitectura técnica y escalabilidad de la plataforma.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/juancarlos_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.25] translate-y-[20px] md:translate-y-[28px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Juan Carlos Casalderrey</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & Engineering Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>Arquitecto de sistemas y co-founder.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/oliver_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.05] translate-y-[10px] md:translate-y-[14px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Oliver Garland</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & Industry Strategy Vision</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>Founder de Olga Lee y Mamma Team. 25+ años produciendo campañas AAA globales.</p></div></div>`,
     variant: "texto",
@@ -252,24 +270,8 @@ export const slides: SlideData[] = [
     maxWidth: "1400px"
   },
   {
-    id: 29,
-    title: "ROADMAP",
-    text: "",
-    variant: "titulo-grande",
-    backgroundMedia: "",
-    overlayOpacity: 80,
-    titleSize: "small"
-  },
-  {
-    id: 30,
-    text: "",
-    variant: "financial-hud",
-    backgroundMedia: "slide23.mp4",
-    overlayOpacity: 80
-  },
-  {
     id: 31,
-    title: "ROUND",
+    title: "ROADMAP",
     text: "",
     variant: "titulo-grande",
     backgroundMedia: "",
@@ -279,12 +281,28 @@ export const slides: SlideData[] = [
   {
     id: 32,
     text: "",
+    variant: "financial-hud",
+    backgroundMedia: "slide23.mp4",
+    overlayOpacity: 80
+  },
+  {
+    id: 33,
+    title: "ROUND",
+    text: "",
+    variant: "titulo-grande",
+    backgroundMedia: "",
+    overlayOpacity: 80,
+    titleSize: "small"
+  },
+  {
+    id: 34,
+    text: "",
     variant: "round-hud",
     backgroundMedia: "round.png",
     overlayOpacity: 85
   },
   {
-    id: 33,
+    id: 35,
     overline: "CIERRE",
     title: "",
     text: "Let's talk.",

@@ -66,16 +66,16 @@ const FinancialHud: React.FC = () => {
               <span className="font-gothic text-5xl text-[#F7F6ED]">€295K</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
-              <span className="font-gothic text-4xl text-white mb-2">12 Meses</span>
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase">Runway</span>
+              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Runway</span>
+              <span className="font-gothic text-4xl text-white">12 Meses</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6 border-b md:border-b-0 md:border-r border-white/10">
-              <span className="font-gothic text-4xl text-white mb-2">40</span>
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase">Clientes Pagando</span>
+              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">Clientes Pagando</span>
+              <span className="font-gothic text-4xl text-white">40</span>
             </div>
             <div className="flex flex-col items-center justify-center p-6">
-              <span className="font-gothic text-4xl text-white mb-2">€270K</span>
-              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase">ARR / Next Round Ready</span>
+              <span className="font-arimo text-[10px] text-white/40 tracking-widest uppercase mb-2">ARR / Next Round Ready</span>
+              <span className="font-gothic text-4xl text-white">€272K</span>
             </div>
           </motion.div>
 
