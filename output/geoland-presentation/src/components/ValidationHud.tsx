@@ -96,7 +96,7 @@ const ValidationHud: React.FC = () => {
         <div className="w-full">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
             <ValidationCard
-              statNumber="10"
+              statNumber="6"
               statLabel="MESES"
               subtext="Probando el sistema en entornos reales."
               delay={0.1}

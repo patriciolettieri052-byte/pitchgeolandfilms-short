@@ -304,14 +304,6 @@ export const slides: SlideData[] = [
   },
   {
     id: 35,
-    title: "GEOLAND ES PARA PRODUCTION FILM.",
-    text: "Pero el motor central es común para otras verticales en un futuro: scoring, agentes, variables, contexto, análisis comparativo, visión computacional, verificación y explicación.",
-    variant: "titulo-grande",
-    backgroundMedia: "43.mp4",
-    overlayOpacity: 45
-  },
-  {
-    id: 36,
     title: "REAL ESTATE AND FARMLAND",
     text: "ROI / IRR / NOI, RIESGO Y CONTEXTO MACRO, REGULACIÓN Y FISCALIDAD, COMPARABLES GLOBALES, DEMANDA Y CRECIMIENTO, UBICACIÓN Y CONECTIVIDAD, COSTES OPERATIVOS, VISIÓN COMPUTACIONAL DEL ACTIVO, ESTRATEGIAS DE INVERSIÓN, TIMING DE MERCADO",
     variant: "diagrama-expansion",
@@ -319,7 +311,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 37,
+    id: 36,
     title: "AVIATION & AERONAUTICS",
     text: "RUTAS Y SLOTS, CLIMA Y CONDICIONES OPERATIVAS, COMBUSTIBLE Y COSTES, MANTENIMIENTO Y DISPONIBILIDAD, ASIGNACIÓN DE TRIPULACIÓN, RIESGO OPERATIVO, TIMING Y EFICIENCIA, COORDINACIÓN MULTI-SISTEMA, DISPONIBILIDAD DE ASSETS, OPTIMIZACIÓN OPERACIONAL",
     variant: "diagrama-expansion",
@@ -327,7 +319,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 38,
+    id: 37,
     title: "LOGISTICS & SUPPLY CHAIN",
     text: "RUTAS Y TIEMPOS OPERATIVOS, COSTES LOGÍSTICOS, CONGESTIÓN Y CAPACIDAD, CLIMA Y RIESGO OPERATIVO, RIESGO GEOPOLÍTICO, PUERTOS - HUBS Y NODOS CRÍTICOS, DISTRIBUCIÓN DE ASSETS, SUPPLY CHAIN FRAGMENTATION, OPTIMIZACIÓN MULTI-VARIABLE, EFICIENCIA OPERACIONAL",
     variant: "diagrama-expansion",
@@ -335,7 +327,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 39,
+    id: 38,
     title: "RETAIL EXPANSION",
     text: "DEMOGRAFÍA Y CONSUMO, TRÁFICO Y MOVILIDAD, COMPETENCIA Y SATURACIÓN, COSTES INMOBILIARIOS, POTENCIAL COMERCIAL, CRECIMIENTO URBANO, INGRESOS Y CONTEXTO ECONÓMICO, ACCESIBILIDAD Y CONECTIVIDAD, RIESGO OPERATIVO, EXPANSIÓN MULTI-CIUDAD",
     variant: "diagrama-expansion",
@@ -343,15 +335,7 @@ export const slides: SlideData[] = [
     overlayOpacity: 0
   },
   {
-    id: 40,
-    title: "EL PATRÓN ES SIEMPRE EL MISMO:",
-    text: "Datos fragmentados -> análisis complejo -> decisión clara.",
-    variant: "titulo-grande",
-    backgroundMedia: "49.mp4",
-    overlayOpacity: 45
-  },
-  {
-    id: 41,
+    id: 39,
     title: "ROUND",
     text: "",
     variant: "titulo-grande",
@@ -360,14 +344,14 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 42,
+    id: 40,
     text: "",
     variant: "round-hud",
     backgroundMedia: "round.png",
     overlayOpacity: 85
   },
   {
-    id: 43,
+    id: 41,
     overline: "CIERRE",
     title: "",
     text: "Let's talk.",

@@ -28,6 +28,10 @@ if (!fs.existsSync(screenshotsDir)) {
   console.log('Navegando a http://localhost:5173 ...');
   await page.goto('http://localhost:5173', { waitUntil: 'networkidle0' });
 
+  // Esperar unos segundos iniciales para asegurar la carga completa de fondos y fuentes
+  console.log('Esperando 5 segundos para estabilización inicial...');
+  await new Promise(r => setTimeout(r, 5000));
+
   // Forzar un mejor renderizado de fuentes
   await page.addStyleTag({
     content: `
@@ -46,7 +50,7 @@ if (!fs.existsSync(screenshotsDir)) {
     `
   });
 
-  const numSlides = 43;
+  const numSlides = 41;
   
   for (let i = 1; i <= numSlides; i++) {
     console.log(`Capturando slide ${i}...`);
@@ -58,8 +62,8 @@ if (!fs.existsSync(screenshotsDir)) {
       // Ignorar timeout
     }
     
-    // Esperar a que terminen posibles animaciones
-    await new Promise(r => setTimeout(r, 1500));
+    // Esperar a que terminen posibles animaciones y efectos
+    await new Promise(r => setTimeout(r, 3000));
     
     await page.screenshot({
       path: path.join(screenshotsDir, `slide_${i.toString().padStart(2, '0')}.png`),
