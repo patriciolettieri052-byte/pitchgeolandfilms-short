@@ -25,6 +25,7 @@ import WhyNowHud from './WhyNowHud';
 import DefensibilityHud from './DefensibilityHud';
 import UnitEconomicsHud from './UnitEconomicsHud';
 import FinancialRoadmapHud from './FinancialRoadmapHud';
+import SkinInTheGameHud from './SkinInTheGameHud';
 import CompetitionHud from './CompetitionHud';
 import ScalabilityHud from './ScalabilityHud';
 
@@ -39,7 +40,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud" | "skin-in-the-game-hud" | "competition-hud" | "scalability-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "scalability-hud" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud" | "skin-in-the-game-hud" | "competition-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -1050,10 +1051,10 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           <GoToMarketHud title={title} overline={overline} text={text} />
         ) : variant === 'go-to-market-strategy-hud' ? (
           <GoToMarketStrategyHud title={title} overline={overline} text={text} />
-        ) : variant === 'why-now-hud' ? (
-          <WhyNowHud title={title} overline={overline} text={text} />
         ) : variant === 'scalability-hud' ? (
           <ScalabilityHud title={title} overline={overline} text={text} />
+        ) : variant === 'why-now-hud' ? (
+          <WhyNowHud title={title} overline={overline} text={text} />
         ) : variant === 'defensibility-hud' ? (
           <DefensibilityHud title={title} overline={overline} text={text} />
         ) : variant === 'unit-economics-hud' ? (
@@ -1107,73 +1108,37 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </motion.h2>
               )}
             </>
-
-        ) : variant === 'titulo-chico' ? (
-          align === 'center-left' ? (
-            <div className="flex flex-col w-fit items-start text-left mx-auto" style={{ maxWidth: maxWidth || '1000px' }}>
-              {overline && (
-                <motion.span
-                  variants={itemVariants}
-                  className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3 block"
-                >
-                  {overline}
-                </motion.span>
-              )}
-              {title && (
-                <motion.h2 
-                  variants={itemVariants}
-                  className="titulo-chico-cinematic mb-6 text-left"
-                >
-                  <span dangerouslySetInnerHTML={{ __html: title }} />
-                </motion.h2>
-              )}
-              {text && (
-                <motion.div 
-                  variants={itemVariants}
-                  className="texto-cuerpo-cinematic text-left"
-                >
-                  <div dangerouslySetInnerHTML={{ __html: text }} />
-                </motion.div>
-              )}
-            </div>
-          ) : (
-            <>
-              {overline && (
-                <motion.span
-                  variants={itemVariants}
-                  className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3 block"
-                >
-                  {overline}
-                </motion.span>
-              )}
-              {title && (
-                text ? (
-                  <motion.h2 
-                    variants={itemVariants}
-                    className={`titulo-chico-cinematic mb-6 w-full ${align === 'right' ? 'text-right' : 'text-left'}`}
-                  >
-                    <span dangerouslySetInnerHTML={{ __html: title }} />
-                  </motion.h2>
-                ) : (
-                  <motion.h2 
-                    variants={itemVariants}
-                    className={`titulo-chico-cinematic mb-6 w-full ${align === 'right' ? 'text-right' : align === 'left' ? 'text-left' : 'text-center'}`}
-                  >
-                    <span dangerouslySetInnerHTML={{ __html: title }} />
-                  </motion.h2>
-                )
-              )}
-              {text && (
-                <motion.div 
-                  variants={itemVariants}
-                  className={`texto-cuerpo-cinematic w-full ${align === 'right' ? 'text-right' : 'text-left'}`}
-                  style={{ maxWidth: maxWidth || '1000px' }}
-                >
-                  <div dangerouslySetInnerHTML={{ __html: text }} />
-                </motion.div>
-              )}
-            </>
           )
+        ) : variant === 'titulo-chico' ? (
+          <div 
+            className={`flex flex-col w-full mx-auto ${align === 'right' ? 'items-end text-right' : align === 'left' ? 'items-start text-left' : text ? 'items-start text-left' : 'items-center text-center'}`}
+            style={{ maxWidth: maxWidth || '1000px' }}
+          >
+            {overline && (
+              <motion.span
+                variants={itemVariants}
+                className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-3"
+              >
+                {overline}
+              </motion.span>
+            )}
+            {title && (
+              <motion.h2 
+                variants={itemVariants}
+                className={`titulo-chico-cinematic mb-6 w-full ${align === 'right' ? 'text-right' : 'text-left'}`}
+              >
+                <span dangerouslySetInnerHTML={{ __html: title }} />
+              </motion.h2>
+            )}
+            {text && (
+              <motion.div 
+                variants={itemVariants}
+                className={`texto-cuerpo-cinematic w-full ${align === 'right' ? 'text-right' : 'text-left'}`}
+              >
+                <div dangerouslySetInnerHTML={{ __html: text }} />
+              </motion.div>
+            )}
+          </div>
         ) : variant === 'texto' ? (
           <>
             {text && (

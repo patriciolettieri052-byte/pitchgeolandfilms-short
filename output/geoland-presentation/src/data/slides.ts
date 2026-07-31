@@ -289,17 +289,16 @@ export const slides: SlideData[] = [
     id: 33,
     overline: "BUILT TO SCALE",
     title: "CINE ES EL COMIENZO",
-    text: "Nuestro propósito es construir el motor de decisión para el mundo físico.<br/><br/>Empezamos por producción audiovisual porque es el vertical que mejor conocemos y donde podemos validar, monetizar y aprender más rápido.<br/><br/>GEOLAND está diseñado para escalar mucho más allá del cine.",
+    text: "Nuestro propósito es construir el motor de decisión para el mundo físico.<br/>Empezamos por producción audiovisual porque es el vertical que mejor conocemos y donde podemos validar, monetizar y aprender más rápido.<br/>GEOLAND está diseñado para escalar mucho más allá del cine.",
     variant: "titulo-chico",
     backgroundMedia: "Para la 41.mp4",
-    overlayOpacity: 70,
-    align: "left"
+    overlayOpacity: 70
   },
   {
     id: 34,
     overline: "80% UNIVERSAL. 20% ADAPTABLE.",
     title: "UN NÚCLEO. MÚLTIPLES INDUSTRIAS.",
-    text: "El núcleo permanece: ENTENDER  •  ESTRUCTURAR  •  COMPARAR  •  PRIORIZAR  •  EXPLICAR",
+    text: "El núcleo permanece: ENTENDER • ESTRUCTURAR • COMPARAR • PRIORIZAR • EXPLICAR",
     variant: "scalability-hud",
     backgroundMedia: "43.mp4",
     overlayOpacity: 70
@@ -308,21 +307,19 @@ export const slides: SlideData[] = [
     id: 35,
     overline: "ESTRATEGIA DE ENTRADA",
     title: "EMPEZAMOS DONDE PODEMOS GANAR MÁS RÁPIDO",
-    text: "Cine nos da entrada, datos y tracción.<br/><br/>EXPERTISE  •  ACCESO  •  VALIDACIÓN  •  MENOR COSTE DE ENTRADA<br/><br/>No desarrollamos múltiples verticales en paralelo. Cine es nuestro único foco comercial actual.",
+    text: "Cine nos da entrada, datos y tracción.<br/>EXPERTISE  •  ACCESO  •  VALIDACIÓN  •  MENOR COSTE DE ENTRADA<br/>No desarrollamos múltiples verticales en paralelo. Cine es nuestro único foco comercial actual.",
     variant: "titulo-chico",
     backgroundMedia: "7.mp4",
-    overlayOpacity: 70,
-    align: "left"
+    overlayOpacity: 70
   },
   {
     id: 36,
     overline: "VISIÓN DE FUTURO",
     title: "EL MERCADO FINAL NO ES CINE",
-    text: "Es la inteligencia de decisión para operaciones complejas del mundo físico.<br/><br/>Cine valida y monetiza el motor. Ese motor puede escalar después a travel, logística, real estate, aeronáutica y otros mercados B2B de enorme dimensión.<br/><br/><strong class='text-white font-black'>CINE CONSTRUYE EL MOTOR. EL MOTOR ABRE EL MUNDO.</strong>",
+    text: "Es la inteligencia de decisión para operaciones complejas del mundo físico.<br/>Cine valida y monetiza el motor. Ese motor puede escalar después a travel, logística, real estate, aeronáutica y otros mercados B2B de enorme dimensión.<br/><strong class='text-white font-bold'>CINE CONSTRUYE EL MOTOR. EL MOTOR ABRE EL MUNDO.</strong>",
     variant: "titulo-chico",
-    backgroundMedia: "49.mp4",
-    overlayOpacity: 70,
-    align: "left"
+    backgroundMedia: "6.mp4",
+    overlayOpacity: 70
   },
   {
     id: 37,
