@@ -50,7 +50,7 @@ if (!fs.existsSync(screenshotsDir)) {
     `
   });
 
-  const numSlides = 41;
+  const numSlides = 39;
   
   for (let i = 1; i <= numSlides; i++) {
     console.log(`Capturando slide ${i}...`);

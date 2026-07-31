@@ -287,55 +287,45 @@ export const slides: SlideData[] = [
   },
   {
     id: 33,
-    title: "BUILT TO SCALE",
-    text: "",
-    variant: "titulo-grande",
-    backgroundMedia: "",
-    overlayOpacity: 80,
-    titleSize: "small"
+    overline: "BUILT TO SCALE",
+    title: "CINE ES EL COMIENZO",
+    text: "Nuestro propósito es construir el motor de decisión para el mundo físico.<br/><br/>Empezamos por producción audiovisual porque es el vertical que mejor conocemos y donde podemos validar, monetizar y aprender más rápido.<br/><br/>GEOLAND está diseñado para escalar mucho más allá del cine.",
+    variant: "titulo-chico",
+    backgroundMedia: "Para la 41.mp4",
+    overlayOpacity: 70,
+    align: "left"
   },
   {
     id: 34,
-    title: "80% UNIVERSAL. 20% ADAPTABLE.",
-    text: "",
-    variant: "titulo-chico",
-    backgroundMedia: "Para la 41.mp4",
-    overlayOpacity: 45
+    overline: "80% UNIVERSAL. 20% ADAPTABLE.",
+    title: "UN NÚCLEO. MÚLTIPLES INDUSTRIAS.",
+    text: "El núcleo permanece: ENTENDER  •  ESTRUCTURAR  •  COMPARAR  •  PRIORIZAR  •  EXPLICAR",
+    variant: "scalability-hud",
+    backgroundMedia: "43.mp4",
+    overlayOpacity: 70
   },
   {
     id: 35,
-    title: "REAL ESTATE AND FARMLAND",
-    text: "ROI / IRR / NOI, RIESGO Y CONTEXTO MACRO, REGULACIÓN Y FISCALIDAD, COMPARABLES GLOBALES, DEMANDA Y CRECIMIENTO, UBICACIÓN Y CONECTIVIDAD, COSTES OPERATIVOS, VISIÓN COMPUTACIONAL DEL ACTIVO, ESTRATEGIAS DE INVERSIÓN, TIMING DE MERCADO",
-    variant: "diagrama-expansion",
-    backgroundMedia: "",
-    overlayOpacity: 0
+    overline: "ESTRATEGIA DE ENTRADA",
+    title: "EMPEZAMOS DONDE PODEMOS GANAR MÁS RÁPIDO",
+    text: "Cine nos da entrada, datos y tracción.<br/><br/>EXPERTISE  •  ACCESO  •  VALIDACIÓN  •  MENOR COSTE DE ENTRADA<br/><br/>No desarrollamos múltiples verticales en paralelo. Cine es nuestro único foco comercial actual.",
+    variant: "titulo-chico",
+    backgroundMedia: "7.mp4",
+    overlayOpacity: 70,
+    align: "left"
   },
   {
     id: 36,
-    title: "AVIATION & AERONAUTICS",
-    text: "RUTAS Y SLOTS, CLIMA Y CONDICIONES OPERATIVAS, COMBUSTIBLE Y COSTES, MANTENIMIENTO Y DISPONIBILIDAD, ASIGNACIÓN DE TRIPULACIÓN, RIESGO OPERATIVO, TIMING Y EFICIENCIA, COORDINACIÓN MULTI-SISTEMA, DISPONIBILIDAD DE ASSETS, OPTIMIZACIÓN OPERACIONAL",
-    variant: "diagrama-expansion",
-    backgroundMedia: "",
-    overlayOpacity: 0
+    overline: "VISIÓN DE FUTURO",
+    title: "EL MERCADO FINAL NO ES CINE",
+    text: "Es la inteligencia de decisión para operaciones complejas del mundo físico.<br/><br/>Cine valida y monetiza el motor. Ese motor puede escalar después a travel, logística, real estate, aeronáutica y otros mercados B2B de enorme dimensión.<br/><br/><strong class='text-white font-black'>CINE CONSTRUYE EL MOTOR. EL MOTOR ABRE EL MUNDO.</strong>",
+    variant: "titulo-chico",
+    backgroundMedia: "49.mp4",
+    overlayOpacity: 70,
+    align: "left"
   },
   {
     id: 37,
-    title: "LOGISTICS & SUPPLY CHAIN",
-    text: "RUTAS Y TIEMPOS OPERATIVOS, COSTES LOGÍSTICOS, CONGESTIÓN Y CAPACIDAD, CLIMA Y RIESGO OPERATIVO, RIESGO GEOPOLÍTICO, PUERTOS - HUBS Y NODOS CRÍTICOS, DISTRIBUCIÓN DE ASSETS, SUPPLY CHAIN FRAGMENTATION, OPTIMIZACIÓN MULTI-VARIABLE, EFICIENCIA OPERACIONAL",
-    variant: "diagrama-expansion",
-    backgroundMedia: "",
-    overlayOpacity: 0
-  },
-  {
-    id: 38,
-    title: "RETAIL EXPANSION",
-    text: "DEMOGRAFÍA Y CONSUMO, TRÁFICO Y MOVILIDAD, COMPETENCIA Y SATURACIÓN, COSTES INMOBILIARIOS, POTENCIAL COMERCIAL, CRECIMIENTO URBANO, INGRESOS Y CONTEXTO ECONÓMICO, ACCESIBILIDAD Y CONECTIVIDAD, RIESGO OPERATIVO, EXPANSIÓN MULTI-CIUDAD",
-    variant: "diagrama-expansion",
-    backgroundMedia: "",
-    overlayOpacity: 0
-  },
-  {
-    id: 39,
     title: "ROUND",
     text: "",
     variant: "titulo-grande",
@@ -344,14 +334,14 @@ export const slides: SlideData[] = [
     titleSize: "small"
   },
   {
-    id: 40,
+    id: 38,
     text: "",
     variant: "round-hud",
     backgroundMedia: "round.png",
     overlayOpacity: 85
   },
   {
-    id: 41,
+    id: 39,
     overline: "CIERRE",
     title: "",
     text: "Let's talk.",
