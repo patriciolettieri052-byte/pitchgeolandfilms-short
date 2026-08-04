@@ -243,9 +243,9 @@ export const slides: SlideData[] = [
   {
     id: 28,
     overline: "SKIN IN THE GAME",
-    title: "10 meses construyendo antes de pedir capital.",
-    text: "El equipo ya asumió el riesgo inicial. La ronda permite convertir compromiso parcial en ejecución full-time.",
-    variant: "skin-in-the-game-hud",
+    title: "DE LA PRIMERA PRODUCTORA A 11 EN SOLO 6 MESES",
+    text: "PRIMERO VALIDAMOS. DESPUÉS SALIMOS A LEVANTAR CAPITAL",
+    variant: "skin-in-the-game-new-hud",
     backgroundMedia: "slide21.mp4",
     overlayOpacity: 85
   },
@@ -291,7 +291,7 @@ export const slides: SlideData[] = [
     title: "CINE ES EL COMIENZO",
     text: "Nuestro propósito es construir el motor de decisión para el mundo físico.<br/>Empezamos por producción audiovisual porque es el vertical que mejor conocemos y donde podemos validar, monetizar y aprender más rápido.<br/>GEOLAND está diseñado para escalar mucho más allá del cine.",
     variant: "titulo-chico",
-    backgroundMedia: "Para la 41.mp4",
+    backgroundMedia: "7.mp4",
     overlayOpacity: 70
   },
   {
@@ -300,7 +300,7 @@ export const slides: SlideData[] = [
     title: "UN NÚCLEO. MÚLTIPLES INDUSTRIAS.",
     text: "El núcleo permanece: ENTENDER • ESTRUCTURAR • COMPARAR • PRIORIZAR • EXPLICAR",
     variant: "scalability-hud",
-    backgroundMedia: "43.mp4",
+    backgroundMedia: "Para la 41.mp4",
     overlayOpacity: 70
   },
   {
@@ -309,7 +309,7 @@ export const slides: SlideData[] = [
     title: "EMPEZAMOS DONDE PODEMOS GANAR MÁS RÁPIDO",
     text: "Cine nos da entrada, datos y tracción.<br/>EXPERTISE  •  ACCESO  •  VALIDACIÓN  •  MENOR COSTE DE ENTRADA<br/>No desarrollamos múltiples verticales en paralelo. Cine es nuestro único foco comercial actual.",
     variant: "titulo-chico",
-    backgroundMedia: "7.mp4",
+    backgroundMedia: "43.mp4",
     overlayOpacity: 70
   },
   {
@@ -318,7 +318,7 @@ export const slides: SlideData[] = [
     title: "EL MERCADO FINAL NO ES CINE",
     text: "Es la inteligencia de decisión para operaciones complejas del mundo físico.<br/>Cine valida y monetiza el motor. Ese motor puede escalar después a travel, logística, real estate, aeronáutica y otros mercados B2B de enorme dimensión.<br/><strong class='text-white font-bold'>CINE CONSTRUYE EL MOTOR. EL MOTOR ABRE EL MUNDO.</strong>",
     variant: "titulo-chico",
-    backgroundMedia: "6.mp4",
+    backgroundMedia: "slide16.jpg",
     overlayOpacity: 70
   },
   {

@@ -102,9 +102,9 @@ const ValidationHud: React.FC = () => {
               delay={0.1}
             />
             <ValidationCard
-              statNumber="3"
-              statLabel="CIUDADES OPERATIVAS"
-              subtext="Barcelona, Madrid y Lisboa."
+              statNumber="ESPAÑA"
+              statLabel="TOTAL PAÍS"
+              subtext="Cobertura de locaciones en todo el territorio."
               delay={0.2}
             />
             <ValidationCard

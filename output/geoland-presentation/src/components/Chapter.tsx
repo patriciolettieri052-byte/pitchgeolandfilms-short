@@ -26,6 +26,7 @@ import DefensibilityHud from './DefensibilityHud';
 import UnitEconomicsHud from './UnitEconomicsHud';
 import FinancialRoadmapHud from './FinancialRoadmapHud';
 import SkinInTheGameHud from './SkinInTheGameHud';
+import SkinInTheGameNewHud from './SkinInTheGameNewHud';
 import CompetitionHud from './CompetitionHud';
 import ScalabilityHud from './ScalabilityHud';
 
@@ -40,7 +41,7 @@ interface ChapterProps {
   isItalic?: boolean;
   overline?: string;
   titleSize?: string;
-  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "scalability-hud" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud" | "skin-in-the-game-hud" | "competition-hud";
+  variant?: "subtitulo" | "titulo" | "portada" | "portada81" | "portadafinal" | "texto" | "barras" | "barras-pro" | "apertura" | "apertura2" | "hub" | "backtest-stats" | "backtest-cities" | "numeric" | "business-units" | "reviews" | "neural-map" | "titulo-grande" | "titulo-chico" | "advisors" | "roadmap" | "soluciones-grid" | "diagrama-fuentes" | "diagrama-expansion" | "scalability-hud" | "market" | "pricing" | "texto-arriba" | "titulo-cuerpo-bold" | "validation-hud" | "how-it-works-hud" | "case-study-hud" | "financial-hud" | "round-hud" | "problem-hud-1" | "problem-hud-2" | "problem-hud-3" | "problem-hud-4" | "problem-hud-5" | "idea-hud" | "vision-cards" | "go-to-market-hud" | "go-to-market-strategy-hud" | "why-now-hud" | "defensibility-hud" | "unit-economics-hud" | "financial-roadmap-hud" | "skin-in-the-game-hud" | "skin-in-the-game-new-hud" | "competition-hud";
   align?: "left" | "center" | "right" | "center-left";
   maxWidth?: string;
   ctaUrl?: string;
@@ -270,8 +271,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
         variants={containerVariants}
         initial="initial"
         animate="animate"
-        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' || variant === 'skin-in-the-game-hud' || variant === 'competition-hud' || variant === 'scalability-hud' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
-        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' || variant === 'skin-in-the-game-hud' || variant === 'competition-hud' || variant === 'scalability-hud' ? { width: '100%', height: '100%' } : { 
+        className={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' || variant === 'skin-in-the-game-hud' || variant === 'skin-in-the-game-new-hud' || variant === 'competition-hud' || variant === 'scalability-hud' ? "absolute inset-0 z-30" : `relative z-20 w-full px-8 flex flex-col ${align === 'left' ? 'items-start text-left' : align === 'right' ? 'items-end text-right' : align === 'center-left' ? 'items-center text-left' : 'items-center text-center'}`}
+        style={variant === 'neural-map' || variant === 'roadmap' || variant === 'advisors' || variant === 'validation-hud' || variant === 'how-it-works-hud' || variant === 'case-study-hud' || variant === 'financial-hud' || variant === 'round-hud' || variant === 'problem-hud-1' || variant === 'problem-hud-2' || variant === 'problem-hud-3' || variant === 'problem-hud-4' || variant === 'problem-hud-5' || variant === 'idea-hud' || variant === 'vision-cards' || variant === 'go-to-market-hud' || variant === 'go-to-market-strategy-hud' || variant === 'why-now-hud' || variant === 'defensibility-hud' || variant === 'unit-economics-hud' || variant === 'financial-roadmap-hud' || variant === 'skin-in-the-game-hud' || variant === 'skin-in-the-game-new-hud' || variant === 'competition-hud' || variant === 'scalability-hud' ? { width: '100%', height: '100%' } : { 
           maxWidth: maxWidth || (variant?.startsWith('backtest') || variant === 'business-units' || variant === 'reviews' ? '1400px' : '1400px'),
           paddingLeft: '120px',
           paddingRight: '120px'
@@ -632,7 +633,10 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </div>
 
                 {/* Vertical Spacer */}
-                <div className="h-12 md:h-16" />
+                <div className="h-6 md:h-8" />
+
+                {/* Metrics Placeholder for Alignment */}
+                <div className="h-[76px] w-full" />
 
                 {/* Number */}
                 <span 
@@ -702,7 +706,35 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </div>
 
                 {/* Vertical Spacer */}
-                <div className="h-12 md:h-16" />
+                <div className="h-6 md:h-8" />
+
+                {/* Metrics Group */}
+                <div className="h-[76px] w-full flex flex-col justify-start items-center">
+                  {/* Opportunity */}
+                  <span 
+                    className="text-[#EAD8C0] block text-center leading-none mb-3 font-bold"
+                    style={{
+                      fontFamily: "'Arimo', sans-serif",
+                      fontSize: '28px',
+                      letterSpacing: '-0.01em'
+                    }}
+                  >
+                    €1,08B – €1,5B ARR
+                  </span>
+
+                  {/* ACV */}
+                  <span 
+                    className="text-white/40 block text-center leading-none mb-4"
+                    style={{
+                      fontFamily: "'Arimo', sans-serif",
+                      fontSize: '11px',
+                      letterSpacing: '0.08em',
+                      fontWeight: 500
+                    }}
+                  >
+                    ACV: €18.000 - €25.000
+                  </span>
+                </div>
 
                 {/* Number */}
                 <span 
@@ -772,7 +804,35 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </div>
 
                 {/* Vertical Spacer */}
-                <div className="h-12 md:h-16" />
+                <div className="h-6 md:h-8" />
+
+                {/* Metrics Group */}
+                <div className="h-[76px] w-full flex flex-col justify-start items-center">
+                  {/* ARR */}
+                  <span 
+                    className="text-[#EAD8C0] block text-center leading-none mb-2 font-bold"
+                    style={{
+                      fontFamily: "'Arimo', sans-serif",
+                      fontSize: '28px',
+                      letterSpacing: '-0.01em'
+                    }}
+                  >
+                    €36M - €100M ARR
+                  </span>
+
+                  {/* ACV */}
+                  <span 
+                    className="text-white/40 block text-center leading-none mb-4"
+                    style={{
+                      fontFamily: "'Arimo', sans-serif",
+                      fontSize: '11px',
+                      letterSpacing: '0.08em',
+                      fontWeight: 500
+                    }}
+                  >
+                    ACV: €18.000 - €25.000
+                  </span>
+                </div>
 
                 {/* Number */}
                 <span 
@@ -811,6 +871,19 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 </span>
               </motion.div>
             </div>
+            
+            {/* Explanatory Note */}
+            <motion.div 
+              variants={itemVariants}
+              className="w-full mt-10 pt-4 border-t border-white/5"
+            >
+              <p 
+                className="text-white/30 font-arimo leading-relaxed font-light text-left"
+                style={{ fontSize: '12px' }}
+              >
+                * El rango económico utiliza un ACV maduro estimado de €18.000–€25.000, frente al ACV inicial proyectado, impulsado por la evolución del mix hacia Hub y Enterprise, expansión multimercado, integraciones y nuevos módulos.
+              </p>
+            </motion.div>
           </div>
         ) : variant === 'pricing' ? (
           <div className="w-full max-w-[1400px] py-6 px-4 flex flex-col justify-center items-start min-h-[85vh] select-none font-jost">
@@ -878,7 +951,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                       <span className="text-4xl font-medium text-white font-jost">€899</span>
                       <span className="text-xs text-white/50 uppercase tracking-widest">/ MES</span>
                     </div>
-                    <span className="text-[10px] text-white/40 block mt-1 font-jost">€10.788 / AÑO</span>
+                    <span className="text-[10px] text-white/40 block mt-1 font-jost">€8.999 / AÑO</span>
                   </div>
                   
                   <div className="border-t border-white/10 pt-4">
@@ -913,7 +986,7 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                       <span className="text-3xl font-light text-white font-jost">€3K - €15K+</span>
                       <span className="text-xs text-white/40 uppercase tracking-widest">/ MES</span>
                     </div>
-                    <span className="text-[10px] text-white/30 block mt-1 font-jost">€36K - €180K+ / AÑO</span>
+                    <span className="text-[10px] text-white/30 block mt-1 font-jost">€30.000 - €150.000 / AÑO</span>
                   </div>
                   
                   <div className="border-t border-white/5 pt-4">
@@ -1063,6 +1136,8 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
           <FinancialRoadmapHud title={title} overline={overline} text={text} />
         ) : variant === 'skin-in-the-game-hud' ? (
           <SkinInTheGameHud title={title} overline={overline} text={text} />
+        ) : variant === 'skin-in-the-game-new-hud' ? (
+          <SkinInTheGameNewHud title={title} overline={overline} text={text} />
         ) : variant === 'advisors' ? (
           <AdvisorsHud title={title} text={text} />
         ) : variant === 'roadmap' ? (

@@ -6,9 +6,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const screenshotsDir = path.join(__dirname, 'screenshots');
+const screenshotsDir = path.join(__dirname, 'screenshots', 'nueva pres');
 if (!fs.existsSync(screenshotsDir)) {
-  fs.mkdirSync(screenshotsDir);
+  fs.mkdirSync(screenshotsDir, { recursive: true });
 }
 
 (async () => {
@@ -50,9 +50,10 @@ if (!fs.existsSync(screenshotsDir)) {
     `
   });
 
-  const numSlides = 39;
+  const startSlide = 1;
+  const endSlide = 40;
   
-  for (let i = 1; i <= numSlides; i++) {
+  for (let i = startSlide; i <= endSlide; i++) {
     console.log(`Capturando slide ${i}...`);
     
     // Esperar a que la red se estabilice (para asegurar que las imágenes pesadas como round.png carguen)
