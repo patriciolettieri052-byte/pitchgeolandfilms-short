@@ -326,6 +326,46 @@ export interface TranslationSchema {
       overline: string;
       title: string;
     };
+    pricing: {
+      overline: string;
+      title: string;
+      text: string;
+      t1Title: string;
+      t1Price: string;
+      t1Period: string;
+      t1TargetLabel: string;
+      t1TargetVal: string;
+      t1TargetDesc: string;
+      t1FeaturesLabel: string;
+      t1F1: string;
+      t1F2: string;
+      t1F3: string;
+      t1F4: string;
+      t2Title: string;
+      t2Price: string;
+      t2Period: string;
+      t2Yearly: string;
+      t2TargetLabel: string;
+      t2TargetVal: string;
+      t2TargetDesc: string;
+      t2FeaturesLabel: string;
+      t2F1: string;
+      t2F2: string;
+      t2F3: string;
+      t2F4: string;
+      t3Title: string;
+      t3Price: string;
+      t3Period: string;
+      t3Yearly: string;
+      t3TargetLabel: string;
+      t3TargetVal: string;
+      t3TargetDesc: string;
+      t3FeaturesLabel: string;
+      t3F1: string;
+      t3F2: string;
+      t3F3: string;
+      t3F4: string;
+    };
   };
 }
 
@@ -658,6 +698,46 @@ export const translations: Record<'es' | 'en', TranslationSchema> = {
         overline: 'EXPANSIÓN GEOGRÁFICA',
         title: 'Plan de Escalado de Mercados',
       },
+      pricing: {
+        overline: 'MODELO DE NEGOCIO',
+        title: 'MONETIZACIÓN',
+        text: 'Suscripciones y On-Demand diseñados para el flujo de trabajo real.',
+        t1Title: '1. ON-DEMAND',
+        t1Price: '€349',
+        t1Period: '/ PROYECTO',
+        t1TargetLabel: 'PARA QUIÉNES SON:',
+        t1TargetVal: 'SCOUTS & PRODUCTORAS INDEPENDIENTES',
+        t1TargetDesc: 'Ideal para validación inicial y proyectos puntuales sin costos fijos.',
+        t1FeaturesLabel: 'CARACTERÍSTICAS CLAVE:',
+        t1F1: 'G-Score por escena y locación',
+        t1F2: 'Carga e interpretación básica de guion',
+        t1F3: 'Filtro inicial de permisos',
+        t1F4: 'Exportación de reporte PDF',
+        t2Title: '2. PRODUCTION HUB',
+        t2Price: '€899',
+        t2Period: '/ MES',
+        t2Yearly: '€8.999 / AÑO',
+        t2TargetLabel: 'PARA QUIÉNES SON:',
+        t2TargetVal: 'PRODUCTORAS MEDIANAS & AGENCIAS',
+        t2TargetDesc: 'Escalabilidad continua, multiusuario y optimización de recursos recurrentes.',
+        t2FeaturesLabel: 'CARACTERÍSTICAS CLAVE:',
+        t2F1: '3 proyectos activos en simultáneo',
+        t2F2: 'Análisis multi-escena y multi-locación',
+        t2F3: 'Production Board + memoria operacional',
+        t2F4: 'Soporte prioritario',
+        t3Title: '3. ENTERPRISE',
+        t3Price: '€3K - €15K+',
+        t3Period: '/ MES',
+        t3Yearly: '€30.000 - €150.000 / AÑO',
+        t3TargetLabel: 'PARA QUIÉNES SON:',
+        t3TargetVal: 'GRANDES PRODUCTORAS & STUDIOS',
+        t3TargetDesc: 'Soluciones a gran escala, automatización y máxima gobernanza de datos.',
+        t3FeaturesLabel: 'CARACTERÍSTICAS CLAVE:',
+        t3F1: 'Volumen ilimitado de proyectos',
+        t3F2: 'Data layer dedicado',
+        t3F3: 'Memoria operacional privada',
+        t3F4: 'SSO, auditoría, API e integraciones',
+      },
     },
   },
   en: {
@@ -987,6 +1067,46 @@ export const translations: Record<'es' | 'en', TranslationSchema> = {
       diagramaExpansion: {
         overline: 'GEOGRAPHIC EXPANSION',
         title: 'Market Rollout Plan',
+      },
+      pricing: {
+        overline: 'BUSINESS MODEL',
+        title: 'MONETIZATION',
+        text: 'Subscriptions and On-Demand plans designed for the real production workflow.',
+        t1Title: '1. ON-DEMAND',
+        t1Price: '€349',
+        t1Period: '/ PROJECT',
+        t1TargetLabel: 'WHO IS IT FOR:',
+        t1TargetVal: 'SCOUTS & INDEPENDENT PRODUCERS',
+        t1TargetDesc: 'Ideal for initial validation and one-off projects without fixed costs.',
+        t1FeaturesLabel: 'KEY FEATURES:',
+        t1F1: 'G-Score per scene and location',
+        t1F2: 'Basic script upload and processing',
+        t1F3: 'Initial permit filtering',
+        t1F4: 'PDF report export',
+        t2Title: '2. PRODUCTION HUB',
+        t2Price: '€899',
+        t2Period: '/ MONTH',
+        t2Yearly: '€8,999 / YEAR',
+        t2TargetLabel: 'WHO IS IT FOR:',
+        t2TargetVal: 'MID-SIZED PRODUCERS & AGENCIES',
+        t2TargetDesc: 'Continuous scalability, multi-user, and ongoing resource optimization.',
+        t2FeaturesLabel: 'KEY FEATURES:',
+        t2F1: '3 active projects concurrently',
+        t2F2: 'Multi-scene and multi-location analysis',
+        t2F3: 'Production Board + operational memory',
+        t2F4: 'Priority support',
+        t3Title: '3. ENTERPRISE',
+        t3Price: '€3K - €15K+',
+        t3Period: '/ MONTH',
+        t3Yearly: '€30,000 - €150,000 / YEAR',
+        t3TargetLabel: 'WHO IS IT FOR:',
+        t3TargetVal: 'LARGE PRODUCERS & STUDIOS',
+        t3TargetDesc: 'Large-scale solutions, automation, and full data governance.',
+        t3FeaturesLabel: 'KEY FEATURES:',
+        t3F1: 'Unlimited projects',
+        t3F2: 'Dedicated data layer',
+        t3F3: 'Private operational memory',
+        t3F4: 'SSO, auditing, API, and integrations',
       },
     },
   },

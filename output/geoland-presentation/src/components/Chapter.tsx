@@ -29,6 +29,7 @@ import SkinInTheGameHud from './SkinInTheGameHud';
 import SkinInTheGameNewHud from './SkinInTheGameNewHud';
 import CompetitionHud from './CompetitionHud';
 import ScalabilityHud from './ScalabilityHud';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface ChapterProps {
   id: number;
@@ -70,6 +71,7 @@ const getBigTitleStyle = (text: string, titleSize?: string) => {
 };
 
 const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, backgroundMedia, isTitleBlue, overlayOpacity, isBold, isItalic, titleSize, variant, align = "center", maxWidth, ctaUrl, ctaText, footer }) => {
+  const { t } = useLanguage();
   const isVideo = backgroundMedia?.toLowerCase().endsWith('.mp4');
   
   const parseBarras = (text: string) => {
@@ -894,11 +896,11 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
                 className="flex flex-col items-start text-left max-w-[900px]"
               >
                 <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-                  {overline || "MODELO DE NEGOCIO"}
+                  {overline || t.hud.pricing.overline}
                 </span>
-                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || "MONETIZACIÓN" }} />
-                {text && (
-                  <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light" dangerouslySetInnerHTML={{ __html: text }} />
+                <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6" dangerouslySetInnerHTML={{ __html: title || t.hud.pricing.title }} />
+                {(text || t.hud.pricing.text) && (
+                  <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light" dangerouslySetInnerHTML={{ __html: text || t.hud.pricing.text }} />
                 )}
               </motion.div>
             </div>
@@ -912,28 +914,28 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               >
                 <div className="flex flex-col space-y-6">
                   <div>
-                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">1. ON-DEMAND</h3>
+                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">{t.hud.pricing.t1Title}</h3>
                     <div className="flex items-baseline gap-2 mt-3">
-                      <span className="text-4xl font-light text-white font-jost">€349</span>
-                      <span className="text-xs text-white/40 uppercase tracking-widest">/ PROYECTO</span>
+                      <span className="text-4xl font-light text-white font-jost">{t.hud.pricing.t1Price}</span>
+                      <span className="text-xs text-white/40 uppercase tracking-widest">{t.hud.pricing.t1Period}</span>
                     </div>
                   </div>
                   
                   <div className="border-t border-white/5 pt-4">
-                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
-                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">SCOUTS & PRODUCTORAS INDEPENDIENTES</h4>
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">{t.hud.pricing.t1TargetLabel}</span>
+                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">{t.hud.pricing.t1TargetVal}</h4>
                     <p className="text-xs text-white/50 leading-relaxed font-light font-arimo">
-                      Ideal para validación inicial y proyectos puntuales sin costos fijos.
+                      {t.hud.pricing.t1TargetDesc}
                     </p>
                   </div>
                   
                   <div className="border-t border-white/5 pt-4">
-                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">{t.hud.pricing.t1FeaturesLabel}</span>
                     <ul className="space-y-2 text-xs text-white/70 font-light list-disc pl-4 font-arimo">
-                      <li>G-Score por escena y locación</li>
-                      <li>Carga e interpretación básica de guion</li>
-                      <li>Filtro inicial de permisos</li>
-                      <li>Exportación de reporte PDF</li>
+                      <li>{t.hud.pricing.t1F1}</li>
+                      <li>{t.hud.pricing.t1F2}</li>
+                      <li>{t.hud.pricing.t1F3}</li>
+                      <li>{t.hud.pricing.t1F4}</li>
                     </ul>
                   </div>
                 </div>
@@ -946,29 +948,29 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               >
                 <div className="flex flex-col space-y-6">
                   <div>
-                    <h3 className="text-white/85 text-xs tracking-[0.15em] font-semibold uppercase">2. PRODUCTION HUB</h3>
+                    <h3 className="text-white/85 text-xs tracking-[0.15em] font-semibold uppercase">{t.hud.pricing.t2Title}</h3>
                     <div className="flex items-baseline gap-2 mt-3">
-                      <span className="text-4xl font-medium text-white font-jost">€899</span>
-                      <span className="text-xs text-white/50 uppercase tracking-widest">/ MES</span>
+                      <span className="text-4xl font-medium text-white font-jost">{t.hud.pricing.t2Price}</span>
+                      <span className="text-xs text-white/50 uppercase tracking-widest">{t.hud.pricing.t2Period}</span>
                     </div>
-                    <span className="text-[10px] text-white/40 block mt-1 font-jost">€8.999 / AÑO</span>
+                    <span className="text-[10px] text-white/40 block mt-1 font-jost">{t.hud.pricing.t2Yearly}</span>
                   </div>
                   
                   <div className="border-t border-white/10 pt-4">
-                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
-                    <h4 className="text-xs text-white font-bold uppercase tracking-wider mb-2 font-arimo">PRODUCTORAS MEDIANAS & AGENCIAS</h4>
+                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-1">{t.hud.pricing.t2TargetLabel}</span>
+                    <h4 className="text-xs text-white font-bold uppercase tracking-wider mb-2 font-arimo">{t.hud.pricing.t2TargetVal}</h4>
                     <p className="text-xs text-white/60 leading-relaxed font-light font-arimo">
-                      Escalabilidad continua, multiusuario y optimización de recursos recurrentes.
+                      {t.hud.pricing.t2TargetDesc}
                     </p>
                   </div>
                   
                   <div className="border-t border-white/10 pt-4">
-                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <span className="text-[10px] text-white/40 tracking-[0.1em] block mb-3">{t.hud.pricing.t2FeaturesLabel}</span>
                     <ul className="space-y-2 text-xs text-white/80 font-light list-disc pl-4 font-arimo">
-                      <li>3 proyectos activos en simultáneo</li>
-                      <li>Análisis multi-escena y multi-locación</li>
-                      <li>Production Board + memoria operacional</li>
-                      <li>Soporte prioritario</li>
+                      <li>{t.hud.pricing.t2F1}</li>
+                      <li>{t.hud.pricing.t2F2}</li>
+                      <li>{t.hud.pricing.t2F3}</li>
+                      <li>{t.hud.pricing.t2F4}</li>
                     </ul>
                   </div>
                 </div>
@@ -981,29 +983,29 @@ const Chapter: React.FC<ChapterProps> = ({ id, title, overline, text, background
               >
                 <div className="flex flex-col space-y-6">
                   <div>
-                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">3. ENTERPRISE</h3>
+                    <h3 className="text-white/60 text-xs tracking-[0.15em] font-medium uppercase">{t.hud.pricing.t3Title}</h3>
                     <div className="flex items-baseline gap-2 mt-3 flex-wrap">
-                      <span className="text-3xl font-light text-white font-jost">€3K - €15K+</span>
-                      <span className="text-xs text-white/40 uppercase tracking-widest">/ MES</span>
+                      <span className="text-3xl font-light text-white font-jost">{t.hud.pricing.t3Price}</span>
+                      <span className="text-xs text-white/40 uppercase tracking-widest">{t.hud.pricing.t3Period}</span>
                     </div>
-                    <span className="text-[10px] text-white/30 block mt-1 font-jost">€30.000 - €150.000 / AÑO</span>
+                    <span className="text-[10px] text-white/30 block mt-1 font-jost">{t.hud.pricing.t3Yearly}</span>
                   </div>
                   
                   <div className="border-t border-white/5 pt-4">
-                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">PARA QUIÉNES SON:</span>
-                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">GRANDES PRODUCTORAS & STUDIOS</h4>
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-1">{t.hud.pricing.t3TargetLabel}</span>
+                    <h4 className="text-xs text-white font-medium uppercase tracking-wider mb-2 font-arimo">{t.hud.pricing.t3TargetVal}</h4>
                     <p className="text-xs text-white/50 leading-relaxed font-light font-arimo">
-                      Soluciones a gran escala, automatización y máxima gobernanza de datos.
+                      {t.hud.pricing.t3TargetDesc}
                     </p>
                   </div>
                   
                   <div className="border-t border-white/5 pt-4">
-                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">CARACTERÍSTICAS CLAVE:</span>
+                    <span className="text-[10px] text-white/30 tracking-[0.1em] block mb-3">{t.hud.pricing.t3FeaturesLabel}</span>
                     <ul className="space-y-2 text-xs text-white/70 font-light list-disc pl-4 font-arimo">
-                      <li>Volumen ilimitado de proyectos</li>
-                      <li>Data layer dedicado</li>
-                      <li>Memoria operacional privada</li>
-                      <li>SSO, auditoría, API e integraciones</li>
+                      <li>{t.hud.pricing.t3F1}</li>
+                      <li>{t.hud.pricing.t3F2}</li>
+                      <li>{t.hud.pricing.t3F3}</li>
+                      <li>{t.hud.pricing.t3F4}</li>
                     </ul>
                   </div>
                 </div>
