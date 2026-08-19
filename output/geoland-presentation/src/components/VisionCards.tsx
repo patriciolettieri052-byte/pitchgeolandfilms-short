@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building, Plane, Truck, Store } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const VisionCard: React.FC<{
   title: string;
@@ -29,6 +30,22 @@ const VisionCard: React.FC<{
 );
 
 const VisionCards: React.FC = () => {
+  const { language } = useLanguage();
+
+  const labels = language === 'en' ? {
+    overline: "VISION",
+    c1Desc: "ROI/IRR/NOI, macro risk, comps, and market timing.",
+    c2Desc: "Routes, operational weather, maintenance, and operational risk.",
+    c3Desc: "Ports, congestion, geopolitical risk, and efficiency.",
+    c4Desc: "Demographics, foot traffic, competition, and multi-city expansion."
+  } : {
+    overline: "VISIÓN",
+    c1Desc: "ROI/IRR/NOI, riesgo macro, comparables y timing de mercado.",
+    c2Desc: "Rutas, clima operativo, mantenimiento y riesgo operativo.",
+    c3Desc: "Puertos, congestión, riesgo geopolítico y eficiencia.",
+    c4Desc: "Demografía, tráfico, competencia y expansión multi-ciudad."
+  };
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-8 mt-[-30px]">
@@ -41,7 +58,7 @@ const VisionCards: React.FC = () => {
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
           <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            VISIÓN
+            {labels.overline}
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
             BUILT TO SCALE. ONE SYSTEM. MULTIPLE INDUSTRIES.
@@ -52,25 +69,25 @@ const VisionCards: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full mt-2">
           <VisionCard 
             title="Real Estate & Farmland"
-            description="ROI/IRR/NOI, riesgo macro, comparables y timing de mercado."
+            description={labels.c1Desc}
             icon={<Building size={32} strokeWidth={1.5} />}
             delay={0.2}
           />
           <VisionCard 
             title="Aviation & Aeronautics"
-            description="Rutas, clima operativo, mantenimiento y riesgo operativo."
+            description={labels.c2Desc}
             icon={<Plane size={32} strokeWidth={1.5} />}
             delay={0.3}
           />
           <VisionCard 
             title="Logistics & Supply Chain"
-            description="Puertos, congestión, riesgo geopolítico y eficiencia."
+            description={labels.c3Desc}
             icon={<Truck size={32} strokeWidth={1.5} />}
             delay={0.4}
           />
           <VisionCard 
             title="Retail Expansion"
-            description="Demografía, tráfico, competencia y expansión multi-ciudad."
+            description={labels.c4Desc}
             icon={<Store size={32} strokeWidth={1.5} />}
             delay={0.5}
           />

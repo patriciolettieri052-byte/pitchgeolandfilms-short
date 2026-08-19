@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,7 +27,26 @@ const SkinInTheGameNewHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline, text }) => {
-  const cards = [
+  const { language } = useLanguage();
+
+  const cards = language === 'en' ? [
+    {
+      label: "2 founders full-time",
+      desc: "working full-time on GEOLAND."
+    },
+    {
+      label: "Rest of team at 50%",
+      desc: "aiming to transition to full-time with funding."
+    },
+    {
+      label: "Personal savings invested",
+      desc: "capital, time, network, and system development."
+    },
+    {
+      label: "Execution mindset",
+      desc: "giving up is not an option: the goal is to turn validation into a market-leading company."
+    }
+  ] : [
     {
       label: "2 founders full-time",
       desc: "trabajando en GEOLAND."

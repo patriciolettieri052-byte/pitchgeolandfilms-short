@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Crosshair } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,9 @@ const WhyNowHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline, text }) => {
+  const { t } = useLanguage();
+  const hud = t.hud.whyNow;
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -66,10 +70,10 @@ const WhyNowHud: React.FC<{
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
-              1. más producción
+              {hud.c1Title}
             </h4>
             <p className="text-white/50 text-xs font-light leading-relaxed font-arimo">
-              netflix, amazon, disney, hbo, apple y marcas producen más contenido en más países. más proyectos, más presión.
+              {hud.c1Desc}
             </p>
           </motion.div>
 
@@ -79,10 +83,10 @@ const WhyNowHud: React.FC<{
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
-              2. más datos fragmentados
+              {hud.c2Title}
             </h4>
             <p className="text-white/50 text-xs font-light leading-relaxed font-arimo">
-              permisos, clima, tráfico, ruido, incentivos, seguridad, accesos, disponibilidad y más. dispersos entre decenas de fuentes y herramientas.
+              {hud.c2Desc}
             </p>
           </motion.div>
 
@@ -92,10 +96,10 @@ const WhyNowHud: React.FC<{
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
-              3. mejor tecnología
+              {hud.c3Title}
             </h4>
             <p className="text-white/50 text-xs font-light leading-relaxed font-arimo">
-              llms, datos geoespaciales, apis climáticas y computer vision ya permiten cruzar variables creativas, operativas y de riesgo a escala global.
+              {hud.c3Desc}
             </p>
           </motion.div>
 
@@ -105,10 +109,10 @@ const WhyNowHud: React.FC<{
             className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md"
           >
             <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-2 font-arimo">
-              4. white space claro
+              {hud.c4Title}
             </h4>
             <p className="text-white/50 text-xs font-light leading-relaxed font-arimo">
-              las soluciones actuales son marketplaces, bases de datos o herramientas de planificación. no existe una capa global de decisión que conecte todo.
+              {hud.c4Desc}
             </p>
           </motion.div>
         </motion.div>
@@ -124,10 +128,10 @@ const WhyNowHud: React.FC<{
           <Crosshair size={22} className="text-white/80 mr-4 shrink-0" strokeWidth={1.5} />
           <div className="flex flex-col md:flex-row md:items-baseline gap-1">
             <span className="text-white font-bold tracking-wide uppercase">
-              la industria produce más rápido que su capacidad para decidir bien dónde rodar.
+              {hud.bannerBold}
             </span>
             <span className="text-white/50 font-light ml-0 md:ml-2">
-              geoland conecta datos, contexto y operación para transformar la incertidumbre en decisiones claras.
+              {hud.bannerLight}
             </span>
           </div>
         </motion.div>

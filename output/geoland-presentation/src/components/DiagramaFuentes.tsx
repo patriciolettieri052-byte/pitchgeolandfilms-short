@@ -1,33 +1,63 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export const DiagramaFuentes: React.FC = () => {
+  const { language } = useLanguage();
+
   // Geometric Constants
   const width = 1100;
   const height = 500;
   const cx = width / 2;
   const cy = height / 2;
 
-  const leftCards = useMemo(() => [
-    { label: "APIs privadas" },
-    { label: "Fuentes geoespaciales y mapas" },
-    { label: "Imágenes satelitales" },
-    { label: "Clima y luz solar" },
-    { label: "Tráfico y movilidad" },
-    { label: "Catastro y urbanismo" }
-  ], []);
+  const leftCards = useMemo(() => {
+    if (language === 'en') {
+      return [
+        { label: "Private APIs" },
+        { label: "Geospatial sources & maps" },
+        { label: "Satellite imagery" },
+        { label: "Weather & sunlight" },
+        { label: "Traffic & mobility" },
+        { label: "Land registry & urban planning" }
+      ];
+    }
+    return [
+      { label: "APIs privadas" },
+      { label: "Fuentes geoespaciales y mapas" },
+      { label: "Imágenes satelitales" },
+      { label: "Clima y luz solar" },
+      { label: "Tráfico y movilidad" },
+      { label: "Catastro y urbanismo" }
+    ];
+  }, [language]);
 
-  const rightCards = useMemo(() => [
-    { label: "Municipios, ayuntamientos y film commissions" },
-    { label: "Permisos, ruido y medio ambiente" },
-    { label: "Bases de locaciones y catálogos visuales" },
-    { label: "Incentivos fiscales y proveedores locales" },
-    { 
-      label: "Red de expertos en terreno",
-      subtitle: "Scouters · Fixers · Location Managers"
-    },
-    { label: "Feedback operativo de producciones reales" }
-  ], []);
+  const rightCards = useMemo(() => {
+    if (language === 'en') {
+      return [
+        { label: "Municipalities, councils & film commissions" },
+        { label: "Permits, noise & environmental codes" },
+        { label: "Location databases & visual catalogs" },
+        { label: "Tax incentives & local vendors" },
+        { 
+          label: "On-the-ground expert network",
+          subtitle: "Scouters · Fixers · Location Managers"
+        },
+        { label: "Operational feedback from real shoots" }
+      ];
+    }
+    return [
+      { label: "Municipios, ayuntamientos y film commissions" },
+      { label: "Permisos, ruido y medio ambiente" },
+      { label: "Bases de locaciones y catálogos visuales" },
+      { label: "Incentivos fiscales y proveedores locales" },
+      { 
+        label: "Red de expertos en terreno",
+        subtitle: "Scouters · Fixers · Location Managers"
+      },
+      { label: "Feedback operativo de producciones reales" }
+    ];
+  }, [language]);
 
   return (
     <div className="w-full h-full flex items-center justify-center relative select-none">

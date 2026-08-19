@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Snowflake, Mountain, Train, TriangleAlert } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const CaseCard: React.FC<{
   overline: string;
@@ -54,6 +55,9 @@ const CaseCard: React.FC<{
 );
 
 const ProblemHud4: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.problem4;
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-8 mt-[-30px]">
@@ -66,46 +70,46 @@ const ProblemHud4: React.FC = () => {
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
           <span style={{ color: '#EAD8C0' }} className="font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            REFERENCIAS EXTERNAS
+            {hud.overline}
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-            Cuando una locación falla, falla toda la producción.
+            {hud.title}
           </h1>
           <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-            Casos históricos documentados. No son casos realizados con GEOLAND.
+            {hud.subtitle}
           </p>
         </motion.div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
           <CaseCard 
-            overline="THE REVENANT"
+            overline={hud.case1Overline}
             icon={<Snowflake size={36} strokeWidth={1} />}
-            title="La nieve desapareció."
-            description="La producción necesitaba nieve real. Al fallar las condiciones en Canadá, parte del rodaje tuvo que moverse a Patagonia."
-            extraCost="USD 10M extra"
-            extraCostLabel="por 6 días no planificados de rodaje."
-            footer="Fuente: TheWrap / Vanity Fair"
+            title={hud.case1Title}
+            description={hud.case1Desc}
+            extraCost={hud.case1Cost}
+            extraCostLabel={hud.case1CostLabel}
+            footer={hud.case1Footer}
             delay={0.2}
           />
           <CaseCard 
-            overline="MAD MAX: FURY ROAD"
+            overline={hud.case2Overline}
             icon={<Mountain size={36} strokeWidth={1} />}
-            title="El desierto dejó de ser desierto."
-            description="Broken Hill estaba preparada como locación, pero lluvias inusuales cambiaron el paisaje. El rodaje se movió a Namibia."
-            extraCost="USD 1.3M"
-            extraCostLabel="en infraestructura preparada que quedó varada."
-            footer="Fuente: NFSA / ABC Australia"
+            title={hud.case2Title}
+            description={hud.case2Desc}
+            extraCost={hud.case2Cost}
+            extraCostLabel={hud.case2CostLabel}
+            footer={hud.case2Footer}
             delay={0.3}
           />
           <CaseCard 
-            overline="MIDNIGHT RIDER"
+            overline={hud.case3Overline}
             icon={<Train size={36} strokeWidth={1} />}
-            title="El permiso no existía."
-            description="La producción filmó en una infraestructura ferroviaria activa sin autorización. El proyecto quedó cancelado."
-            extraCost="USD 11.2M"
-            extraCostLabel="en exposición legal tras una locación operativamente inviable."
-            footer="Fuente: NTSB / Variety"
+            title={hud.case3Title}
+            description={hud.case3Desc}
+            extraCost={hud.case3Cost}
+            extraCostLabel={hud.case3CostLabel}
+            footer={hud.case3Footer}
             delay={0.4}
           />
         </div>
@@ -120,10 +124,10 @@ const ProblemHud4: React.FC = () => {
           <TriangleAlert size={28} className="text-white shrink-0" strokeWidth={1.5} />
           <div className="flex flex-col">
             <p className="text-white/80 text-sm font-arimo leading-relaxed font-light">
-              Una locación puede fallar por <strong className="text-white font-bold">clima</strong>, <strong className="text-white font-bold">cambio visual</strong> del entorno o <strong className="text-white font-bold">falta de control operativo</strong>.
+              {hud.bannerText}
             </p>
             <p className="text-white/30 text-[10px] font-arimo italic mt-1">
-              Fuentes: TheWrap, Vanity Fair, NFSA, ABC Australia, NTSB, Variety.
+              {hud.bannerFooter}
             </p>
           </div>
         </motion.div>
@@ -134,4 +138,3 @@ const ProblemHud4: React.FC = () => {
 };
 
 export default ProblemHud4;
-

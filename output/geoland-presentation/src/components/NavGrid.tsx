@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { slides } from '../data/slides';
+import { getSlides } from '../data/slides';
 import type { SlideData } from '../data/slides';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface NavGridProps {
   isOpen: boolean;
@@ -21,6 +22,7 @@ const SLIDES_PER_PAGE = 15;
 const NavItem: React.FC<{ slide: NavSlide; index: number; isActive: boolean; onSelect: (idx: number) => void }> = ({ slide, index, isActive, onSelect }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const isVideo = slide.backgroundMedia?.toLowerCase().endsWith('.mp4');
+  const { t } = useLanguage();
 
   return (
     <motion.div
@@ -69,7 +71,7 @@ const NavItem: React.FC<{ slide: NavSlide; index: number; isActive: boolean; onS
           {typeof slide.id === 'number' ? `SLIDE ${String(slide.id).padStart(2, '0')}` : slide.id}
         </span>
         <p className="text-white font-jost text-[10px] tracking-widest uppercase font-light truncate leading-tight">
-          {slide.title || "CONTENIDO"}
+          {slide.title || t.ui.content}
         </p>
       </div>
 
@@ -82,11 +84,14 @@ const NavItem: React.FC<{ slide: NavSlide; index: number; isActive: boolean; onS
 };
 
 const NavGrid: React.FC<NavGridProps> = ({ isOpen, onClose, onSelect, currentIndex }) => {
+  const { language, t } = useLanguage();
+  const currentSlidesList = useMemo(() => getSlides(language), [language]);
+
   const allSlides = useMemo(() => [
-    { id: 'intro', title: 'PORTADA', backgroundMedia: 'portada2.mp4', index: -1 },
-    ...slides.map((s, i) => ({ ...s, index: i })),
-    { id: 'outro', title: 'CIERRE', backgroundMedia: 'portada2.mp4', index: slides.length }
-  ], [slides]);
+    { id: 'intro', title: t.ui.cover, backgroundMedia: 'portada2.mp4', index: -1 },
+    ...currentSlidesList.map((s, i) => ({ ...s, index: i })),
+    { id: 'outro', title: t.ui.closing, backgroundMedia: 'portada2.mp4', index: currentSlidesList.length }
+  ], [currentSlidesList, t]);
 
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(allSlides.length / SLIDES_PER_PAGE);
@@ -119,16 +124,16 @@ const NavGrid: React.FC<NavGridProps> = ({ isOpen, onClose, onSelect, currentInd
             <div className="flex justify-between items-end mb-8 border-b border-white/10 pb-6 shrink-0">
               <div>
                 <h2 className="text-white font-jost text-3xl md:text-4xl tracking-[0.4em] font-extralight uppercase">
-                  Navegación
+                  {t.ui.nav}
                 </h2>
                 <div className="flex items-center space-x-4 mt-2">
                   <p className="text-white/40 font-jost text-xs tracking-[0.2em] uppercase font-light">
-                    Página {currentPage + 1} de {totalPages}
+                    {t.ui.page} {currentPage + 1} {t.ui.of} {totalPages}
                   </p>
                   <div className="h-px w-8 bg-white/20" />
                   <div className="flex items-center space-x-2">
                     <span className="text-[9px] text-white/30 tracking-widest uppercase">
-                      {allSlides.length} Slides Totales
+                      {allSlides.length} {t.ui.totalSlides}
                     </span>
                   </div>
                 </div>
@@ -137,7 +142,7 @@ const NavGrid: React.FC<NavGridProps> = ({ isOpen, onClose, onSelect, currentInd
                 onClick={onClose}
                 className="group flex items-center space-x-3 text-white/50 hover:text-white transition-colors"
               >
-                <span className="text-[10px] tracking-[0.3em] font-light uppercase">Cerrar</span>
+                <span className="text-[10px] tracking-[0.3em] font-light uppercase">{t.ui.close}</span>
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-colors">
                   <X size={14} />
                 </div>

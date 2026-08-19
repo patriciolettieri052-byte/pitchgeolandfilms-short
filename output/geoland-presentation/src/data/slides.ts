@@ -239,7 +239,6 @@ export const slides: SlideData[] = [
     overlayOpacity: 80,
     titleSize: "small"
   },
-
   {
     id: 28,
     overline: "SKIN IN THE GAME",
@@ -258,7 +257,6 @@ export const slides: SlideData[] = [
     overlayOpacity: 80,
     titleSize: "small"
   },
-
   {
     id: 30,
     title: "",
@@ -348,3 +346,102 @@ export const slides: SlideData[] = [
     align: "center"
   }
 ];
+
+export const getSlides = (lang: 'es' | 'en'): SlideData[] => {
+  if (lang === 'es') return slides;
+
+  return slides.map(slide => {
+    switch (slide.id) {
+      case 10:
+        return { ...slide, title: "SYSTEM DATA SOURCES" };
+      case 15:
+        return { ...slide, title: "A USD 360B annual global market" };
+      case 16:
+        return {
+          ...slide,
+          overline: "COMPETITION",
+          title: "A fragmented market, not a complete solution.",
+          text: "Each tool solves part of the problem — none connects visual, operational, and legal data into a single decision."
+        };
+      case 20:
+        return {
+          ...slide,
+          overline: "GO-TO-MARKET",
+          title: "Adoption first. Monetization second.",
+          text: "In this market, charging before building trust slows adoption. Film and advertising are industries of relationships, urgency, and reputation: freemium is not a lack of traction, it is the entry mechanism."
+        };
+      case 21:
+        return {
+          ...slide,
+          overline: "GO-TO-MARKET",
+          title: "From 11 active production houses to 40 paying clients.",
+          text: "Adoption first, monetization second: we open the network, introduce pay-per-project, and activate cities based on real demand."
+        };
+      case 23:
+        return {
+          ...slide,
+          overline: "WHY NOW",
+          title: "more content. more data. less time to decide.",
+          text: "streaming, global production, and AI multiplied demand. today more variables must be analyzed in less time with increasingly fragmented data."
+        };
+      case 24:
+        return {
+          ...slide,
+          overline: "DEFENSIBILITY",
+          title: "The system grows stronger with every production.",
+          text: "The moat is not 'using AI'. It is the proprietary operational memory accumulated with every analysis and shoot."
+        };
+      case 26:
+        return {
+          ...slide,
+          title: "87% gross margin."
+        };
+      case 28:
+        return {
+          ...slide,
+          title: "FROM THE FIRST PRODUCTION HOUSE TO 11 IN JUST 6 MONTHS",
+          text: "WE VALIDATE FIRST. THEN WE RAISE CAPITAL"
+        };
+      case 30:
+        return {
+          ...slide,
+          text: `<div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 justify-center items-start w-full max-w-[1400px] mx-auto mt-4'><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/pepe_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.25] translate-y-[20px] md:translate-y-[28px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>José Luis Curcio</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder, Product Vision & Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>18+ years in global campaigns (Coca-Cola, Ford, Samsung); direct origin of GEOLAND.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/pato_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[0.95] translate-y-[-12px] md:translate-y-[-16px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Patricio Lettieri</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder - Data Infrastructure</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>15+ years in marketing analytics and applied AI for brands like John Deere and Porsche.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/damian_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.0] translate-y-[-8px] md:translate-y-[-10px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Damián Scheck</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & CTO</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>CTO; leads technical architecture and platform scalability.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/juancarlos_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.25] translate-y-[20px] md:translate-y-[28px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Juan Carlos Casalderrey</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & Engineering Strategy</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>Systems architect and co-founder.</p></div><div class='flex flex-col items-center text-center w-full'><div class='h-36 md:h-44 flex items-end justify-center mb-6'><img src='team/oliver_transparent.png' class='w-36 h-36 md:w-44 md:h-44 object-cover object-top scale-[1.05] translate-y-[10px] md:translate-y-[14px] origin-bottom [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)] print:[mask-image:none]' /></div><h3 style="font-family:'League Gothic',sans-serif;font-size:1.4rem;letter-spacing:0.12em;line-height:1.1;" class='text-white mb-2 uppercase flex items-center justify-center min-h-[48px]'>Oliver Garland</h3><h4 class='text-white/40 tracking-[0.2em] text-[10px] uppercase mb-4 flex items-center justify-center min-h-[32px] text-center' style="font-family:'Arimo',sans-serif;line-height:1.3;">Co-Founder & Industry Strategy Vision</h4><p style="font-family:'Arimo',sans-serif;" class='text-white/70 text-xs leading-relaxed font-light text-center max-w-[240px] mx-auto'>Founder of Olga Lee. 25+ years producing global AAA campaigns.</p></div></div>`
+        };
+      case 33:
+        return {
+          ...slide,
+          overline: "BUILT TO SCALE",
+          title: "FILM IS JUST THE BEGINNING",
+          text: "Our purpose is to build the decision engine for the physical world.<br/>We start with audiovisual production because it is the vertical we know best, enabling fast validation, monetization, and learning.<br/>GEOLAND is designed to scale far beyond film."
+        };
+      case 34:
+        return {
+          ...slide,
+          overline: "80% UNIVERSAL. 20% ADAPTABLE.",
+          title: "ONE CORE. MULTIPLE INDUSTRIES.",
+          text: "The core remains: UNDERSTAND • STRUCTURE • COMPARE • PRIORITIZE • EXPLAIN"
+        };
+      case 35:
+        return {
+          ...slide,
+          overline: "ENTRY STRATEGY",
+          title: "WE START WHERE WE CAN WIN FASTEST",
+          text: "Film gives us entry, data, and traction.<br/>EXPERTISE  •  ACCESS  •  VALIDATION  •  LOWER ENTRY COST<br/>We do not develop multiple verticals in parallel. Film is our sole current commercial focus."
+        };
+      case 36:
+        return {
+          ...slide,
+          overline: "FUTURE VISION",
+          title: "THE END MARKET IS NOT FILM",
+          text: "It is decision intelligence for complex physical-world operations.<br/>Film validates and monetizes the engine. That engine can then scale into travel, logistics, real estate, aviation, and other massive B2B markets.<br/><strong class='text-white font-bold'>FILM BUILDS THE ENGINE. THE ENGINE OPENS THE WORLD.</strong>"
+        };
+      case 39:
+        return {
+          ...slide,
+          overline: "CLOSING"
+        };
+      default:
+        return slide;
+    }
+  });
+};

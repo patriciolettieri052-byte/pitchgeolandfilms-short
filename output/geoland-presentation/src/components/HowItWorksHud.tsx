@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const F = {
   gothic: "'League Gothic', sans-serif",
   arimo:  "'Arimo', sans-serif",
   white:  "#F7F6ED",
   dim:    "rgba(247,246,237,0.52)",
-  dimBr:  "rgba(247,246,237,0.85)",
   border: "rgba(247,246,237,0.08)",
-  dimRed: "rgba(247,246,237,0.4)"
 };
 
 const StepCard: React.FC<{
@@ -65,6 +64,9 @@ const StepCard: React.FC<{
 );
 
 const HowItWorksHud: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.howItWorks;
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -80,13 +82,13 @@ const HowItWorksHud: React.FC = () => {
             className="flex flex-col items-start text-left max-w-[900px]"
           >
             <span style={{ color: '#EAD8C0' }} className="font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-              WORKFLOW
+              {hud.overline}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-              CÓMO FUNCIONA
+              {hud.title}
             </h1>
             <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-              De una escena a una locación lista para rodar.
+              {hud.subtitle}
             </p>
           </motion.div>
         </div>
@@ -95,33 +97,33 @@ const HowItWorksHud: React.FC = () => {
         <div className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 w-full">
             <StepCard
-              step="1. INPUT"
-              title="Describir Escena"
-              description="A través de lenguaje simple o incluso subiendo un guion técnico o mood board."
+              step={hud.step1Step}
+              title={hud.step1Title}
+              description={hud.step1Desc}
               delay={0.1}
             />
             <StepCard
-              step="2. ENGINE"
-              title="PSV Vector"
-              description="La IA traduce la necesidad en un perfil comparable de viabilidad y riesgo."
+              step={hud.step2Step}
+              title={hud.step2Title}
+              description={hud.step2Desc}
               delay={0.2}
             />
             <StepCard
-              step="3. MATCH"
-              title="Locaciones Rankeadas"
-              description="Cards con G-Score, alineadas a las prioridades reales de producción."
+              step={hud.step3Step}
+              title={hud.step3Title}
+              description={hud.step3Desc}
               delay={0.3}
             />
             <StepCard
-              step="4. ANALYZE"
-              title="Dashboard Profundo"
-              description="Costes, permisos, riesgos y próximos pasos por locación."
+              step={hud.step4Step}
+              title={hud.step4Title}
+              description={hud.step4Desc}
               delay={0.4}
             />
             <StepCard
-              step="5. EXECUTE"
-              title="Activación"
-              description="Contacto directo con scouts y location managers verificados."
+              step={hud.step5Step}
+              title={hud.step5Title}
+              description={hud.step5Desc}
               delay={0.5}
             />
           </div>

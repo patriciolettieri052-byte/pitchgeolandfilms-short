@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,9 @@ const DefensibilityHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline, text }) => {
+  const { t } = useLanguage();
+  const hud = t.hud.defensibility;
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -69,10 +73,10 @@ const DefensibilityHud: React.FC<{
                 1
               </div>
               <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-3 font-arimo">
-                Memoria operacional
+                {hud.card1Title}
               </h4>
               <p className="text-white/50 text-[11px] font-light leading-relaxed font-arimo">
-                Qué funcionó, qué falló, qué permisos fueron difíciles y qué costes aparecieron tarde.
+                {hud.card1Desc}
               </p>
             </div>
           </motion.div>
@@ -87,10 +91,10 @@ const DefensibilityHud: React.FC<{
                 2
               </div>
               <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-3 font-arimo">
-                Dataset de riesgo por ciudad
+                {hud.card2Title}
               </h4>
               <p className="text-white/50 text-[11px] font-light leading-relaxed font-arimo">
-                Ruido, accesos, tráfico, horarios, ventanas, restricciones y fricción local.
+                {hud.card2Desc}
               </p>
             </div>
           </motion.div>
@@ -105,10 +109,10 @@ const DefensibilityHud: React.FC<{
                 3
               </div>
               <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-3 font-arimo">
-                Red verificada
+                {hud.card3Title}
               </h4>
               <p className="text-white/50 text-[11px] font-light leading-relaxed font-arimo">
-                Scouts, fixers y location managers evaluados por desempeño real.
+                {hud.card3Desc}
               </p>
             </div>
           </motion.div>
@@ -123,10 +127,10 @@ const DefensibilityHud: React.FC<{
                 4
               </div>
               <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-3 font-arimo">
-                Switching cost
+                {hud.card4Title}
               </h4>
               <p className="text-white/50 text-[11px] font-light leading-relaxed font-arimo">
-                La productora acumula contexto operativo propio dentro de GEOLAND. Cambiar implica perder memoria.
+                {hud.card4Desc}
               </p>
             </div>
           </motion.div>
@@ -141,7 +145,7 @@ const DefensibilityHud: React.FC<{
           className="w-full p-4 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-xs md:text-sm backdrop-blur-md text-center"
         >
           <span className="text-white font-bold tracking-wide uppercase leading-relaxed">
-            Cada producción genera datos que no existen en bases públicas: decisiones, fricciones, costes reales y desempeño local.
+            {hud.banner}
           </span>
         </motion.div>
       </div>

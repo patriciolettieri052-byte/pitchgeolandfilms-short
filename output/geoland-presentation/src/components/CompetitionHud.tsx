@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,7 +29,41 @@ interface CompetitionHudProps {
 }
 
 const CompetitionHud: React.FC<CompetitionHudProps> = ({ title, overline, text }) => {
-  const competitors = [
+  const { language } = useLanguage();
+
+  const competitors = language === 'en' ? [
+    {
+      name: "Shotdeck",
+      category: "Visual references",
+      desc: "Aesthetics only — no permit, cost, or risk data."
+    },
+    {
+      name: "Set Scouter",
+      category: "Location marketplace",
+      desc: "Connects with owners — no viability analysis."
+    },
+    {
+      name: "StudioBinder",
+      category: "Production scheduling",
+      desc: "Organizes the shoot — does not decide where to shoot."
+    },
+    {
+      name: "Wrapbook",
+      category: "Payroll & operations",
+      desc: "Manages payroll — not locations or decisions."
+    },
+    {
+      name: "Reel-Scout",
+      category: "Location databases",
+      desc: "Catalogs options — without cross-referencing with the scene."
+    },
+    {
+      name: "GEOLAND",
+      category: "Complete operational decision",
+      desc: "Visuals + costs + permits + risk + activation — in a single system, not five separate tools.",
+      highlight: true
+    }
+  ] : [
     {
       name: "Shotdeck",
       category: "Referencias visuales",
@@ -61,6 +96,14 @@ const CompetitionHud: React.FC<CompetitionHudProps> = ({ title, overline, text }
       highlight: true
     }
   ];
+
+  const callout = language === 'en' ? {
+    bold: "Each solves a single piece. None solves the complete decision.",
+    light: "That is why the market still decides via phone calls, Excel, and gut feel — not with a system. That is where GEOLAND comes in."
+  } : {
+    bold: "Todas resuelven una pieza. Ninguna resuelve la decisión completa.",
+    light: "Por eso el mercado sigue decidiendo con llamadas, Excel y experiencia — no con un sistema. Ahí es donde entra GEOLAND."
+  };
 
   return (
     <div style={{
@@ -126,10 +169,10 @@ const CompetitionHud: React.FC<CompetitionHudProps> = ({ title, overline, text }
           className="w-full border-l-4 border-[#EAD8C0] bg-white/5 rounded-r-xl p-5 backdrop-blur-sm flex flex-col items-start"
         >
           <span className="text-white font-gothic text-xl uppercase tracking-wider mb-2 font-bold">
-            Todas resuelven una pieza. Ninguna resuelve la decisión completa.
+            {callout.bold}
           </span>
           <p className="text-white/70 font-arimo text-sm font-light leading-relaxed">
-            Por eso el mercado sigue decidiendo con llamadas, Excel y experiencia — no con un sistema. Ahí es donde entra GEOLAND.
+            {callout.light}
           </p>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const ProblemCard: React.FC<{
   icon?: React.ReactNode;
@@ -37,6 +38,9 @@ const ProblemCard: React.FC<{
 );
 
 const ProblemHud1: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.problem1;
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-10">
@@ -49,34 +53,34 @@ const ProblemHud1: React.FC = () => {
           className="flex flex-col items-start text-left max-w-[1100px]"
         >
           <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            EL PROBLEMA
+            {hud.overline}
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-            Una locación no es solo filmar.
+            {hud.title}
           </h1>
           <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-            Son permisos, accesos, tráfico, parking, seguridad, ruido y cientos de variables más. Una sola variable no detectada compromete toda la producción — y un error de locación puede costar cientos de miles de euros.
+            {hud.subtitle}
           </p>
         </motion.div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
           <ProblemCard 
-            title="USD 670K–1.3M"
-            description="por día de rodaje en locación, en producciones profesionales."
-            footer="Fuente: Motion Picture Association"
+            title={hud.card1Title}
+            description={hud.card1Desc}
+            footer={hud.card1Footer}
             delay={0.2}
           />
           <ProblemCard 
-            title="+USD 300K/día"
-            description="de gasto local promedio en producciones de alto presupuesto."
-            footer="Fuente: Olsberg SPI / MPA"
+            title={hud.card2Title}
+            description={hud.card2Desc}
+            footer={hud.card2Footer}
             delay={0.3}
           />
           <ProblemCard 
-            title="Decenas de variables"
-            description="permisos, accesos, tráfico, parking, generadores, seguridad, ruido y comunidad."
-            footer="Fuente: NYC Mayor's Office of Media & Entertainment"
+            title={hud.card3Title}
+            description={hud.card3Desc}
+            footer={hud.card3Footer}
             delay={0.4}
           />
         </div>

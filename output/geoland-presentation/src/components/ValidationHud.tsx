@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const F = {
   gothic: "'League Gothic', sans-serif",
@@ -8,7 +9,6 @@ const F = {
   dim:    "rgba(247,246,237,0.52)",
   dimBr:  "rgba(247,246,237,0.85)",
   border: "rgba(247,246,237,0.08)",
-  dimRed: "rgba(247,246,237,0.4)"
 };
 
 const ValidationCard: React.FC<{
@@ -66,6 +66,9 @@ const ValidationCard: React.FC<{
 );
 
 const ValidationHud: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.validation;
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -81,13 +84,13 @@ const ValidationHud: React.FC = () => {
             className="flex flex-col items-start text-left max-w-[900px]"
           >
             <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-              BETA NETWORK
+              {hud.overline}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-              VALIDACIÓN INICIAL
+              {hud.title}
             </h1>
             <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-              Módulo de pruebas operativas privadas con productoras asociadas de mercados seleccionados.
+              {hud.subtitle}
             </p>
           </motion.div>
         </div>
@@ -96,39 +99,39 @@ const ValidationHud: React.FC = () => {
         <div className="w-full">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
             <ValidationCard
-              statNumber="6"
-              statLabel="MESES"
-              subtext="Probando el sistema en entornos reales."
+              statNumber={hud.c1Val}
+              statLabel={hud.c1Label}
+              subtext={hud.c1Desc}
               delay={0.1}
             />
             <ValidationCard
-              statNumber="ESPAÑA"
-              statLabel="TOTAL PAÍS"
-              subtext="Cobertura de locaciones en todo el territorio."
+              statNumber={hud.c2Val}
+              statLabel={hud.c2Label}
+              subtext={hud.c2Desc}
               delay={0.2}
             />
             <ValidationCard
-              statNumber="11"
-              statLabel="PRODUCTORAS ACTIVAS"
-              subtext="Testeando y nutriendo el sistema."
+              statNumber={hud.c3Val}
+              statLabel={hud.c3Label}
+              subtext={hud.c3Desc}
               delay={0.3}
             />
             <ValidationCard
-              statNumber="+620"
-              statLabel="PROCESOS"
-              subtext="Análisis y búsquedas operativas completadas."
+              statNumber={hud.c4Val}
+              statLabel={hud.c4Label}
+              subtext={hud.c4Desc}
               delay={0.4}
             />
             <ValidationCard
-              statNumber="8/11"
-              statLabel="USO RECURRENTE"
-              subtext="Productoras con uso constante de la herramienta."
+              statNumber={hud.c5Val}
+              statLabel={hud.c5Label}
+              subtext={hud.c5Desc}
               delay={0.5}
             />
             <ValidationCard
-              statNumber="60%"
-              statLabel="PARA PRESUPUESTOS"
-              subtext="El sistema ya está integrado en decisiones financieras reales, no solo en búsquedas exploratorias."
+              statNumber={hud.c6Val}
+              statLabel={hud.c6Label}
+              subtext={hud.c6Desc}
               delay={0.6}
             />
           </div>

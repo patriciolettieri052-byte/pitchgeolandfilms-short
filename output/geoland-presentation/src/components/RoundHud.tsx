@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ value, label, delay }) => (
   <motion.div
@@ -12,6 +13,38 @@ const StatCard: React.FC<{ value: string; label: string; delay: number }> = ({ v
 );
 
 const RoundHud: React.FC = () => {
+  const { language } = useLanguage();
+
+  const labels = language === 'en' ? {
+    overline: "FUNDING",
+    title: "THE ROUND",
+    subtitle: "EARLY SEED ROUND",
+    roundLabel: "Early Seed Round",
+    equityLabel: "Equity Offered",
+    valuationLabel: "Pre-Money Valuation",
+    runwayLabel: "Guaranteed Runway",
+    useTitle: "Use of Funds",
+    u1: "Team: transition all founders to full-time dedication",
+    u2: "Local network of verified scouts, fixers, and location managers",
+    u3: "Location dataset and technology infrastructure",
+    u4: "Commercial pre-launch and freemium-to-paid conversion",
+    u5: "Legal, IP, and accounting"
+  } : {
+    overline: "FUNDING",
+    title: "LA RONDA",
+    subtitle: "RONDA EARLY SEED",
+    roundLabel: "Ronda Early Seed",
+    equityLabel: "Equity Ofrecido",
+    valuationLabel: "Val. Pre-Money",
+    runwayLabel: "Runway Garantizado",
+    useTitle: "Uso de Fondos",
+    u1: "Equipo: pasar a todos los founders a dedicación full-time",
+    u2: "Red local de scouts, fixers y location managers verificados",
+    u3: "Dataset de locaciones e infraestructura tecnológica",
+    u4: "Pre-lanzamiento comercial y conversión de freemium a pago",
+    u5: "Legal, IP y contabilidad"
+  };
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -27,13 +60,13 @@ const RoundHud: React.FC = () => {
             className="flex flex-col items-start text-left max-w-[900px]"
           >
             <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-              FUNDING
+              {labels.overline}
             </span>
             <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-              LA RONDA
+              {labels.title}
             </h1>
             <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-              RONDA EARLY SEED
+              {labels.subtitle}
             </p>
           </motion.div>
         </div>
@@ -42,10 +75,10 @@ const RoundHud: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8 items-stretch w-full">
           <div className="flex flex-col justify-between w-full md:w-1/2 gap-6">
             <div className="grid grid-cols-2 gap-6 h-full">
-              <StatCard value="€295K" label="Ronda Early Seed" delay={0.1} />
-              <StatCard value="15%" label="Equity Ofrecido" delay={0.2} />
-              <StatCard value="€1.7M" label="Val. Pre-Money" delay={0.3} />
-              <StatCard value="12m" label="Runway Garantizado" delay={0.4} />
+              <StatCard value="€295K" label={labels.roundLabel} delay={0.1} />
+              <StatCard value="15%" label={labels.equityLabel} delay={0.2} />
+              <StatCard value="€1.7M" label={labels.valuationLabel} delay={0.3} />
+              <StatCard value="12m" label={labels.runwayLabel} delay={0.4} />
             </div>
           </div>
           
@@ -54,28 +87,28 @@ const RoundHud: React.FC = () => {
             className="flex flex-col justify-center w-full md:w-1/2 p-8 bg-black/50 border border-white/10 rounded-xl backdrop-blur-md text-left"
           >
             <h3 className="text-white font-arimo font-bold text-xs tracking-[0.25em] uppercase mb-6 border-b border-white/10 pb-4 text-left">
-              Uso de Fondos
+              {labels.useTitle}
             </h3>
             <ul className="space-y-5 text-left text-white/70 font-light text-xs font-arimo">
               <li className="flex items-start gap-3">
                 <span className="text-white/40 mt-0.5 font-bold">—</span>
-                <span><strong>Equipo:</strong> pasar a todos los founders a dedicación full-time</span>
+                <span>{labels.u1}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-white/40 mt-0.5 font-bold">—</span>
-                <span><strong>Red local</strong> de scouts, fixers y location managers verificados</span>
+                <span>{labels.u2}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-white/40 mt-0.5 font-bold">—</span>
-                <span><strong>Dataset de locaciones</strong> e infraestructura tecnológica</span>
+                <span>{labels.u3}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-white/40 mt-0.5 font-bold">—</span>
-                <span><strong>Pre-lanzamiento comercial</strong> y conversión de freemium a pago</span>
+                <span>{labels.u4}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-white/40 mt-0.5 font-bold">—</span>
-                <span><strong>Legal, IP</strong> y contabilidad</span>
+                <span>{labels.u5}</span>
               </li>
             </ul>
           </motion.div>

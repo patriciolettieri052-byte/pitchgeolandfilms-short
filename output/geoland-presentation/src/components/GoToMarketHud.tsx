@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,56 @@ const GoToMarketHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline, text }) => {
+  const { language } = useLanguage();
+
+  const c1 = language === 'en' ? {
+    badge: "COMMERCIAL MOTION",
+    s1Title: "Targeted freemium",
+    s1Desc: "Selected production houses test GEOLAND on real projects.",
+    s2Title: "Concrete pain point",
+    s2Desc: "Tight deadlines, permits, noise, restrictions, fragmented data.",
+    s3Title: "Natural conversion",
+    s3Desc: "AHA! MOMENT triggers On-Demand or Hub activation."
+  } : {
+    badge: "MOTION COMERCIAL",
+    s1Title: "Freemium dirigido",
+    s1Desc: "Productoras seleccionadas prueban GEOLAND en proyectos reales.",
+    s2Title: "Dolor concreto",
+    s2Desc: "Poco tiempo, permisos, ruido o restricciones, datos fragmentados.",
+    s3Title: "Conversión natural",
+    s3Desc: "AHA! MOMENT y se activa On-Demand o Hub."
+  };
+
+  const c2 = language === 'en' ? {
+    badge: "CITY-BY-CITY EXPANSION",
+    title: "We don't \"fill the map\" before selling.",
+    desc: "Each production company brings real needs: cities, permits, scouts, and constraints. GEOLAND activates coverage where demand exists and leaves reusable memory for the next project.",
+    k1Label: "Client",
+    k1Val: "real demand",
+    k2Label: "City",
+    k2Val: "dataset + local network",
+    k3Label: "Project",
+    k3Val: "operational memory"
+  } : {
+    badge: "EXPANSIÓN CITY-BY-CITY",
+    title: "No \"llenamos el mapa\" antes de vender.",
+    desc: "Cada productora trae necesidades reales: ciudades, permisos, scouts y restricciones. GEOLAND activa cobertura donde hay demanda y deja memoria reutilizable para el siguiente proyecto.",
+    k1Label: "Cliente",
+    k1Val: "demanda real",
+    k2Label: "Ciudad",
+    k2Val: "dataset + red local",
+    k3Label: "Proyecto",
+    k3Val: "memoria operacional"
+  };
+
+  const banner = language === 'en' ? {
+    label: "Commercial principle:",
+    text: "adoption and trust first; monetization second. Asking for annual contracts upfront reduces conversion."
+  } : {
+    label: "Principio comercial:",
+    text: "primero adopción y confianza; luego monetización. Pedir contrato anual en el primer contacto reduce conversión."
+  };
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -65,7 +116,7 @@ const GoToMarketHud: React.FC<{
           className="flex flex-col bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md relative overflow-hidden"
         >
           <span className="text-white/40 font-arimo text-[10px] tracking-[0.25em] uppercase font-bold mb-8 block">
-            MOTION COMERCIAL
+            {c1.badge}
           </span>
 
           <div className="relative flex flex-col space-y-8 pl-14">
@@ -79,10 +130,10 @@ const GoToMarketHud: React.FC<{
               </div>
               <div className="flex flex-col">
                 <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-1">
-                  Freemium dirigido
+                  {c1.s1Title}
                 </h4>
                 <p className="text-white/50 text-xs font-light leading-relaxed">
-                  Productoras seleccionadas prueban GEOLAND en proyectos reales.
+                  {c1.s1Desc}
                 </p>
               </div>
             </div>
@@ -94,10 +145,10 @@ const GoToMarketHud: React.FC<{
               </div>
               <div className="flex flex-col">
                 <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-1">
-                  Dolor concreto
+                  {c1.s2Title}
                 </h4>
                 <p className="text-white/50 text-xs font-light leading-relaxed">
-                  Poco tiempo, permisos, ruido o restricciones, datos fragmentados.
+                  {c1.s2Desc}
                 </p>
               </div>
             </div>
@@ -109,10 +160,10 @@ const GoToMarketHud: React.FC<{
               </div>
               <div className="flex flex-col">
                 <h4 className="text-white font-bold text-sm tracking-wide uppercase mb-1">
-                  Conversión natural
+                  {c1.s3Title}
                 </h4>
                 <p className="text-white/50 text-xs font-light leading-relaxed">
-                  AHA! MOMENT y se activa On-Demand o Hub.
+                  {c1.s3Desc}
                 </p>
               </div>
             </div>
@@ -126,13 +177,13 @@ const GoToMarketHud: React.FC<{
         >
           <div className="flex flex-col">
             <span className="text-white/40 font-arimo text-[10px] tracking-[0.25em] uppercase font-bold mb-6 block">
-              EXPANSIÓN CITY-BY-CITY
+              {c2.badge}
             </span>
             <h3 className="text-white font-gothic text-3xl tracking-wide uppercase mb-3">
-              No "llenamos el mapa" antes de vender.
+              {c2.title}
             </h3>
             <p className="text-white/60 font-arimo text-xs md:text-sm leading-relaxed font-light mb-8">
-              Cada productora trae necesidades reales: ciudades, permisos, scouts y restricciones. GEOLAND activa cobertura donde hay demanda y deja memoria reutilizable para el siguiente proyecto.
+              {c2.desc}
             </p>
           </div>
 
@@ -141,30 +192,30 @@ const GoToMarketHud: React.FC<{
             {/* Card 1 */}
             <div className="flex flex-col items-center justify-center p-4 bg-white/5 border border-white/10 rounded-xl text-center backdrop-blur-sm">
               <span className="text-white/40 font-arimo text-[9px] tracking-[0.1em] uppercase mb-1 block">
-                Cliente
+                {c2.k1Label}
               </span>
               <span className="text-white/80 text-[10px] font-medium uppercase tracking-wider block">
-                demanda real
+                {c2.k1Val}
               </span>
             </div>
 
             {/* Card 2 */}
             <div className="flex flex-col items-center justify-center p-4 bg-white/5 border border-white/10 rounded-xl text-center backdrop-blur-sm">
               <span className="text-white/40 font-arimo text-[9px] tracking-[0.1em] uppercase mb-1 block">
-                Ciudad
+                {c2.k2Label}
               </span>
               <span className="text-white/80 text-[10px] font-medium uppercase tracking-wider block">
-                dataset + red local
+                {c2.k2Val}
               </span>
             </div>
 
             {/* Card 3 */}
             <div className="flex flex-col items-center justify-center p-4 bg-white/5 border border-white/10 rounded-xl text-center backdrop-blur-sm">
               <span className="text-white/40 font-arimo text-[9px] tracking-[0.1em] uppercase mb-1 block">
-                Proyecto
+                {c2.k3Label}
               </span>
               <span className="text-white/80 text-[10px] font-medium uppercase tracking-wider block">
-                memoria operacional
+                {c2.k3Val}
               </span>
             </div>
           </div>
@@ -180,10 +231,10 @@ const GoToMarketHud: React.FC<{
         className="w-full p-4 bg-white/5 border border-white/10 rounded-xl flex items-center text-xs md:text-sm backdrop-blur-md"
       >
         <span className="text-white font-bold tracking-wider uppercase mr-3 shrink-0">
-          Principio comercial:
+          {banner.label}
         </span>
         <span className="text-white/85 font-bold leading-relaxed">
-          primero adopción y confianza; luego monetización. Pedir contrato anual en el primer contacto reduce conversión.
+          {banner.text}
         </span>
       </motion.div>
     </div>

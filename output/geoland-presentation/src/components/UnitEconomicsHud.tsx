@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Server, Map, Database, RefreshCw, Headphones } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,44 @@ const UnitEconomicsHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline }) => {
+  const { language } = useLanguage();
+
+  const cogsItems = language === 'en' ? [
+    { icon: Cpu, text: "AI / LLM per search" },
+    { icon: Server, text: "Servers & infrastructure" },
+    { icon: Map, text: "APIs" },
+    { icon: Database, text: "Dataset storage" },
+    { icon: RefreshCw, text: "Dataset maintenance" },
+    { icon: Headphones, text: "Support & QA" }
+  ] : [
+    { icon: Cpu, text: "IA / LLM por búsqueda" },
+    { icon: Server, text: "Servidores e infraestructura" },
+    { icon: Map, text: "APIs" },
+    { icon: Database, text: "Almacenamiento de dataset" },
+    { icon: RefreshCw, text: "Mantenimiento del dataset" },
+    { icon: Headphones, text: "Soporte y QA" }
+  ];
+
+  const content = language === 'en' ? {
+    grossMarginLabel: "Gross margin",
+    saasMedianText: "Above SaaS median (75–80%)",
+    marginLabel: "Margin",
+    cogsHeader: "WHAT CONSTITUTES COGS",
+    whyHeader: "WHY THE MARGIN IMPROVES",
+    whyP1: "Search cost is almost entirely fixed, not variable. Infrastructure is already paid for; compute per search is marginal.",
+    whyP2: "Each city is curated once and reused across all subsequent searches — margin rises with volume.",
+    footnote: "Estimated gross margin based on full COGS (compute, infrastructure, APIs, storage, and support). Excludes dataset curation and local network buildout, which are round investments, not operating costs. Recalibrated with real production volume."
+  } : {
+    grossMarginLabel: "Margen bruto",
+    saasMedianText: "Por encima de la mediana SaaS (75–80%)",
+    marginLabel: "Margen",
+    cogsHeader: "QUÉ COMPONE EL COGS",
+    whyHeader: "POR QUÉ EL MARGEN MEJORA",
+    whyP1: "El coste de una búsqueda es casi todo fijo, no variable. La infraestructura ya está pagada; el cómputo por búsqueda es marginal.",
+    whyP2: "Cada ciudad se cura una vez y se reutiliza en todas las búsquedas siguientes — el margen sube con el volumen.",
+    footnote: "Margen bruto estimado sobre COGS completo (cómputo, infraestructura, APIs, almacenamiento y soporte). No incluye la construcción de dataset y red local, que es inversión de la ronda, no coste de operación. Se recalibra con volumen real de producción."
+  };
+
   return (
     <div style={{
       position: 'relative', width: '100%', height: '100%', overflow: 'hidden',
@@ -68,10 +107,10 @@ const UnitEconomicsHud: React.FC<{
             </span>
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg md:text-xl font-arimo">
-                  Margen bruto
+                  {content.grossMarginLabel}
                 </span>
                 <span className="text-white/40 text-xs md:text-sm font-light font-arimo">
-                  Por encima de la mediana SaaS (75–80%)
+                  {content.saasMedianText}
                 </span>
               </div>
             </div>
@@ -88,7 +127,7 @@ const UnitEconomicsHud: React.FC<{
                 <div className="h-full w-[13%] bg-white/30" />
               </div>
               <div className="flex justify-between items-center mt-2 text-[10px] md:text-xs font-semibold tracking-wider font-arimo">
-                <span className="text-white uppercase">Margen</span>
+                <span className="text-white uppercase">{content.marginLabel}</span>
                 <span className="text-white/40 uppercase">COGS · ~13%</span>
               </div>
             </div>
@@ -103,33 +142,18 @@ const UnitEconomicsHud: React.FC<{
             >
               <div>
                 <h3 className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-                  QUÉ COMPONE EL COGS
+                  {content.cogsHeader}
                 </h3>
                 <ul className="space-y-3">
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <Cpu className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>IA / LLM por búsqueda</span>
-                  </li>
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <Server className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>Servidores e infraestructura</span>
-                  </li>
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <Map className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>APIs</span>
-                  </li>
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <Database className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>Almacenamiento de dataset</span>
-                  </li>
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <RefreshCw className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>Mantenimiento del dataset</span>
-                  </li>
-                  <li className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
-                    <Headphones className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
-                    <span>Soporte y QA</span>
-                  </li>
+                  {cogsItems.map((item, idx) => {
+                    const Icon = item.icon;
+                    return (
+                      <li key={idx} className="flex items-center text-white/80 text-xs md:text-sm font-light font-arimo">
+                        <Icon className="text-white/40 mr-3 w-4 h-4 shrink-0" strokeWidth={1.5} />
+                        <span>{item.text}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </motion.div>
@@ -140,14 +164,14 @@ const UnitEconomicsHud: React.FC<{
               className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md flex flex-col"
             >
               <h3 className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-                POR QUÉ EL MARGEN MEJORA
+                {content.whyHeader}
               </h3>
               <div className="flex flex-col gap-4 text-white/90 text-xs md:text-sm font-light leading-relaxed font-arimo">
                 <p>
-                  El coste de una búsqueda es casi todo fijo, no variable. La infraestructura ya está pagada; el cómputo por búsqueda es marginal.
+                  {content.whyP1}
                 </p>
                 <p>
-                  Cada ciudad se cura una vez y se reutiliza en todas las búsquedas siguientes — el margen sube con el volumen.
+                  {content.whyP2}
                 </p>
               </div>
             </motion.div>
@@ -161,7 +185,7 @@ const UnitEconomicsHud: React.FC<{
             className="w-full text-left"
           >
             <p className="text-[10px] text-white font-light leading-relaxed tracking-wide font-arimo">
-              Margen bruto estimado sobre COGS completo (cómputo, infraestructura, APIs, almacenamiento y soporte). No incluye la construcción de dataset y red local, que es inversión de la ronda, no coste de operación. Se recalibra con volumen real de producción.
+              {content.footnote}
             </p>
           </motion.div>
         </motion.div>

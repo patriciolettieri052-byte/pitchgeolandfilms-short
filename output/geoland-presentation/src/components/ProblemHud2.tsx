@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const ProblemCard: React.FC<{
   icon?: React.ReactNode;
@@ -30,6 +31,9 @@ const ProblemCard: React.FC<{
 );
 
 const ProblemHud2: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.problem2;
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-10">
@@ -42,31 +46,31 @@ const ProblemHud2: React.FC = () => {
           className="flex flex-col items-start text-left max-w-[1100px]"
         >
           <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            EL PROBLEMA
+            {hud.overline}
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6">
-            Una sola variable no detectada compromete toda la producción.
+            {hud.title}
           </h1>
           <p className="text-white/70 font-arimo text-base md:text-lg leading-relaxed font-light">
-            La locación puede ser visualmente perfecta — y aun así, un solo detalle fuera de plano puede parar el rodaje:
+            {hud.subtitle}
           </p>
         </motion.div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-2">
           <ProblemCard 
-            title="Una obra al lado del set"
-            description="Martillos, taladros y vibraciones contaminan el sonido directo — aunque la locación sea perfecta, la escena no puede rodarse."
+            title={hud.card1Title}
+            description={hud.card1Desc}
             delay={0.2}
           />
           <ProblemCard 
-            title="Un festival a metros del rodaje"
-            description="Accesos bloqueados, tráfico cortado y seguridad alterada. La producción queda detenida mientras el presupuesto sigue corriendo."
+            title={hud.card2Title}
+            description={hud.card2Desc}
             delay={0.3}
           />
           <ProblemCard 
-            title="Una ruta aérea sobre una escena de época"
-            description="Cada pocos minutos cruza un avión. La imagen no funciona, el sonido tampoco."
+            title={hud.card3Title}
+            description={hud.card3Desc}
             delay={0.4}
           />
         </div>
@@ -79,7 +83,7 @@ const ProblemHud2: React.FC = () => {
           className="mt-8"
         >
           <p className="text-white/40 text-sm font-arimo italic font-light">
-            No son casos hipotéticos: The Revenant se quedó sin nieve en Canadá y tuvo que trasladar el rodaje a Patagonia — un imprevisto de ~USD 10M por elegir mal la locación.
+            {hud.footer}
           </p>
         </motion.div>
 

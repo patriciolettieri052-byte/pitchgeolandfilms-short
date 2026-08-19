@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Layers } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,7 +30,26 @@ interface ScalabilityHudProps {
 }
 
 const ScalabilityHud: React.FC<ScalabilityHudProps> = ({ title, overline, text }) => {
-  const cards = [
+  const { language } = useLanguage();
+
+  const cards = language === 'en' ? [
+    {
+      label: "1. TRAVEL",
+      desc: "Comprehensive travel decision."
+    },
+    {
+      label: "2. LOGISTICS",
+      desc: "Routes, costs, risks, and incidents."
+    },
+    {
+      label: "3. REAL ESTATE",
+      desc: "Assets, location, ROI, and viability."
+    },
+    {
+      label: "4. AVIATION",
+      desc: "Operations, maintenance, and risk."
+    }
+  ] : [
     {
       label: "1. TRAVEL",
       desc: "Decisión integral de viaje."
@@ -47,6 +67,14 @@ const ScalabilityHud: React.FC<ScalabilityHudProps> = ({ title, overline, text }
       desc: "Operaciones, mantenimiento y riesgo."
     }
   ];
+
+  const banner = language === 'en' ? {
+    bold: "The industry layer changes.",
+    light: "The decision engine remains."
+  } : {
+    bold: "Cambia la capa sectorial.",
+    light: "El motor de decisión permanece."
+  };
 
   return (
     <div style={{
@@ -109,10 +137,10 @@ const ScalabilityHud: React.FC<ScalabilityHudProps> = ({ title, overline, text }
           <Layers size={22} className="text-[#EAD8C0] mr-4 shrink-0" strokeWidth={1.5} />
           <div className="flex flex-col md:flex-row md:items-baseline gap-1">
             <span className="text-white font-bold tracking-wide uppercase">
-              Cambia la capa sectorial.
+              {banner.bold}
             </span>
             <span className="text-white/50 font-light ml-0 md:ml-2">
-              El motor de decisión permanece.
+              {banner.light}
             </span>
           </div>
         </motion.div>

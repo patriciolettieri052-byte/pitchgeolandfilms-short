@@ -2,11 +2,16 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import Chapter from './components/Chapter';
 import Logo from './components/Logo';
 import NavGrid from './components/NavGrid';
-import { slides } from './data/slides';
+import LanguageSelector from './components/LanguageSelector';
+import { getSlides } from './data/slides';
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { Home } from 'lucide-react';
+import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
 
-function App() {
+function PresentationContent() {
+  const { language, t } = useLanguage();
+  const slides = getSlides(language);
+
   const [currentIdx, setCurrentIdx] = useState(-1); // -1 for Intro
   const [isAnimating, setIsAnimating] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
@@ -37,9 +42,9 @@ function App() {
     if (currentIdx < slides.length - 1) {
       setIsAnimating(true);
       setCurrentIdx(prev => prev + 1);
-      setTimeout(() => setIsAnimating(false), 300); // Matching animation duration
+      setTimeout(() => setIsAnimating(false), 300);
     }
-  }, [currentIdx, isAnimating]);
+  }, [currentIdx, isAnimating, slides.length]);
 
   const prevSlide = useCallback(() => {
     if (isAnimating) return;
@@ -112,7 +117,7 @@ function App() {
                 <div className="absolute inset-0 bg-black/40 z-10"></div>
               </div>
               <div className="relative z-20 w-full h-full flex items-center justify-center">
-                <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
+                <Logo intro subtitle={t.ui.logoSubtitle} stretchSubtitle />
               </div>
             </div>
           </div>
@@ -144,10 +149,10 @@ function App() {
             </svg>
           </div>
           <h2 className="text-white text-xl md:text-2xl font-jost font-light tracking-[0.2em] uppercase">
-            Por favor, gira tu dispositivo
+            {t.ui.orientationTitle}
           </h2>
           <p className="text-white/40 text-xs md:text-sm mt-4 font-light italic tracking-wider">
-            La presentación está diseñada exclusivamente para formato horizontal.
+            {t.ui.orientationSubtitle}
           </p>
         </div>
       )}
@@ -161,80 +166,91 @@ function App() {
             transformOrigin: 'center center'
           } : undefined}
         >
+          {/* Language Selector UI */}
+          <LanguageSelector />
+
           {/* Navigation Toggle Button - Bottom Left */}
-      <button 
-        onClick={() => setShowNavGrid(true)}
-        className="fixed bottom-8 left-10 z-[60] w-12 h-12 flex items-center justify-center group"
-      >
-        <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 backdrop-blur-sm border border-white/10" />
-        <Home 
-          className="w-6 h-6 relative z-10 text-white opacity-30 group-hover:opacity-100 transition-all duration-500" 
-          strokeWidth={1.5}
-        />
-        <span className="absolute left-full ml-4 whitespace-nowrap text-[10px] tracking-[0.3em] font-jost font-light text-white opacity-0 group-hover:opacity-40 transition-opacity duration-500 uppercase">
-          Índice
-        </span>
-      </button>
-
-      {/* Navigation Grid Overlay */}
-      <NavGrid 
-        isOpen={showNavGrid}
-        onClose={() => setShowNavGrid(false)}
-        onSelect={(idx) => {
-          setCurrentIdx(idx);
-          setShowNavGrid(false);
-        }}
-        currentIndex={currentIdx}
-      />
-
-      <AnimatePresence mode="wait">
-        {currentIdx === -1 && (
-          <motion.div
-            key="intro"
-            initial={{ opacity: 0, filter: "blur(20px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 z-10 bg-black"
+          <button 
+            onClick={() => setShowNavGrid(true)}
+            className="fixed bottom-8 left-10 z-[60] w-12 h-12 flex items-center justify-center group"
           >
-            <div className="absolute inset-0 z-0 overflow-hidden">
-              <video 
-                src="assets/portada2.mp4" 
-                autoPlay 
-                muted
-                loop 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 z-10"></div>
-            </div>
-            <div className="relative z-20 w-full h-full flex items-center justify-center">
-              <Logo intro subtitle="DECISION SYSTEM FOR FILM PRODUCTION" stretchSubtitle />
-            </div>
-          </motion.div>
-        )}
+            <div className="absolute inset-0 bg-white/5 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 backdrop-blur-sm border border-white/10" />
+            <Home 
+              className="w-6 h-6 relative z-10 text-white opacity-30 group-hover:opacity-100 transition-all duration-500" 
+              strokeWidth={1.5}
+            />
+            <span className="absolute left-full ml-4 whitespace-nowrap text-[10px] tracking-[0.3em] font-jost font-light text-white opacity-0 group-hover:opacity-40 transition-opacity duration-500 uppercase">
+              {t.ui.nav}
+            </span>
+          </button>
 
-        {slides.map((slide, index) => (
-          index === currentIdx && (
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-black"
-            >
-              <Chapter 
-                {...slide} 
-                overlayOpacity={slide.overlayOpacity}
-              />
-            </motion.div>
-          )
-        ))}
+          {/* Navigation Grid Overlay */}
+          <NavGrid 
+            isOpen={showNavGrid}
+            onClose={() => setShowNavGrid(false)}
+            onSelect={(idx) => {
+              setCurrentIdx(idx);
+              setShowNavGrid(false);
+            }}
+            currentIndex={currentIdx}
+          />
 
-      </AnimatePresence>
+          <AnimatePresence mode="wait">
+            {currentIdx === -1 && (
+              <motion.div
+                key="intro"
+                initial={{ opacity: 0, filter: "blur(20px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 z-10 bg-black"
+              >
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <video 
+                    src="assets/portada2.mp4" 
+                    autoPlay 
+                    muted
+                    loop 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 z-10"></div>
+                </div>
+                <div className="relative z-20 w-full h-full flex items-center justify-center">
+                  <Logo intro subtitle={t.ui.logoSubtitle} stretchSubtitle />
+                </div>
+              </motion.div>
+            )}
+
+            {slides.map((slide, index) => (
+              index === currentIdx && (
+                <motion.div
+                  key={slide.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 bg-black"
+                >
+                  <Chapter 
+                    {...slide} 
+                    overlayOpacity={slide.overlayOpacity}
+                  />
+                </motion.div>
+              )
+            ))}
+
+          </AnimatePresence>
         </div>
       </main>
     </>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <PresentationContent />
+    </LanguageProvider>
   );
 }
 

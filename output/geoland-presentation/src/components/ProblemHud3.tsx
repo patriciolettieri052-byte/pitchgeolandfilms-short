@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TriangleAlert } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const ProblemHud3: React.FC = () => {
+  const { t } = useLanguage();
+  const hud = t.hud.problem3;
+
   return (
     <div className="w-full h-full flex flex-col justify-center items-center pl-[120px] pr-[120px]">
       <div className="w-full max-w-[1400px] flex flex-col gap-8 mt-[-30px]">
@@ -15,10 +19,10 @@ const ProblemHud3: React.FC = () => {
           className="flex flex-col items-start text-left max-w-[1200px]"
         >
           <span className="text-[#EAD8C0] font-arimo text-xs tracking-[0.2em] uppercase font-bold mb-4">
-            EL PROBLEMA
+            {hud.overline}
           </span>
           <h1 className="text-white font-gothic text-5xl md:text-6xl tracking-wide uppercase mb-6 leading-[1.1]">
-            EL HUMANO NO PUEDE ANALIZAR<br/>TANTAS VARIABLES FRAGMENTADAS.
+            {hud.title}
           </h1>
         </motion.div>
 
@@ -33,15 +37,14 @@ const ProblemHud3: React.FC = () => {
           >
             <TriangleAlert size={32} className="text-white mb-6" strokeWidth={1.5} />
             <h2 className="text-white text-[50px] md:text-[64px] font-gothic tracking-wide uppercase mb-2 leading-none">
-              1 DE CADA 7
+              {hud.statTitle}
             </h2>
             <p className="text-white text-xl md:text-[24px] font-bold font-arimo leading-[1.2] mb-6">
-              permisos de rodaje en locación<br/>genera una incidencia formal.
+              {hud.statDesc}
             </p>
             <div className="w-10 h-[1px] bg-white mb-6"></div>
             <p className="text-white/40 text-xs md:text-sm font-arimo italic leading-relaxed">
-              Fuente: Los Angeles County / FilmLA FY 2021–2022.<br/>
-              399 concerns sobre 2.741 permisos.
+              {hud.statFooter}
             </p>
           </motion.div>
 
@@ -54,11 +57,8 @@ const ProblemHud3: React.FC = () => {
           >
             {/* Item 1 */}
             <div className="flex items-start">
-              <p className="text-white/85 text-lg md:text-xl font-arimo leading-relaxed font-light mt-0.5">
-                Ruido. Parking. Tráfico.<br/>
-                Vecinos. Permisos. Seguridad.<br/>
-                Accesos. Horarios. Clima.<br/>
-                Obras. Restricciones locales.
+              <p className="text-white/85 text-lg md:text-xl font-arimo leading-relaxed font-light mt-0.5 whitespace-pre-line">
+                {hud.variablesText}
               </p>
             </div>
 
@@ -68,9 +68,8 @@ const ProblemHud3: React.FC = () => {
             {/* Item 2 */}
             <div className="flex items-start">
               <p className="text-white/50 text-lg md:text-[19px] font-arimo leading-relaxed font-light mt-0.5">
-                Hoy todo eso vive disperso entre<br/>
-                <strong className="text-white font-bold">llamadas, emails, scouts, Excel,<br/>
-                Google Maps</strong>, experiencia e intuición.
+                {hud.dispersedText}<br/>
+                <strong className="text-white font-bold">{hud.dispersedBold}</strong>
               </p>
             </div>
           </motion.div>

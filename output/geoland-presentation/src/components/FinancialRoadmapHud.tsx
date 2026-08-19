@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,7 +27,55 @@ const FinancialRoadmapHud: React.FC<{
   overline?: string;
   text?: string;
 }> = ({ title, overline, text }) => {
-  const columns = [
+  const { language } = useLanguage();
+
+  const columns = language === 'en' ? [
+    {
+      year: "Year 1",
+      clients: "40",
+      arpa: "€6.8K",
+      arr: "€272K",
+      desc: "Mainly On-Demand",
+      barHeight: 12,
+      barColor: "bg-white/15"
+    },
+    {
+      year: "Year 2",
+      clients: "155",
+      arpa: "€9.5K",
+      arr: "€1.47M",
+      desc: "On-Demand + early Hubs",
+      barHeight: 28,
+      barColor: "bg-white/35"
+    },
+    {
+      year: "Year 3",
+      clients: "400",
+      arpa: "€12K",
+      arr: "€4.8M",
+      desc: "Hub grows + early Enterprise",
+      barHeight: 50,
+      barColor: "bg-white/55"
+    },
+    {
+      year: "Year 4",
+      clients: "900",
+      arpa: "€15K",
+      arr: "€13.5M",
+      desc: "Hub + Enterprise",
+      barHeight: 75,
+      barColor: "bg-white/75"
+    },
+    {
+      year: "Year 5",
+      clients: "2000",
+      arpa: "€18K",
+      arr: "€36M",
+      desc: "Consolidated Hub + Enterprise",
+      barHeight: 100,
+      barColor: "bg-white"
+    }
+  ] : [
     {
       year: "Año 1",
       clients: "40",
@@ -73,6 +122,16 @@ const FinancialRoadmapHud: React.FC<{
       barColor: "bg-white"
     }
   ];
+
+  const labels = language === 'en' ? {
+    payingClients: "paying clients",
+    annualArpa: "annual ARPA",
+    projectedArr: "projected ARR"
+  } : {
+    payingClients: "clientes pagos",
+    annualArpa: "ARPA anual",
+    projectedArr: "ARR proyectado"
+  };
 
   return (
     <div style={{
@@ -133,7 +192,7 @@ const FinancialRoadmapHud: React.FC<{
                     {col.clients}
                   </span>
                   <span className="text-white/50 text-[10px] font-arimo uppercase tracking-wider">
-                    clientes pagos
+                    {labels.payingClients}
                   </span>
                 </div>
 
@@ -143,7 +202,7 @@ const FinancialRoadmapHud: React.FC<{
                     {col.arpa}
                   </span>
                   <span className="text-white/50 text-[10px] font-arimo uppercase tracking-wider">
-                    ARPA anual
+                    {labels.annualArpa}
                   </span>
                 </div>
 
@@ -153,7 +212,7 @@ const FinancialRoadmapHud: React.FC<{
                     {col.arr}
                   </span>
                   <span className="text-white/50 text-[10px] font-arimo uppercase tracking-wider">
-                    ARR proyectado
+                    {labels.projectedArr}
                   </span>
                 </div>
               </div>
